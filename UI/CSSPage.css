@@ -420,7 +420,7 @@ footer{
 }
 a:hover{
     color: #A1FC0E;
-    transform: scale(1.1);
+    transform: scale(1.01);
 }
 
 /*Additional sytles*/
@@ -459,6 +459,7 @@ a:hover{
     top: 312px;
     border-radius: 0px;  
     opacity: 1;
+    border: 3px solid yellow;
 }
 #guest{
     height: 35px;
@@ -509,10 +510,7 @@ a:hover{
     background: radial-gradient(50% 50% at 50% 50%, #A18DFF 0%, rgba(65, 64, 92, 0.08) 100%);    
 }
 input{
-    height: 38px;
-    width: 100%;
-    left: 478px;
-    top: 415px;
+    height: 28px;
     border-radius: 10px;
     padding: 10px;
     font-size: large;
@@ -589,20 +587,68 @@ button:hover{
 }
 
 #viewPForBlog{
+    /*border: 2px solid red;*/
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: auto;
-    justify-content: space-between;
+    height: 100vh;
+    justify-content: space-around;
+}
+#blogImageslot{
+    width: 100%;
+    height: 50%;
+}
+#blogImage{
+    width: 100%;
+    height: 100%;
 }
 #recommend{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 30%;
+    height: auto;
+}
+#userProfileSlot{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 30%;
+    width: 45%;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(161, 141, 255, 0.9) 0%, rgba(20, 19, 53, 0.28) 97.4%);
+}
+#userProfileImage{
+    height: 50%;
+    width: 40%;
+    border-radius: 50%;
+}
+#listOfRecommended{
+    width: 100%;
+    background-color: white;
+    padding-left: 5%;
+}
+.recArticles{
+    display: flex;
+    flex-direction: row;
+}
+.recArticleImageSlot{
+    width: 45%;
+    height: 30%;
+    padding-right: 20px;
+}
+.recArticleImage{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
 }
 #blogCont{
-    width: 70%;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    width: 65%;
+    background-color: white;
+    
 }
 #coments{
     width: 98%;
@@ -618,4 +664,185 @@ button:hover{
     display: flex;
     flex-direction: row;
     width: 100%;
+    align-items: center;
 }
+
+.commentorImageSlot{
+    height: 10%;
+    width: 10%;
+    padding-right: 30px;
+}
+.commentorImage{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.commentorNameAndTime{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    height: 2%;
+
+}
+.time{
+    font-size: 10px;
+    padding-left: 6px;
+}
+.commetorNameTimeAndParagraph{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.comentParagraph{
+    position: relative;
+    bottom: 20px;
+}
+#newComment{   
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items:  center;
+    justify-content: space-between;
+    height: 5%;
+    border: 2px solid #a09b9b;
+    padding-right: 10px;
+    border-radius: 50px;
+}
+.newCommentorImageSlot{
+    /* border: 2px solid red; */
+    width: 6%;
+    padding-left: 10px;
+    padding-top: 4px;
+    padding-right: 10px;
+}
+.newCommentorImage{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.contentOfNewComent{
+    border: none;
+    border-radius: 50px;
+}
+.contentOfNewComent:focus {
+    outline: none;
+  }
+
+#comentAndPost{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+}
+.paddind-left{
+    padding-left: 20px;
+}
+
+#blogGridLink{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    padding: 20px;
+    height: 100vh;
+}
+.blogLink{
+    border-radius: 20px;
+}
+#blogLink1{
+    background: url(images/r1.jpg);
+    background-size: cover;
+}
+#blogLink2{
+    background: url(images/r2.jpg);
+    background-size: cover;
+}
+#blogLink3{
+    background: url(images/blog\ Image.jpg);
+    background-size: cover;
+}
+#blogLink4{
+    background: url(images/web\ develper.jfif);
+    background-size: cover;
+}
+.tittleAndReactions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: 80%;
+}
+.reactionSet{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.signAndP{
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+}
+.BlogTittle{
+    padding-left: 10px;
+}
+
+/*/////////////\\\\\\\\\\\\\\\\*/
+/*#more-buttonForComment{
+    width: 30%;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-end;
+}*/
+/*#dashedcycle:hover{
+    transform: rotate(-135deg);
+}*/
+/*
+#moreForComment{
+    position: relative;
+    top: -12.5%;
+    width: 100%;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #A18DFF 0%, rgba(142, 124, 227, 0.859375) 38.02%, rgba(123, 108, 201, 0.722164) 57.81%, rgba(24, 23, 59, 0) 100%);
+}
+#moreForComment:hover{
+    transform: scale(1.1);
+    background: radial-gradient(50% 50% at 50% 50%, #A1FC0E 0%, rgba(161, 252, 14, 0.859) 38.02%, rgba(161, 252, 14, 0.7222) 57.81%, rgba(24, 23, 59, 0) 100%);
+}
+
+#dashedcycleForComment{
+    position: relative;
+    left: 13%;
+    top: -50%;
+    width: 74%;
+    height: 74%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 3px dashed #FFFFFF;
+}
+
+#whiteCycleForComment{
+    position: relative;
+    top: 13%;
+    left: 13%;
+    width: 74%;
+    height: 74%;
+    background-color: white;
+    border-radius: 50%;
+
+}
+/*
+#more-textForComment{
+    position: relative;
+    top: 32%;
+    left: 26.3%;/*I have changed this value w.r.t index.cs
+    color: black;
+    font-weight: 700;
+    font-size: larger;
+    z-index: 100000;
+}*/

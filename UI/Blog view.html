@@ -8,13 +8,9 @@
     <link rel="stylesheet" href="CSSPage.css">
     <style>
         body{
+            color: black;
             background-color: white;
-        }
-        footer{
-            background-color: yellow;
-        }
-        #viewPForBlog{
-            background-color: green;
+            background-color: #141335;
         }
     </style>
 </head>
@@ -22,59 +18,110 @@
     <div id="viewPForBlog">
         <div id="blogCont">
             <div id="blogImageslot">
-                <img src="" alt="" id="blogImage">
+                <img src="images/blog Image.jpg" alt="" id="blogImage">
             </div>
-            <div id="blogParagraph">
-                <h2>tittle</h2>
-                <p id="paragraph">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptatem vitae. Corporis veniam pariatur quasi aut temporibus libero magnam delectus dolorum molestias! Tenetur perferendis quibusdam quos aspernatur libero exercitationem quis.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam accusantium harum veniam obcaecati ab cumque voluptatibus expedita quos impedit neque perferendis facere necessitatibus enim possimus exercitationem, error dolorum odit fugit.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam tempore sint accusantium facilis sunt exercitationem minima cupiditate molestiae reprehenderit earum dolor quaerat, in assumenda? Voluptatum tempora tenetur earum fugit velit.
-                </p>
-            </div>
-            <div id="coments">
-                <div id="commentTittle">
-                    <h4 id="tittle">
-                        Coments
-                    </h4>
-                    <p id="numOfComents">
-                        1
+            <div class="paddind-left">
+                <div id="blogParagraph">
+                    <h2>tittle</h2>
+                    <p id="paragraph">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptatem vitae. Corporis veniam pariatur quasi aut temporibus libero magnam delectus dolorum molestias! Tenetur perferendis quibusdam quos aspernatur libero exercitationem quis.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam accusantium harum veniam obcaecati ab cumque voluptatibus expedita quos impedit neque perferendis facere necessitatibus enim possimus exercitationem, error dolorum odit fugit.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam tempore sint accusantium facilis sunt exercitationem minima cupiditate molestiae reprehenderit earum dolor quaerat, in assumenda? Voluptatum tempora tenetur earum fugit velit.
                     </p>
                 </div>
-                <div id="listOfComents">
-                    <div class="commentorAndComment">
-                        <div class="commentorImageSlot">
-                            <img src="" alt="" class="commentorImage">
-                        </div>
-                        <div class="commetorNameTimeAndParagraph">
-                            <div class="commentorNameAndTime">
-                                <h5 class="commentorName">Lorem ipsum dolor</h5>
-                                <p class="time">-20:12</p>
+    
+                <div id="coments">
+                    <div id="commentTittle">
+                        <h4 id="tittle">
+                            Coments
+                        </h4>
+                        <p id="numOfComents">
+                            1
+                        </p>
+                    </div>
+                    <div id="listOfComents">
+                        <div class="commentorAndComment">
+                            <div class="commentorImageSlot">
+                                <img src="images/place holder for comments.png" alt="commentorImage" class="commentorImage">
                             </div>
-                            <p class="comentParagraph">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            </p>
+                            <div class="commetorNameTimeAndParagraph">
+                                <div class="commentorNameAndTime">
+                                    <h5 class="commentorName">Lorem ipsum dolor</h5>
+                                    <p class="time">- 20:12</p>
+                                </div>
+                                <p class="comentParagraph">
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div id="newComment">
-                    <div class="newCommentorImageSlot">
-                        <img src="" alt="" class="newCommentorImage">
+                    <div id="comentAndPost">
+                        <div id="newComment">
+                            <div class="newCommentorImageSlot">
+                                <img src="images/commentor pict.jpg" alt="" class="newCommentorImage">
+                            </div>
+                            <div id="editSymbolSlot">
+                                <img src="images/icons/VectoreditComment.png" alt="editSymbolImage" id="editSymbolImage" style="background-color: white;">
+                            </div>
+                            <input type="text" class="contentOfNewComent" placeholder="Whta are your thoughts on this article?">
+                        </div>
+                        <button type="button">Post</button>
                     </div>
-                    <input type="text" class="commentOfNewComent">
-                    <button type="button">Post</button>
                 </div>
             </div>
         </div>
         <div id="recommend">
             <div id="userProfileSlot">
-                <img src="" alt="" id="userProfileImage">
+                <img src="images/commentor pict.jpg" alt="" id="userProfileImage">
             </div>
             <div id="listOfRecommended">
-
+                <h3>Recommended for you</h3>
+                <div class="recArticles">
+                    <div class="recArticleImageSlot">
+                        <img src="images/r1.jpg" alt="recommended_Article_Image" class="recArticleImage">
+                    </div>
+                    <div id="recArticleTittle">
+                        <h2>Lorem ipsum</h2>
+                    </div>
+                </div>
+                <div class="recArticles">
+                    <div class="recArticleImageSlot">
+                        <img src="images/web develper.jfif" alt="recommended_Article_Image" class="recArticleImage">
+                    </div>
+                    <div id="recArticleTittle">
+                        <h2>Lorem ipsum</h2>
+                    </div>
+                </div>
+                <div class="recArticles">
+                    <div class="recArticleImageSlot">
+                        <img src="images/r2.jpg" alt="recommended_Article_Image" class="recArticleImage">
+                    </div>
+                    <div id="recArticleTittle">
+                        <h2>Lorem ipsum</h2>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
+    <div>
+        <div id="diamondGradient">
+            <button type="button" id="backButton"><img src="images/icons/VectorBackIcon.png" alt="" id="backIcon">Back</button>
+        </div>
+    </div>
+    <footer>
+        <nav>
+            <div id="web">
+                <h2 id="main-pro" style="color: white;">Web-developer</h2>
+            </div>
+            <div id="footerOptions">
+                <a class="navItems" href="http://#" target="_self">Home</a>
+                <a class="navItems" href="http://#" target="_self">Technical skills</a>
+                <a class="navItems" href="http://#" target="_self">Portifolio</a>
+                <a class="navItems" href="http://#" target="_self">Contacts</a>
+                <a class="navItems" href="http://#" target="_self">Log in</a>
+            </div>
+            <a href="http://#" target="_self" style="width: 10%; font-weight: 600; padding-top: 1.5%;">ISHIMWE A.F</a>
+        </nav>
+    </footer>
 </body>
 </html>
