@@ -1,0 +1,320 @@
+body{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 10px;
+    background: #141335;
+    color: white;
+    height: auto;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+input{
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+}
+input:focus{
+    outline: none;
+}
+a:hover{
+    transform: scale(1.05);
+    color: chartreuse;
+}
+h2, h3, p{
+    height: auto;
+}
+button{
+    background: transparent;
+    border: none;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 7vh;
+}
+footer{
+    width: 100%;
+    height: 7vh;
+    border-top: 3px solid #A18DFF;
+}
+#footerOptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    opacity: 0.5;
+}
+#footerOptions:hover{
+    opacity: 1;
+}
+a:hover{
+    color: #A1FC0E;
+    transform: scale(1.01);
+}
+#diamondGradient{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 89px;
+    width: 253px;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+    background: radial-gradient(50% 50% at 50% 50%, #A18DFF 0%, rgba(20, 19, 53, 0.54) 100%);
+
+}
+#backButton{
+    color: white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    /* identical to box height */
+    text-align: center;
+}
+#backIcon{
+    height: 30px;
+    width: 40px;
+    border-radius: 0px; 
+    padding-right: 10px; 
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+    border-radius: 30px;
+    /* background: white; */
+}
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+    border-radius: 30px 0px 0px 30px;
+    width: 20%;
+}
+.sEle{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    align-items: center;
+    padding-left: 10px;
+    padding-top: 15px;
+}
+#owenRbar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+    height: 50px;
+    border-radius: 30px 0px 0px 0px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+}
+#firstEl{
+    padding-top: 20px;
+}
+#dashboard{
+    padding-top: 20px;
+    padding-left: 10px;
+}
+#adminProfile{
+    height: 90%;
+    width: 40px;
+    border-radius: 50%;
+}
+
+#margin-left{
+    margin-left: 1%;
+    height: auto;
+}
+    
+.buffer{
+    width: 80%;
+    height: auto;
+}
+#owenLbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: black;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+    height: 50px;
+    width: 100%;
+    border-radius: 0px 30px 0px 0px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+}
+#headerLeft{
+    display: flex;
+    flex-direction: row;
+    width: 20%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#headerRight{
+    display: flex;
+    flex-direction: row;
+    width: 30%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#searchInput{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 10px;
+    opacity: 0.7;
+}
+.icons{
+    padding: 5px;
+    background-color:white;
+    opacity: 0.7;
+    border-radius: 50%;
+}
+#search{
+    padding: 5px;
+}
+#settings{
+    border: 2px rgb(136, 129, 129) solid;
+    background-color:white;
+    opacity: 0.7;
+    border-radius: 10px;
+}
+#bufferCont{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-left: 10px;
+}
+#bufferTittle{
+    width: 98%;
+    border-bottom: 2px solid rgb(53, 48, 48);
+}
+
+.dot{
+    width: 6%;
+    height: 6px;
+    background-color: blueviolet;/*fall back for cad tittle dots*/
+    border-radius: 50%;
+    margin-right: 4%;
+    box-shadow: 2px 2px 2px black;
+    border: 3px solid white;
+}
+.reactionSet{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    bottom: 10px;
+    align-items: flex-end;
+}
+.reactionsSlots{
+    height: 20px;
+    width: 30px;
+}
+.reactionIcons{
+    height: 100%;
+    width: 100%;
+}
+.numberOfReactors{
+    font-size: 10px;
+}
+.signAndP{
+    display: flex;
+    flex-direction: row;
+    padding-right: 10px;
+}
+
+/*new*/
+.blogBlock{
+    display: flex;
+    flex-direction: row;
+    width: 98%;
+    height: 15%;
+    border: 2px rgb(53, 48, 48) solid;
+    border-radius: 10px;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+}
+
+.firstLetterSlot{
+    position: relative;
+    bottom: 4%;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+    border: 2px solid rgb(53, 48, 48);
+    max-width: auto;
+    min-width: 13%;
+    min-height: 80%;
+    max-height: auto;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+#firstLetter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-transform: capitalize;
+}
+.left{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 60%;
+}
+.TittleDotTime{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    align-items: flex-end;
+}
+.blogTittle{
+    width: 100%;
+}
+#blogTittlefordraft{
+    font-size: 30px;
+    text-transform: capitalize;
+}
+.DotTime{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    top: 5px;
+    width: 150px;
+    align-items: center;
+}
+.AdminNameBlogStatus{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+    width: 35%;
+}
+.BlogStatus{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+
+}
+/* .hided{
+    position: relative;
+    top: -10px;
+    left: -10px;
+    z-index: 
+} */

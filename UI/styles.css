@@ -1,0 +1,272 @@
+/* Fonts Import */
+
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,700;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,700;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400&display=swap');
+
+:root {
+    --heading-font: 'Inria Sans', sans-serif;
+    --normal-font: 'Poppins', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    transform: scale(1.05);
+    color: chartreuse;
+}
+#more-button{
+    /* position: relative;
+    top: 0%;
+    left: 25%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: flex-end;
+}
+/*#dashedcycle:hover{
+    transform: rotate(-135deg);
+}*/
+#more{
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    background: radial-gradient(50% 50% at 50% 50%, #A18DFF 0%, rgba(142, 124, 227, 0.859375) 38.02%, rgba(123, 108, 201, 0.722164) 57.81%, rgba(24, 23, 59, 0) 100%);
+}
+#more:hover{
+    transform: scale(1.1);
+    background: radial-gradient(50% 50% at 50% 50%, #A1FC0E 0%, rgba(161, 252, 14, 0.859) 38.02%, rgba(161, 252, 14, 0.7222) 57.81%, rgba(24, 23, 59, 0) 100%);
+}
+#dashedcycle{
+    position: relative;
+    left: 13%;
+    /*top: -25%; */
+    width: 74%;
+    height: 74%;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 3px dashed #FFFFFF;
+}
+#whiteCycle{
+    position: relative;
+    top: 13%;
+    left: 13%;
+    width: 74%;
+    height: 74%;
+    background-color: white;
+    border-radius: 50%;
+
+}
+
+#more-text{
+    position: relative;
+    top: 46%;
+    left: 26.3%;
+    color: black;
+    font-weight: 700;
+    font-size: larger;
+    z-index: 100000;
+}
+
+button{
+    background: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: larger;
+}
+#passErrorMessage{
+    position: relative;
+    bottom: 20px;
+}
+
+#emailErrorMessage{
+    position: relative;
+    left: -13%;
+    bottom: 20px;
+}
+#passConfirmErrorMessage{
+    position: relative;
+    bottom: 20px;
+}
+#phoneNumberErrorMessage{
+    position: relative;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 7vh;
+}
+footer{
+    width: 100%;
+    height: 7vh;
+    border-top: 3px solid #A18DFF;
+}
+#footerOptions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 30px;
+    opacity: 0.5;
+}
+#footerOptions:hover{
+    opacity: 1;
+}
+a:hover{
+    color: #A1FC0E;
+    transform: scale(1.01);
+}
+#diamondGradient{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 89px;
+    width: 253px;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+    background: radial-gradient(50% 50% at 50% 50%, #A18DFF 0%, rgba(20, 19, 53, 0.54) 100%);
+
+}
+#backButton{
+    color: white;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    /* identical to box height */
+    text-align: center;
+}
+#backIcon{
+    height: 30px;
+    width: 40px;
+    border-radius: 0px; 
+    padding-right: 10px; 
+}
+body {
+    background-color: #141335;
+    color: #F6FEFF;
+}
+
+.guest, .contact-me {
+    background: linear-gradient(180deg,
+            rgba(20, 19, 53, 0.83) 0%,
+            #B7BDC7 24.69%,
+            rgba(20, 19, 53, 0.5) 100%);
+    margin: 80px 20%;
+    padding: 10px 20px;
+    position: relative;
+}
+
+.guest-title {
+    background: radial-gradient(50% 50% at 50% 50%,
+            #A18DFF 0%,
+            rgba(65, 64, 92, 0.08) 100%);
+    font-family: var(--heading-font);
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    position: absolute;
+    width: 250px;
+    height: 31.47px;
+    left: 5px;
+    top: 14px;
+    margin-left: 10px;
+}
+
+.guest-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 50px;
+    font-family: var(--normal-font);
+}
+
+input,
+select {
+    height: 62px;
+    width: 454px;
+    border-radius: 10px;
+    background-color: #F6FEFF;
+    border: 2px solid #1A1616;
+    margin-bottom: 20px;
+    padding: 0 20px;
+}
+.telephone{
+    margin-bottom: 20px;
+} 
+#phone{
+    width: 452px;
+}
+.telephone select {
+    height: 62px;
+    width: 136px;
+    border-radius: 10px;
+}
+
+.telephone input {
+    height: 62px;
+    width: 310px;
+}
+
+.bottom-text {
+    font-family: var(--normal-font);
+    color: #FFFFFF;
+    margin: 30px;
+}
+
+.bottom-text span {
+    color: #A1FC0E;
+    border-bottom: 2px solid #A1FC0E;
+}
+
+/* ------------------------------------------ */
+/* ------------ Contact me Styling ---------------*/
+
+.contact-me {
+    text-align: center;
+}
+
+.contact-me h1 {
+    font-family: var(--heading-font);
+    padding-bottom: 5px;
+}
+
+.contact-me p {
+    font-family: var(--normal-font);
+}
+
+.contact-input {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.contactme-form textarea {
+    height: 192px;
+    width: 900px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #F6FEFF;
+    border: 2px solid #1A1616;
+}
+
+.pText {
+    text-align: left;
+}
