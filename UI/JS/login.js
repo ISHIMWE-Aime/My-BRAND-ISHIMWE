@@ -1,3 +1,4 @@
+localStorage.setItem("AdimnCredatials", JSON.stringify(["fabricei645@gmail.com", "Fab3@2005"]));
 const userEmail = document.getElementById("emailinput");
 const userpass = document.getElementById("passwordinput");
 // const confirmInput = document.getElementById("passwordinputConfirm");
@@ -47,31 +48,23 @@ userpass.addEventListener("input", function(){
             <p style="color: rgb(255, 100, 0); font-size: 15px;">Invalid passWord<p>
         `
     }
+
+    const loginButton = document.getElementById("more-button");
+    let adminData = JSON.parse(localStorage.getItem("AdimnCredatials"));
+
+    if( (userEmail.value === adminData[0]) && (userpass.value === adminData[1])){
+        console.log("runned");
+        loginButton.innerHTML = `
+        <div id="more" onclick="location.href = 'Dashboard.html';">
+            <p id="more-text">
+                <button type="submit">Log in</button>
+            </p>
+            <div id="dashedcycle">
+                <div id="whiteCycle"></div>
+            </div>
+        </div>
+    `
+    }
 });
 
-// confirmInput.addEventListener("input", function(){
-//     if(userpass.value !== confirmInput.value){
-//         passConfirmErrorMessage.innerHTML = `
-//         <p style="color: rgb(255, 100, 0); font-size: 15px;">The passWord not matching.<p>
-//         `
-//     } else{
-//         if( confirmInput.value.length !== 0){
-//             passConfirmErrorMessage.innerHTML = `
-//         <p style="color: greenyellow; font-size: 15px;">Match.<p>
-//         `
-//         }
-//     }
-// })
-
-// phoneNumber.addEventListener("input", function(inputtxt){
-//   if(phoneRegex.test(phoneNumber.value)){
-//         phoneNumberErrorMessage.innerHTML = `
-//         <p style="color: greenyellow; font-size: 15px;">Valid Number.<p>
-//         `
-//     }else{
-//         phoneNumberErrorMessage.innerHTML = `
-//         <p style="color: rgb(255, 100, 0); font-size: 15px;">Invalid Number.<p>
-//         `
-//     }
-// })
 
