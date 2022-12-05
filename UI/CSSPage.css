@@ -460,7 +460,10 @@ a:hover{
     top: 312px;
     border-radius: 0px;  
     opacity: 1;
+<<<<<<< HEAD
     /* border: 3px solid yellow; */
+=======
+>>>>>>> 147d9d71362c413f552d738fcc21fb0aa53d8e70
 }
 #guest{
     height: 35px;
