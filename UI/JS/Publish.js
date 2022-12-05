@@ -2,6 +2,22 @@ const publishButton = document.getElementById("publish");
 let published = [];
 let publishedData = {};
 
+fileEl.addEventListener("change", () => {
+    publishedData = {};
+    const fr = new FileReader();
+    fr.readAsDataURL(fileEl.files[0]);
+
+    fr.addEventListener("load", () =>{
+        const url = fr.result;
+        console.log(url)
+        publishedData["backgroundImage"] = url;
+        console.log(blogData);
+        // let image = new Image();
+        // image.src = url;
+        // document.body.append(image);
+    })
+})
+
 publishButton.addEventListener("click",function(){
     //published restore
     if(JSON.parse(localStorage.getItem("PublishedblogData")) !== null){

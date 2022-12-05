@@ -3,9 +3,9 @@ const previewButton = document.getElementById("preview");
 let previewedRAMflag = [];
 let previewedRAM = {};
 let flag = true;
-
+console.log(linkDataFromLocal);
 previewButton.addEventListener("click",function(){
-    flag = false;
+    //flag = false;
     //published restore
     // published = JSON.parse(localStorage.getItem("PublishedblogData"));
 
@@ -21,15 +21,16 @@ previewButton.addEventListener("click",function(){
     previewedRAM["blog"] = textAreaInput.value;
     previewedRAM["blogId"] = iD;
     console.log(previewedRAM);
-
-    linkDataFromLocal.splice(0, 1)
-    linkDataFromLocal.unshift(flag);
+    if(JSON.parse(localStorage.getItem("linkData")) !== null){
+       // linkDataFromLocal.splice(0, 1)
+        //linkDataFromLocal.unshift(flag);
+        localStorage.setItem("linkData", JSON.stringify(linkDataFromLocal));
+    }
     previewedRAMflag.push(flag);
     previewedRAMflag.push(previewedRAM);
     //newBlogTittleInput.value = "";
     //newBlogAuthor.value = "";
     // textAreaInput.value = "";
-    localStorage.setItem("linkData", JSON.stringify(linkDataFromLocal));
     localStorage.setItem( "PreviwedblogData",JSON.stringify(previewedRAMflag));
 })
 

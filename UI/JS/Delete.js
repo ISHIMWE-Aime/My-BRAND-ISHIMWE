@@ -1,7 +1,15 @@
 let fromLocalStore =JSON.parse(localStorage.getItem("blogData"));
 let fromLocalStore1 =JSON.parse(localStorage.getItem("PublishedblogData"));
+let joinedData =[];
+if((JSON.parse(localStorage.getItem("blogData")) !== null) && (JSON.parse(localStorage.getItem("PublishedblogData")) !== null)){
+    joinedData = fromLocalStore.concat(fromLocalStore1);
+} else if((JSON.parse(localStorage.getItem("blogData")) !== null) && (JSON.parse(localStorage.getItem("PublishedblogData")) == null)){
+    joinedData = fromLocalStore;
+} else if((JSON.parse(localStorage.getItem("blogData")) == null) && (JSON.parse(localStorage.getItem("PublishedblogData")) !== null)){
+    joinedData = fromLocalStore1;
+}
 
-let joinedData = fromLocalStore.concat(fromLocalStore1);
+
 console.log(joinedData);
 const blogTittle = document.getElementById("blogTittlefordraft");
 const firstLettle = document.getElementById("firstLetter");
@@ -126,30 +134,36 @@ function getid(obj){
                     let deleted = joinedData.splice(i, 1);
                     //for(let i = 0; i < ; )
                     console.log(deleted, joinedData);
-                    for(let i = 0; i < deleted.length; i++){
-                        for( let property in deleted[i]){
-                            for(let j = 0; j < fromLocalStore.length; j++){
-                                for(let properties in fromLocalStore[j]){
-                                    if(deleted[i][property] === fromLocalStore[j][properties]){
-                                        fromLocalStore.splice(j, 1);
-                                        localStorage.setItem("blogData",JSON.stringify(fromLocalStore));
+                    if(fromLocalStore !== null){
+                        for(let i = 0; i < deleted.length; i++){
+                            for( let property in deleted[i]){
+                                for(let j = 0; j < fromLocalStore.length; j++){
+                                    for(let properties in fromLocalStore[j]){
+                                        if(deleted[i][property] === fromLocalStore[j][properties]){
+                                            fromLocalStore.splice(j, 1);
+                                            localStorage.setItem("blogData",JSON.stringify(fromLocalStore));
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                    for(let i = 0; i < deleted.length; i++){
-                        for( let property in deleted[i]){
-                            for(let j = 0; j < fromLocalStore1.length; j++){
-                                for(let properties in fromLocalStore1[j]){
-                                    if(deleted[i][property] === fromLocalStore1[j][properties]){
-                                        fromLocalStore1.splice(j, 1);
-                                        localStorage.setItem("PublishedblogData",JSON.stringify(fromLocalStore1));
+
+                    if(fromLocalStore1 !== null){
+                        for(let i = 0; i < deleted.length; i++){
+                            for( let property in deleted[i]){
+                                for(let j = 0; j < fromLocalStore1.length; j++){
+                                    for(let properties in fromLocalStore1[j]){
+                                        if(deleted[i][property] === fromLocalStore1[j][properties]){
+                                            fromLocalStore1.splice(j, 1);
+                                            localStorage.setItem("PublishedblogData",JSON.stringify(fromLocalStore1));
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+
                     //localStorage.setItem("blogData", JSON.stringify(fromLocalStore));
                     //paragraphSlot.innerHTML  = dataFromDataBase[i]["blog"];
                 }

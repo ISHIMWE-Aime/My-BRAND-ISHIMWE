@@ -460,10 +460,7 @@ a:hover{
     top: 312px;
     border-radius: 0px;  
     opacity: 1;
-<<<<<<< HEAD
     /* border: 3px solid yellow; */
-=======
->>>>>>> 147d9d71362c413f552d738fcc21fb0aa53d8e70
 }
 #guest{
     height: 35px;
@@ -759,8 +756,9 @@ button:hover{
 }
 .blogLink{
     border-radius: 20px;
+    background-size: cover;
 }
-#blogLink0{
+/* #blogLink0{
     background: url(images/r1.jpg);
     background-size: cover;
 }
@@ -779,7 +777,7 @@ button:hover{
 #blogLink4{
     background: url(images/web\ develper.jfif);
     background-size: cover;
-}
+} */
 .tittleAndReactions{
     display: flex;
     flex-direction: row;

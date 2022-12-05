@@ -1,6 +1,7 @@
 let fromLocalStore =JSON.parse(localStorage.getItem("PublishedblogData"));
 let previewedRAMdata = JSON.parse(localStorage.getItem("PreviwedblogData"));
 console.log(fromLocalStore);
+
 const grid = document.getElementById("blogGridLink");
 
 let pubIDs = publishedIDs();
@@ -14,9 +15,10 @@ function publishedIDs(){
     let i = 0;
     let IDs = [];
     for( i = 0; i < fromLocalStore.length; i++){
+        console.log(fromLocalStore[i]["backgroundImage"]);
         console.log(i);
         grid.innerHTML += `
-        <a href="Blog view.html" class="blogLink" id="${ "blogLink" + i}" onmouseover="getid(this)"> <!-- change this into id -->
+        <a href="Blog view.html" class="blogLink" id="${ "blogLink" + i}" onmouseover="getid(this)" style="background: url(${fromLocalStore[i]["backgroundImage"]}); background-size: cover;"> <!-- change this into id -->
                 <div class="tittleAndReactions">
                     <h2 id="${ "BlogTittle" + i }">${fromLocalStore[i]["Tittle"]}</h2>
                     <div class="reactionSet">
