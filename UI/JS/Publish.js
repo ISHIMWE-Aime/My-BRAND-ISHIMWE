@@ -52,8 +52,8 @@ publishButton.addEventListener("click",function(){
         publishedData["blogId"] = iD;
         console.log(publishedData);
         published.push(publishedData);
-        newBlogTittleInput.value = "";
-        newBlogAuthor.value = "";
+        //newBlogTittleInput.value = "";
+        //newBlogAuthor.value = "";
         // textAreaInput.value = "";
         localStorage.setItem( "PublishedblogData",JSON.stringify(published));
     }
