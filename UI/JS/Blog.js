@@ -1,5 +1,11 @@
 let fromLocalStore =JSON.parse(localStorage.getItem("PublishedblogData"));
 let previewedRAMdata = JSON.parse(localStorage.getItem("PreviwedblogData"));
+let logedInUserDataBase = JSON.parse(localStorage.getItem("CurrentUser"));
+
+if(logedInUserDataBase === null){
+    alert("Please login to make reactions and write a comment on blog");
+}
+
 console.log(fromLocalStore);
 
 const grid = document.getElementById("blogGridLink");
@@ -7,67 +13,71 @@ const grid = document.getElementById("blogGridLink");
 let pubIDs = publishedIDs();
 console.log(pubIDs);
 
-// let me = new Date().getTime()
-// console.log(me)
-
 function publishedIDs(){
 
     let i = 0;
     let IDs = [];
-    for( i = 0; i < fromLocalStore.length; i++){
-        console.log(fromLocalStore[i]["backgroundImage"]);
-        console.log(i);
-        grid.innerHTML += `
-        <a href="Blog view.html" class="blogLink" id="${ "blogLink" + i}" onmouseover="getid(this)" style="background: url(${fromLocalStore[i]["backgroundImage"]}); background-size: cover;"> <!-- change this into id -->
-                <div class="tittleAndReactions">
-                    <h2 id="${ "BlogTittle" + i }">${fromLocalStore[i]["Tittle"]}</h2>
-                    <div class="reactionSet">
-                        <div class="signAndP" id="share">
-                            <button type="button" class="reactionsSlots">
-                                <img src="images/icons/Vectorshare.png" alt="" class="reactionIcons">
-                            </button>
-                            <p class="numberOfReactors">34</p>
-                        </div>
-                        <div class="signAndP" id="like">
-                            <button type="button" class="reactionsSlots">
-                                <img src="images/icons/Vector 6like.png" alt="" class="reactionIcons">
-                            </button>
-                            <p class="numberOfReactors">34</p>
-                        </div>
-                        <div class="signAndP" id="comment">
-                            <button type="button" class="reactionsSlots">
-                                <img src="images/icons/Vectorcoments.png" alt="" class="reactionIcons">
-                            </button>
-                            <p class="numberOfReactors">34</p>
-                        </div>
-                        <div class="signAndP" id="views">
-                            <button type="button" class="reactionsSlots">
-                                <img src="images/icons/Remove red eyeeye.png" alt="" class="reactionIcons">
-                            </button>
-                            <p class="numberOfReactors">34</p>
+
+    if(fromLocalStore !== null){
+        for( i = 0; i < fromLocalStore.length; i++){
+            console.log(fromLocalStore[i]["backgroundImage"]);
+            console.log(i);
+            if(logedInUserDataBase !== null){
+                grid.innerHTML += `
+            <a href="Blog view.html" class="blogLink" id="${fromLocalStore[i]["blogId"]}" onmouseover="getid(this)" style="background: url(${fromLocalStore[i]["backgroundImage"]}); background-size: cover;"> <!-- change this into id -->
+                    <div class="tittleAndReactions">
+                        <h2 id="${ "BlogTittle" + fromLocalStore[i]["blogId"] }">${fromLocalStore[i]["Tittle"]}</h2>
+                        <div class="reactionSet">
+                            <div class="signAndP" id="share">
+                                <button type="button" class="reactionsSlots">
+                                    <img src="images/icons/Vectorshare.png" alt="" class="reactionIcons">
+                                </button>
+                                <p class="numberOfReactors">34</p>
+                            </div>
+                            <div class="signAndP" id="like">
+                                <button type="button" class="reactionsSlots">
+                                    <img src="images/icons/Vector 6like.png" alt="" class="reactionIcons">
+                                </button>
+                                <p class="numberOfReactors">34</p>
+                            </div>
+                            <div class="signAndP" id="comment" onclick="location.href = 'Blog view.html';">
+                                <button type="button" class="reactionsSlots">
+                                    <img src="images/icons/Vectorcoments.png" alt="" class="reactionIcons">
+                                </button>
+                                <p class="numberOfReactors">34</p>
+                            </div>
+                            <div class="signAndP" id="views">
+                                <button type="button" class="reactionsSlots">
+                                    <img src="images/icons/Remove red eyeeye.png" alt="" class="reactionIcons">
+                                </button>
+                                <p class="numberOfReactors">34</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-        `
-        IDs.push(
-            {
-                link : "blogLink" + i,
-                tittle: "BlogTittle" + i
+                </a>
+            `
+            }else{
+                grid.innerHTML += `
+                <a href="Blog view.html" class="blogLink" id="${fromLocalStore[i]["blogId"]}" onmouseover="getid(this)" style="background: url(${fromLocalStore[i]["backgroundImage"]}); background-size: cover;"> <!-- change this into id -->
+                        <div class="tittleAndReactions">
+                            <h2 id="${ "BlogTittle" + fromLocalStore[i]["blogId"] }">${fromLocalStore[i]["Tittle"]}</h2>
+                        </div>
+                    </a>
+                `
             }
-        );
+            
+            IDs.push(
+                {
+                    link : "blogLink" + i,
+                    tittle: "BlogTittle" + i
+                }
+            );
+        }
+    } else{
+        alert("I am sorry; there is no blogs published yet!");
     }
     return IDs;
 }
-
-
-// ;
-// 
-
-// console.log(link, linkTittle);
-// link.addEventListener("click" ,function(){
-//     
-// });
 
 /* Codes from heaven*/
 
@@ -77,7 +87,7 @@ function getid(obj){
     const link = document.getElementById(currentLinkId);
     console.log(link);
 
-    let currentTittleId = "BlogTittle" + String.fromCharCode(currentLinkId.charCodeAt(currentLinkId.length - 1));
+    let currentTittleId = "BlogTittle" + currentLinkId;
     console.log(currentTittleId);
 
     const linkTittle = document.getElementById(currentTittleId).innerHTML;
@@ -94,7 +104,9 @@ function getid(obj){
         }
         linkRAM.push(flag);
         linkRAM.push(linkTittle);
+        linkRAM.push(currentLinkId);
         localStorage.setItem("PreviwedblogData", JSON.stringify(previewedRAMdata));
         localStorage.setItem("linkData", JSON.stringify(linkRAM));
     })
 }
+

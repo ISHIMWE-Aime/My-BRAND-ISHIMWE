@@ -11,7 +11,7 @@ for(let i = 0; i < fromLocalStore.length; i++){
     // firstLettle.innerHTML = String.fromCharCode(fromLocalStore[1]["Tittle"].charCodeAt(0));
     // blogTittle.innerHTML = fromLocalStore[i]["Tittle"];
     marginLeftContainer.innerHTML += `
-        <div class="blogBlock">
+        <a href="Blog.html" class="blogBlock">
             <div class="left">
                 <div class="firstLetterSlot">
                     <center>
@@ -66,7 +66,7 @@ for(let i = 0; i < fromLocalStore.length; i++){
                     </div>
                 </div>
             </div>
-        </div>
+        </a>
     `
     
 }

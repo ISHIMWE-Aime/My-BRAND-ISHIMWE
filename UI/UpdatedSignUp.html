@@ -14,15 +14,18 @@
     <div class="guest">
         <h1 class="guest-title">Guest</h1>
         <form action="" class="guest-form">
-            <input type="text" name="" placeholder="Enter your first name" class="" required />
-            <input type="text" name="" placeholder="Enter your middle name" class="" required />
-            <input type="text" name="" placeholder="Enter your last name" class="" required />
+            <input type="text" name="" placeholder="Enter your first name" id="firstNameInput" required />
+            <div class="nameErrorMessage" id="firstName"></div>
+            <input type="text" name="" placeholder="Enter your middle name" id="middleNameInput" required />
+            <div class="nameErrorMessage" id="middleName"></div>
+            <input type="text" name="" placeholder="Enter your last name" id="lastNameInput" required />
+            <div class="nameErrorMessage" id="lastName"></div>
             <input type="email" name="" placeholder="Enter your email. i.e example@gmail.com" id="emailinput" required />
             <div id="emailErrorMessage"></div>
-            <select name="">
-                <option value="">Enter your prefered field</option>
-                <option value="">Web-development</option>
-                <option value="">JavaScript</option>
+            <select id="fieldsInput">
+                <option value="Enter your prefered field">Enter your prefered field</option>
+                <option value="Web-development">Web-development</option>
+                <option value="JavaScript">JavaScript</option>
             </select>
             <div class="telephone">
                 <input name="phone" type="text" placeholder="i.e 7xx xxx xxx" id="phone"/>
@@ -39,17 +42,17 @@
                 <img src="" alt="">
                 <div id="passConfirmErrorMessage"></div>
             </div>
-            <div id="more-button" >
-                <div id="more">
-                    <p id="more-text">
-                        <button type="submit">Sign Up</button>
-                    </p>
-                    <div id="dashedcycle">
-                        <div id="whiteCycle"></div>
-                    </div>
+        </form>
+        <div id="more-button" onclick="location.href = 'userLogin.html';">
+            <div id="more">
+                <p id="more-text">
+                    <button type="submit">Sign Up</button>
+                </p>
+                <div id="dashedcycle">
+                    <div id="whiteCycle"></div>
                 </div>
             </div>
-        </form>
+        </div>
         <p class="bottom-text">You have account? 
             <a href="userLogin.html">Back to Log in</span>
         </p>

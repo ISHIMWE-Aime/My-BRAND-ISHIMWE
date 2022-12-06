@@ -81,7 +81,7 @@ button{
 
 #emailErrorMessage{
     position: relative;
-    left: -13%;
+    left: -28%;
     bottom: 20px;
 }
 #passConfirmErrorMessage{
@@ -233,6 +233,12 @@ select {
 .bottom-text span {
     color: #A1FC0E;
     border-bottom: 2px solid #A1FC0E;
+}
+
+.nameErrorMessage{
+    position: relative;
+    left: -11%;
+    bottom: 20px;
 }
 
 /* ------------------------------------------ */

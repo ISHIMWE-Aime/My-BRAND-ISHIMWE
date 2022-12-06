@@ -664,41 +664,41 @@ button:hover{
     justify-content: space-between;
     align-items: center;
 }
-.commentorAndComment{
+#commentorAndComment{
     display: flex;
     flex-direction: row;
     width: 100%;
     align-items: center;
 }
 
-.commentorImageSlot{
+#commentorImageSlot{
     height: 10%;
     width: 10%;
     padding-right: 30px;
 }
-.commentorImage{
+#commentorImage{
     width: 100%;
     height: 100%;
     border-radius: 50%;
 }
-.commentorNameAndTime{
+#commentorNameAndTime{
     display: flex;
     flex-direction: row;
     align-items: baseline;
     height: 2%;
 
 }
-.time{
+#time{
     font-size: 10px;
     padding-left: 6px;
 }
-.commetorNameTimeAndParagraph{
+#commetorNameTimeAndParagraph{
     display: flex;
     flex-direction: column;
     justify-content: center;
 
 }
-.comentParagraph{
+#comentParagraph{
     position: relative;
     bottom: 20px;
 }
@@ -725,12 +725,12 @@ button:hover{
     height: 100%;
     border-radius: 50%;
 }
-.contentOfNewComent{
+#contentOfNewComent{
     border: none;
     border-radius: 50px;
     width: 100%;
 }
-.contentOfNewComent:focus {
+#contentOfNewComent:focus {
     outline: none;
   }
 
@@ -804,6 +804,9 @@ button:hover{
     overflow-x: hidden;
     word-wrap: break-word;
 }
+
+
+
 /*/////////////\\\\\\\\\\\\\\\\*/
 /*#more-buttonForComment{
     width: 30%;

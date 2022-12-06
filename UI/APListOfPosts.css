@@ -318,3 +318,15 @@ a:hover{
     left: -10px;
     z-index: 
 } */
+
+#userInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 98%;
+    height: auto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+}
