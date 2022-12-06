@@ -615,7 +615,7 @@ button:hover{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 30%;
+    height: 200px;
     width: 45%;
     background: radial-gradient(50% 50% at 50% 50%, rgba(161, 141, 255, 0.9) 0%, rgba(20, 19, 53, 0.28) 97.4%);
 }

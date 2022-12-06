@@ -5,7 +5,7 @@ const newTittleSlot = document.getElementById("newTittle");
 const newBlogAuthor = document.getElementById("blog_author");
 
 const fileEl = document.getElementById("backgorundImage");
-const buffer = document.getElementById("editorBuffer");
+// const buffer = document.getElementById("editorBuffer");
 
 let dataBase = [];
 let blogData = {};

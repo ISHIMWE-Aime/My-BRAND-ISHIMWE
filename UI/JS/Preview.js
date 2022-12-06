@@ -4,8 +4,34 @@ let previewedRAMflag = [];
 let previewedRAM = {};
 let flag = true;
 console.log(linkDataFromLocal);
+
+let urlArray = [];
+
+
+fileEl.addEventListener("change", () => {
+    // previewedRAM = {};
+    const fr = new FileReader();
+    fr.readAsDataURL(fileEl.files[0]);
+
+    fr.addEventListener("load", () =>{
+        const url = fr.result;
+        console.log("the url is: ",url);
+
+        urlArray.push(url);
+        if(url !== ""){
+            localStorage.setItem("imageUlr", JSON.stringify(urlArray));
+        }
+       
+        //console.log(url);
+        // let image = new Image();
+        // image.src = url;
+        // document.body.append(image);
+    })
+})
+
 previewButton.addEventListener("click",function(){
-    //flag = false;
+    flag = false;
+    let imageUrlFromLocal = JSON.parse(localStorage.getItem("imageUlr"));
     //published restore
     // published = JSON.parse(localStorage.getItem("PublishedblogData"));
 
@@ -20,10 +46,11 @@ previewButton.addEventListener("click",function(){
     previewedRAM["Author"] = newBlogAuthor.value;
     previewedRAM["blog"] = textAreaInput.value;
     previewedRAM["blogId"] = iD;
+    previewedRAM["backgroundImage"] = imageUrlFromLocal[0];
     console.log(previewedRAM);
     if(JSON.parse(localStorage.getItem("linkData")) !== null){
-       // linkDataFromLocal.splice(0, 1)
-        //linkDataFromLocal.unshift(flag);
+        linkDataFromLocal.splice(0, 1)
+        linkDataFromLocal.unshift(flag);
         localStorage.setItem("linkData", JSON.stringify(linkDataFromLocal));
     }
     previewedRAMflag.push(flag);
