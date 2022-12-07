@@ -8,26 +8,26 @@ console.log(linkDataFromLocal);
 let urlArray = [];
 
 
-fileEl.addEventListener("change", () => {
-    // previewedRAM = {};
-    const fr = new FileReader();
-    fr.readAsDataURL(fileEl.files[0]);
+// fileEl.addEventListener("change", () => {
+//     previewedRAM = {};
+//     const fr = new FileReader();
+//     fr.readAsDataURL(fileEl.files[0]);
 
-    fr.addEventListener("load", () =>{
-        const url = fr.result;
-        console.log("the url is: ",url);
+//     fr.addEventListener("load", () =>{
+//         const url = fr.result;
+//         console.log("the url is: ",url);
 
-        urlArray.push(url);
-        if(url !== ""){
-            localStorage.setItem("imageUlr", JSON.stringify(urlArray));
-        }
+//         urlArray.push(url);
+//         if(url !== ""){
+//             localStorage.setItem("imageUlr", JSON.stringify(urlArray));
+//         }
        
-        //console.log(url);
-        // let image = new Image();
-        // image.src = url;
-        // document.body.append(image);
-    })
-})
+//         //console.log(url);
+//         // let image = new Image();
+//         // image.src = url;
+//         // document.body.append(image);
+//     })
+// })
 
 previewButton.addEventListener("click",function(){
     flag = false;
@@ -42,11 +42,13 @@ previewButton.addEventListener("click",function(){
     //Save to localstarage
     let iD = idGenerator();
     console.log(iD);
+
     previewedRAM["Tittle"] = newBlogTittleInput.value;
     previewedRAM["Author"] = newBlogAuthor.value;
     previewedRAM["blog"] = textAreaInput.value;
     previewedRAM["blogId"] = iD;
     previewedRAM["backgroundImage"] = imageUrlFromLocal[0];
+
     console.log(previewedRAM);
     if(JSON.parse(localStorage.getItem("linkData")) !== null){
         linkDataFromLocal.splice(0, 1)
@@ -55,9 +57,11 @@ previewButton.addEventListener("click",function(){
     }
     previewedRAMflag.push(flag);
     previewedRAMflag.push(previewedRAM);
+
     //newBlogTittleInput.value = "";
     //newBlogAuthor.value = "";
     // textAreaInput.value = "";
+
     localStorage.setItem( "PreviwedblogData",JSON.stringify(previewedRAMflag));
 })
 

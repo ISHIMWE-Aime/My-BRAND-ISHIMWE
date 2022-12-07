@@ -10,6 +10,8 @@ const fileEl = document.getElementById("backgorundImage");
 let dataBase = [];
 let blogData = {};
 
+/* There is no need of repeating this code because there are on other page
+linked on the same file as this linked to */
 fileEl.addEventListener("change", () => {
     blogData = {};
     const fr = new FileReader();
@@ -18,13 +20,20 @@ fileEl.addEventListener("change", () => {
     fr.addEventListener("load", () =>{
         const url = fr.result;
         console.log(url)
-        blogData["backgroundImage"] = url;
-        console.log(blogData);
+
+        urlArray.push(url);
+        if(url !== ""){
+            localStorage.setItem("imageUlr", JSON.stringify(urlArray));
+        }
+
+        //console.log(blogData);
         // let image = new Image();
         // image.src = url;
         // document.body.append(image);
     })
 })
+
+
 //for each reload
 if(JSON.parse(localStorage.getItem("linkDataForEdit")) !== null){
     let articleToEditTittle = JSON.parse(localStorage.getItem("linkDataForEdit"));
@@ -47,6 +56,8 @@ if(JSON.parse(localStorage.getItem("linkDataForEdit")) !== null){
 
 saveButton.addEventListener("click",function(){
     //dataBase retore
+    let imageUrlFromLocal = JSON.parse(localStorage.getItem("imageUlr"));
+
     if(JSON.parse(localStorage.getItem("blogData")) !== null){
         dataBase = JSON.parse(localStorage.getItem("blogData"));
         
@@ -61,11 +72,15 @@ saveButton.addEventListener("click",function(){
         blogData["Author"] = newBlogAuthor.value;
         blogData["blog"] = textAreaInput.value;
         blogData["blogId"] = userID;
+        blogData["backgroundImage"] = imageUrlFromLocal[0];
+
         console.log(blogData);
         dataBase.push(blogData);
+
         newBlogTittleInput.value = "";
         newBlogAuthor.value = "";
-        // textAreaInput.value = "";
+        textAreaInput.value = "";
+
         localStorage.setItem( "blogData",JSON.stringify(dataBase));
     }else{
         blogData = blogData;
@@ -80,6 +95,8 @@ saveButton.addEventListener("click",function(){
         blogData["Author"] = newBlogAuthor.value;
         blogData["blog"] = textAreaInput.value;
         blogData["blogId"] = userID;
+        blogData["backgroundImage"] = imageUrlFromLocal[0];
+        
         console.log(blogData);
         dataBase.push(blogData);
         newBlogTittleInput.value = "";

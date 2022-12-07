@@ -41,5 +41,10 @@ for(let i = 0; i <= monthLength; i++){
         ` }
     }
 }
-postBuffer.innerHTML = fromLocalStorePosts.length;
-draftBuffer.innerHTML = fromLocalStoreDrafts.length;
+
+if(fromLocalStoreDrafts !== null){
+    postBuffer.innerHTML = fromLocalStorePosts.length;
+}
+if(fromLocalStorePosts){
+    draftBuffer.innerHTML = fromLocalStoreDrafts.length;
+}

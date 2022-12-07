@@ -1,6 +1,15 @@
 let fromLocalStore =JSON.parse(localStorage.getItem("blogData"));
+let store =JSON.parse(localStorage.getItem("blogData"));//to avoid slice effect.
+
+console.log("The reserve is equal: ",store);
+
 let fromLocalStore1 =JSON.parse(localStorage.getItem("PublishedblogData"));
+let store1 =JSON.parse(localStorage.getItem("PublishedblogData"));//to avoid slice effect.
+
+console.log("The reserve1 is equal: ",store1);
+
 let joinedData =[];
+
 if((JSON.parse(localStorage.getItem("blogData")) !== null) && (JSON.parse(localStorage.getItem("PublishedblogData")) !== null)){
     joinedData = fromLocalStore.concat(fromLocalStore1);
 } else if((JSON.parse(localStorage.getItem("blogData")) !== null) && (JSON.parse(localStorage.getItem("PublishedblogData")) == null)){
@@ -9,12 +18,15 @@ if((JSON.parse(localStorage.getItem("blogData")) !== null) && (JSON.parse(localS
     joinedData = fromLocalStore1;
 }
 
+console.log("The joined daata is : ", joinedData);
+console.log("After fromlocal1 is equal to",);
+console.log(fromLocalStore1);
 
-console.log(joinedData);
 const blogTittle = document.getElementById("blogTittlefordraft");
 const firstLettle = document.getElementById("firstLetter");
 const marginLeftContainer = document.getElementById("margin-left");
 const deleteMessage = document.getElementById("deleteMessage");
+
 console.log(marginLeftContainer);
 
 let pubIDs = publishedIDs();
@@ -25,7 +37,7 @@ function publishedIDs(){
     let i = 0;
     let IDs = [];
 
-for(i = 0; i < joinedData.length; i++){
+    for(i = 0; i < joinedData.length; i++){
         console.log(joinedData[i]);
         // firstLettle.innerHTML = String.fromCharCode(joinedData[1]["Tittle"].charCodeAt(0));
         // blogTittle.innerHTML = joinedData[i]["Tittle"];
@@ -112,62 +124,71 @@ function getid(obj){
     console.log(currentTittleId);
 
     const linkTittle = document.getElementById(currentTittleId).innerHTML;
-    console.log("the tittle is :",linkTittle);
+    console.log("the tittle is :", linkTittle);
     
     let currentAuthorId = 'author' + currentLinkId;
     console.log(currentAuthorId);
 
     const AuthorName = document.getElementById(currentAuthorId).innerHTML;
-    console.log("the author name is :",AuthorName);
-
+    console.log("the author name is :", AuthorName);
     
     link.addEventListener("dblclick", function(){
+
         console.log("clicked");
+        console.log("All properties are: ");
         for(let i = 0; i < joinedData.length; i++){
            // console.log("The lenght is: ",joinedData.length);
+
             for(const property in joinedData[i]){
-                //console.log("All properties are: ");
-                //console.log(joinedData[i], ":", joinedData[i][property]);
+
+                console.log(property, ":", joinedData[i][property]);
+
                 if(joinedData[i][property] === currentLinkId){
+
                     console.log("The deletetion id is :",joinedData[i][property]);
                     
                     let deleted = joinedData.splice(i, 1);
                     //for(let i = 0; i < ; )
-                    console.log(deleted, joinedData);
-                    if(fromLocalStore !== null){
+
+                    console.log("After deletation is equal to",);
+                    console.log(store1); //to check for the effect of slice on fromLocalStore from joinedData.splice
+
+                    console.log("The deleted is :",deleted ,"The remaining is : ",joinedData);
+                    if(store !== null){
                         for(let i = 0; i < deleted.length; i++){
-                            for( let property in deleted[i]){
-                                for(let j = 0; j < fromLocalStore.length; j++){
-                                    for(let properties in fromLocalStore[j]){
-                                        if(deleted[i][property] === fromLocalStore[j][properties]){
-                                            fromLocalStore.splice(j, 1);
-                                            localStorage.setItem("blogData",JSON.stringify(fromLocalStore));
-                                        }
-                                    }
+                        
+                            for(let j = 0; j < store.length; j++){
+                            
+                                if(deleted[i]["blogId"] === store[j]["blogId"]){
+                                    store.splice(j, 1);
+                                    localStorage.setItem("blogData",JSON.stringify(store));
+                                }
+                            
+                            }
+                        
+                        }
+                    }
+            
+                    if(store1 !== null){
+                        console.log("Not a null is equal to: ", store1);
+                        for(let i = 0; i < deleted.length; i++){
+                            console.log("The deleted length is: ", i);
+                            for(let j = 0; j < store1.length; j++){
+                                console.log("The fromLocal1 length is: ", i, j);
+
+                                if(deleted[i]["blogId"] === store1[j]["blogId"]){
+                                    console.log("Matched");
+                                    store1.splice(j, 1);
+                                    localStorage.setItem("PublishedblogData",JSON.stringify(store1));
                                 }
                             }
                         }
                     }
-
-                    if(fromLocalStore1 !== null){
-                        for(let i = 0; i < deleted.length; i++){
-                            for( let property in deleted[i]){
-                                for(let j = 0; j < fromLocalStore1.length; j++){
-                                    for(let properties in fromLocalStore1[j]){
-                                        if(deleted[i][property] === fromLocalStore1[j][properties]){
-                                            fromLocalStore1.splice(j, 1);
-                                            localStorage.setItem("PublishedblogData",JSON.stringify(fromLocalStore1));
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
                     //localStorage.setItem("blogData", JSON.stringify(fromLocalStore));
                     //paragraphSlot.innerHTML  = dataFromDataBase[i]["blog"];
                 }
             }
         }
+
     })
 }

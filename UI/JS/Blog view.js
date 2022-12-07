@@ -1,11 +1,13 @@
-let tittleTex = JSON.parse(localStorage.getItem("linkData"));
+let tittleTex = JSON.parse(localStorage.getItem("linkData"));//to capture clicked blog
 let previewDataFromLocal = JSON.parse(localStorage.getItem("PreviwedblogData"));
 let dataFromDataBase = JSON.parse(localStorage.getItem("PublishedblogData"));
+
 const blogViewTittle = document.getElementById("BlogViewTittle");
 console.log(tittleTex, blogViewTittle);
 
 const paragraphSlot = document.getElementById("paragraph");
 const blogImage = document.getElementById("blogImageslot");
+
 const comment = document.getElementById("contentOfNewComent");
 const post = document.getElementById("post");
 const listOfComents= document.getElementById("listOfComents");
@@ -78,19 +80,19 @@ if((JSON.parse(localStorage.getItem("linkData")) !== null) && (tittleTex[0] === 
 }
 
 const recommended = document.getElementById("listOfRecommended");
-
-for(let i = 0; i < dataFromDataBase.length; i++){
-    recommended.innerHTML += `
-    <div class="recArticles">
-    <div class="recArticleImageSlot">
-        <img src=${dataFromDataBase[i]["backgroundImage"]} alt="recommended_Article_Image" class="recArticleImage">
-    </div>
-    <div id="recArticleTittle">
-        <h2>${dataFromDataBase[i]["Tittle"]}</h2>
-    </div>
-    </div>
-`
-}
+if(dataFromDataBase !== null)
+    for(let i = 0; i < dataFromDataBase.length; i++){
+        recommended.innerHTML += `
+        <div class="recArticles">
+        <div class="recArticleImageSlot">
+            <img src=${dataFromDataBase[i]["backgroundImage"]} alt="recommended_Article_Image" class="recArticleImage">
+        </div>
+        <div id="recArticleTittle">
+            <h2>${dataFromDataBase[i]["Tittle"]}</h2>
+        </div>
+        </div>
+    `
+    }
 
 post.addEventListener("click", function(){
     //remember to ret newComment to empty objet for it click
@@ -114,7 +116,7 @@ post.addEventListener("click", function(){
         </div>
         <div id="commetorNameTimeAndParagraph">
             <div id="commentorNameAndTime">
-                <h5 class="commentorName">${currentUserName}</h5>
+                <h5 class="commentorName">${currentUserName}</h5>(I think there is a bug here!)
                 <p id="time">- ${timeAndYear}</p>
             </div>
             <p id="comentParagraph">

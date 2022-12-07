@@ -1,14 +1,14 @@
 let fromLocalStore =JSON.parse(localStorage.getItem("PublishedblogData"));
-let previewedRAMdata = JSON.parse(localStorage.getItem("PreviwedblogData"));
-let logedInUserDataBase = JSON.parse(localStorage.getItem("CurrentUser"));
+let previewedRAMdata = JSON.parse(localStorage.getItem("PreviwedblogData"));//for changing a signal
+let logedInUserDataBase = JSON.parse(localStorage.getItem("CurrentUser"));//for login check
 
-if(logedInUserDataBase === null){
+/*if(logedInUserDataBase === null){
     alert("Please login to make reactions and write a comment on blog");
-}
+}*/
 
 console.log(fromLocalStore);
 
-const grid = document.getElementById("blogGridLink");
+const grid = document.getElementById("blogGridLink");// to insert a blog.
 
 let pubIDs = publishedIDs();
 console.log(pubIDs);
@@ -24,9 +24,9 @@ function publishedIDs(){
             console.log(i);
             if(logedInUserDataBase !== null){
                 grid.innerHTML += `
-            <a href="Blog view.html" class="blogLink" id="${fromLocalStore[i]["blogId"]}" onmouseover="getid(this)" style="background: url(${fromLocalStore[i]["backgroundImage"]}); background-size: cover;"> <!-- change this into id -->
+                <a onclick="location.href = 'Blog view.html';" class="blogLink" id=${fromLocalStore[i]["blogId"]} onmouseover="getid(this)" style="background: url(${fromLocalStore[i]["backgroundImage"]}); background-size: cover;"> <!-- change this into id -->
                     <div class="tittleAndReactions">
-                        <h2 id="${ "BlogTittle" + fromLocalStore[i]["blogId"] }">${fromLocalStore[i]["Tittle"]}</h2>
+                        <h2 id=${ "BlogTittle" + fromLocalStore[i]["blogId"] }>${fromLocalStore[i]["Tittle"]}</h2>
                         <div class="reactionSet">
                             <div class="signAndP" id="share">
                                 <button type="button" class="reactionsSlots">
@@ -58,9 +58,9 @@ function publishedIDs(){
             `
             }else{
                 grid.innerHTML += `
-                <a href="Blog view.html" class="blogLink" id="${fromLocalStore[i]["blogId"]}" onmouseover="getid(this)" style="background: url(${fromLocalStore[i]["backgroundImage"]}); background-size: cover;"> <!-- change this into id -->
+                <a onclick="location.href = 'Blog view.html';" class="blogLink" id=${fromLocalStore[i]["blogId"]} onmouseover="getid(this)" style="background: url(${fromLocalStore[i]["backgroundImage"]}); background-size: cover;"> <!-- change this into id -->
                         <div class="tittleAndReactions">
-                            <h2 id="${ "BlogTittle" + fromLocalStore[i]["blogId"] }">${fromLocalStore[i]["Tittle"]}</h2>
+                            <h2 id=${ "BlogTittle" + fromLocalStore[i]["blogId"] }>${fromLocalStore[i]["Tittle"]}</h2>
                         </div>
                     </a>
                 `
@@ -73,8 +73,9 @@ function publishedIDs(){
                 }
             );
         }
-    } else{
+    }else{
         alert("I am sorry; there is no blogs published yet!");
+        
     }
     return IDs;
 }
