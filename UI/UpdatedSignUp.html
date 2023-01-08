@@ -14,15 +14,15 @@
     <div class="guest">
         <h1 class="guest-title">Guest</h1>
         <form action="" class="guest-form">
-            <input type="text" name="" placeholder="Enter your first name" id="firstNameInput" required />
+            <input type="text" name="firstName" placeholder="Enter your first name" id="firstNameInput" required />
             <div class="nameErrorMessage" id="firstName"></div>
-            <input type="text" name="" placeholder="Enter your middle name" id="middleNameInput" required />
+            <input type="text" name="middleName" placeholder="Enter your middle name" id="middleNameInput" required />
             <div class="nameErrorMessage" id="middleName"></div>
-            <input type="text" name="" placeholder="Enter your last name" id="lastNameInput" required />
+            <input type="text" name="lastName" placeholder="Enter your last name" id="lastNameInput" required />
             <div class="nameErrorMessage" id="lastName"></div>
-            <input type="email" name="" placeholder="Enter your email. i.e example@gmail.com" id="emailinput" required />
+            <input type="email" name="email" placeholder="Enter your email. i.e example@gmail.com" id="emailinput" required />
             <div id="emailErrorMessage"></div>
-            <select id="fieldsInput">
+            <select name="userPreference" id="fieldsInput">
                 <option value="Enter your prefered field">Enter your prefered field</option>
                 <option value="Web-development">Web-development</option>
                 <option value="JavaScript">JavaScript</option>
@@ -33,26 +33,28 @@
             </div>
             
             <div>
-                <input type="password" name="" placeholder="Password (6 or more characters)" id="passwordinput" class="" required />
+                <input type="password" name="password" placeholder="Password (6 or more characters)" id="passwordinput" class="" required />
                 <img src="" alt="">
                 <div id="passErrorMessage"></div>
             </div>
             <div>
-                <input type="password" name="" placeholder="Confirm Password" id="passwordinputConfirm"  class="" required />
+                <input type="password" name="confirmPassword" placeholder="Confirm Password" id="passwordinputConfirm"  class="" required />
                 <img src="" alt="">
                 <div id="passConfirmErrorMessage"></div>
             </div>
-        </form>
-        <div id="more-button" onclick="location.href = 'userLogin.html';">
-            <div id="more">
-                <p id="more-text">
-                    <button type="submit">Sign Up</button>
-                </p>
-                <div id="dashedcycle">
-                    <div id="whiteCycle"></div>
+
+            <div id="more-button" > <!-- onclick="location.href = 'userLogin.html';" -->
+                <div id="more">
+                    <p id="more-text">
+                        <button>Sign Up</button>
+                    </p>
+                    <div id="dashedcycle">
+                        <div id="whiteCycle"></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
+
         <p class="bottom-text">You have account? 
             <a href="userLogin.html">Back to Log in</span>
         </p>
@@ -77,6 +79,58 @@
             <a href="http://#" target="_self" style="width: 10%; font-weight: 600; padding-top: 1.5%;">ISHIMWE A.F</a>
         </nav>
     </footer>
-    <script src="JS/SignUp.js"></script>
+
+    <script src="JS/countryCode.js"></script>
+    
+    <script>
+        const form = document.querySelector('form')
+        const selectedCode = document.getElementsByClassName("iti__selected-dial-code")[0].innerHTML
+        const confirmInput = document.getElementById("passwordinputConfirm");
+        const userpass = document.getElementById("passwordinput");
+        let password
+        confirmInput.addEventListener("input", function(){
+            if(userpass.value !== confirmInput.value){
+                passConfirmErrorMessage.innerHTML = `
+                <p style="color: rgb(255, 100, 0); font-size: 15px;">The passWord not matching.<p>
+                `
+            } else{
+                if( confirmInput.value.length !== 0){
+
+                    password = form.password.value
+
+                    passConfirmErrorMessage.innerHTML = `
+                    <p style="color: greenyellow; font-size: 15px;">Match.<p>
+                    `
+                }
+            }
+        })
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault()
+
+            console.log(selectedCode);
+            console.log(form.email.value, form.userPreference.value)
+
+            const firstName = form.firstName.value
+            const middleName = form.middleName.value
+            const lastName = form.lastName.value
+            const email = form.email.value
+            const userPreference = form.userPreference.value
+            const phoneCountryCode = selectedCode
+            const phone = form.phone.value            
+
+            const newUser = { firstName, middleName, lastName, email, userPreference, phoneCountryCode, phone, password }
+            
+            try {
+                const res = await fetch('https://important-red-beanie.cyclic.app/', {
+                    method: 'POST',
+                    body: JSON.stringify(newUser),
+                    headers: { 'Content-Type': 'application/json' },
+                })
+            } catch (error) {
+                console.log(error);
+            }
+        })
+    </script>
 </body>
 </html>
