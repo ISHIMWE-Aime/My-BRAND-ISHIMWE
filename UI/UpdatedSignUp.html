@@ -134,6 +134,7 @@
                 console.log(resMessage)
 
                 if(!resMessage.statusCode){
+                    console.log(resMessage.password)
                     passwordErrorEl.innerHTML = resMessage.password
                 }
             } catch (error) {
