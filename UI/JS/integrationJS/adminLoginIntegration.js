@@ -43,7 +43,11 @@ form.addEventListener('submit', async (e) => {
 
         if(resMessage.statusCode === 400){
             emailErrorEl.innerHTML = resMessage.message.email
-            passwordErrorEl.innerHTML = resMessage.message.password
+            if(!resMessage.message.password){
+                passwordErrorEl.innerHTML = ''
+            } else {
+                passwordErrorEl.innerHTML = resMessage.message.password
+            }
         }
 
         if(resMessage.statusCode === 200){
