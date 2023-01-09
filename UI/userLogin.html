@@ -21,27 +21,31 @@
             </div>
             <form id="form">
 
-                <input type="email" placeholder="Enter your email address" id="emailinput" required>
-                <div id="emailErrorMessage"></div>
-                <input type="password" placeholder="Enter your password" id="passwordinput" required>
-                <div id="passErrorMessage"></div>
+                <div>
+                    <input type="email" name="email" placeholder="Enter your email address" id="emailinput" >
+                    <div id="emailErrorMessage"></div>
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="Enter your password" id="passwordinput" >
+                    <div id="passErrorMessage"></div>
+                </div>
                 <div id="SignUp">
                     <p class="signUpQuestion">
                         You are new to our community?
                     </p>
                     <a href="UpdatedSignUp.html" target="_self" class="signUpLink">Creat account</a>
                 </div>
-            </form>
-            <div id="more-button">
-                <div id="more">
-                    <p id="more-text">
-                        <button type="submit" id="submitButton">Log in</button>
-                    </p>
-                    <div id="dashedcycle">
-                        <div id="whiteCycle"></div>
+                <div id="more-button">
+                    <div id="more">
+                        <p id="more-text">
+                            <button type="submit" id="submitButton">Log in</button>
+                        </p>
+                        <div id="dashedcycle">
+                            <div id="whiteCycle"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <div>
@@ -64,6 +68,42 @@
             <a href="http://#" target="_self" style="width: 10%; font-weight: 600; padding-top: 1.5%;">ISHIMWE A.F</a>
         </nav>
     </footer>
-    <script src="JS/user.js"></script>
+    <!-- <script src="JS/user.js"></script> -->
+    <script>
+        const form = document.querySelector('form')
+        const email = document.querySelector('#emailinput')
+        const password = document.querySelector('#passwordinput')
+
+        const emailErrorEl = document.querySelector('#emailErrorMessage')
+        const passwordErrorEl = document.querySelector('#passErrorMessage')
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault()
+
+            // reset error messages
+            emailErrorEl.innerHTML = ''
+            passwordErrorEl.innerHTML = ''
+
+            // get input values
+
+            const email = form.email.value
+            const password = form.password.value
+
+            const user = { email, password}
+
+            try {
+                const res = await fetch('https://important-red-beanie.cyclic.app/login', {
+                    method: 'POST',
+                    body: JSON.stringify(user),
+                    headers: { 'Content-Type': 'application/json' },
+                })
+
+                const resMessage = await res.json()
+                console.log(resMessage)
+            } catch (error) {
+                console.log(error)
+            }
+        })
+    </script>
 </body>
 </html>
