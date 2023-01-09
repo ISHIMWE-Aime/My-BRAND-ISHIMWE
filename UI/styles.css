@@ -211,7 +211,7 @@ select {
     margin-bottom: 20px;
 } 
 #phone{
-    width: 452px;
+    width: auto;
 }
 .telephone select {
     height: 62px;
