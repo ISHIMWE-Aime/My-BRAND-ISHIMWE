@@ -156,7 +156,7 @@
                 })
 
                 const resMessage = await res.json()
-                console.log(resMessage)
+                //console.log(resMessage)
 
                 if(!resMessage.statusCode){
                     console.log(resMessage.password)
@@ -169,7 +169,7 @@
 
                     (!resMessage.phone) ? (phoneNumberErrorEl.innerHTML = '')
                     : (phoneNumberErrorEl.innerHTML = resMessage.phone)
-                    
+
                     emailErrorEl.innerHTML = resMessage.email
                     passwordErrorEl.innerHTML = resMessage.password
                 }
