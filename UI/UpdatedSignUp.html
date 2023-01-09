@@ -189,18 +189,19 @@
 
                 if(resMessage.statusCode === 200){
                     console.log('button changed');
-                    subButton.innerHTML = `
-                    <div id="more-button" onclick="location.href = 'userLogin.html';">
-                        <div id="more">
-                            <p id="more-text">
-                                <button>Sign Up</button>
-                            </p>
-                            <div id="dashedcycle">
-                                <div id="whiteCycle"></div>
-                            </div>
-                        </div>
-                    </div>
-                    `
+                    // subButton.innerHTML = `
+                    // <div id="more-button" onclick="location.href = 'userLogin.html';">
+                    //     <div id="more">
+                    //         <p id="more-text">
+                    //             <button>Sign Up</button>
+                    //         </p>
+                    //         <div id="dashedcycle">
+                    //             <div id="whiteCycle"></div>
+                    //         </div>
+                    //     </div>
+                    // </div>
+                    // `
+                    location.href = 'userLogin.html'
                     //location.assign('/index.html')
                 }
             } catch (error) {
