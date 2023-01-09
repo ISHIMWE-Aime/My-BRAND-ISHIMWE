@@ -10,7 +10,7 @@
 
 body{
     color: white;
-    font-family:var(--heading-font)
+    font-family:var(--heading-font);
     background-color: #141335;
     margin: 0px;
     overflow-x: hidden;
