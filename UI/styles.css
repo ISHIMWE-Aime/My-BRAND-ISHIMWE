@@ -7,11 +7,6 @@
     --heading-font: 'Inria Sans', sans-serif;
     --normal-font: 'Poppins', sans-serif;
 }
-
-input{
-    margin-bottom: 5px;
-}
-
 a{
     text-decoration: underline;
     color: chartreuse;
