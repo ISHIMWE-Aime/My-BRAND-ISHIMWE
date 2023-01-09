@@ -127,6 +127,8 @@
                     body: JSON.stringify(newUser),
                     headers: { 'Content-Type': 'application/json' },
                 })
+
+                console.log(res.json())
             } catch (error) {
                 console.log(error);
             }
