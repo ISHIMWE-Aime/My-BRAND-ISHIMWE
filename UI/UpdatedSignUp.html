@@ -12,9 +12,6 @@
 <body>
      
     <div class="guest">
-        <center>
-            <div class="loading"></div>
-        </center>
         <h1 class="guest-title">Guest</h1>
         <form action="" class="guest-form">
             <div >
@@ -76,6 +73,9 @@
             <button type="button" id="backButton"><img src="images/icons/VectorBackIcon.png" alt="" id="backIcon">Back</button>
         </div>
     </div>
+
+    <div class="loading"></div>
+
     <footer>
         <nav>
             <div id="web">
@@ -126,6 +126,12 @@
                     `
                 }
             }
+        })
+
+        subButton.addEventListener('click', () => {
+            loading.innerHTML= `
+            <p style='background-color: white; width: auto; height: auto; color: black'>Loading...<p>
+            `
         })
 
         form.addEventListener('submit', async (e) => {
@@ -190,12 +196,6 @@
                     emailErrorEl.innerHTML = resMessage.email
                     passwordErrorEl.innerHTML = resMessage.password
                 }
-
-                subButton.addEventListener('click', () => {
-                    loading.innerHTML= `
-                    <p style='background-color: white; width: auto; height: auto;'>Loading...<p>
-                    `
-                })
 
                 if(resMessage.statusCode === 200){
                     location.href = 'userLogin.html'
