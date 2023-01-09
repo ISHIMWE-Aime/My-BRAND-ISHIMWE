@@ -200,7 +200,7 @@ body {
 input,
 select {
     height: 62px;
-    width: 454px;
+    width: auto;
     border-radius: 10px;
     background-color: #F6FEFF;
     border: 2px solid #1A1616;
@@ -221,7 +221,7 @@ select {
 
 .telephone input {
     height: 62px;
-    width: 310px;
+    width: auto;
 }
 
 .bottom-text {
