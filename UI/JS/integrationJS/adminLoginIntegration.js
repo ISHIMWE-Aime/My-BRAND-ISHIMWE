@@ -51,7 +51,7 @@ form.addEventListener('submit', async (e) => {
         }
 
         if(resMessage.statusCode === 200){
-            location.href = 'index.html'
+            location.href = 'Dashboard.html'
             //location.assign('/index.html')
         }
     } catch (error) {

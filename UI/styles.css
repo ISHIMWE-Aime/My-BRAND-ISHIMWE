@@ -240,7 +240,7 @@ select {
     position: relative;
     left: 0px;
     top: 0px;
-    color: red;
+    color: rgb(132, 2, 119);
     font-size: small;
     font-weight: 300;
 }
