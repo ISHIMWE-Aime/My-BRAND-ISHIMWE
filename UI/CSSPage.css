@@ -517,14 +517,18 @@ input{
     font-size: large;
 }
 #form{
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;/*think about this "fr" for responsiveness*/
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     height: 80%;
     width: 80%;
     margin-left: 10%;
     margin-top: 10%;
-    justify-content: space-between;
+    justify-content: space-evenly;
+}
+.ErrorMessages{
+    color: red;
+    font-size: small;
+    font-weight: 300;
 }
 #emailinput{
     grid-column: 1 / 4;
