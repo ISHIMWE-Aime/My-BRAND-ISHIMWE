@@ -238,7 +238,7 @@ select {
 .ErrorMessages{
     position: relative;
     left: 0px;
-    top: -20px;
+    top: 0px;
     color: red;
     font-size: small;
     font-weight: 300;
