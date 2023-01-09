@@ -115,13 +115,13 @@
                 if(resMessage){
                     loading.innerHTML = '';
                 }
-                
+
                 if(resMessage.statusCode === 400){
                     emailErrorEl.innerHTML = resMessage.message
                 }
 
                 if(resMessage.statusCode === 200){
-                    location.href = 'userLogin.html'
+                    location.href = 'index.html'
                     //location.assign('/index.html')
                 }
             } catch (error) {
