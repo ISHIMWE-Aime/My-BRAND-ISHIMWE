@@ -10,7 +10,8 @@
     <script src="https://cdn.tutorialjinni.com/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
 </head>
 <body>
-     
+    <div class="loading"></div>
+
     <div class="guest">
         <h1 class="guest-title">Guest</h1>
         <form action="" class="guest-form">
@@ -74,7 +75,6 @@
         </div>
     </div>
 
-    <div class="loading"></div>
 
     <footer>
         <nav>
@@ -130,7 +130,7 @@
 
         subButton.addEventListener('click', () => {
             loading.innerHTML= `
-            <p style='background-color: white; width: auto; height: auto; color: black'>Loading...<p>
+            <p style='background-color: white; width: 30px; height: auto; color: black; position: fixed'>Loading...<p>
             `
         })
 
@@ -168,6 +168,10 @@
 
                 const resMessage = await res.json()
                 console.log(resMessage)
+                 
+                if(resMessage){
+                    loading.innerHTML = '';
+                }
 
                 if(!resMessage.statusCode){
                     console.log(resMessage.password)
