@@ -160,11 +160,15 @@
 
                 if(!resMessage.statusCode){
                     console.log(resMessage.password)
+                    
+                    (!resMessage.firstName) ? '' 
+                    :(!resMessage.lastName) ? ''
+                    :(!resMessage.phone) ? '': ''
+
                     firstNameErrorEl.innerHTML = resMessage.firstName
-                    middleNameErrorEl.innerHTML = resMessage.middleName
                     lastNameErrorEl.innerHTML = resMessage.lastName
-                    emailErrorEl.innerHTML = resMessage.email
                     phoneNumberErrorEl.innerHTML = resMessage.phone
+                    emailErrorEl.innerHTML = resMessage.email
                     passwordErrorEl.innerHTML = resMessage.password
                 }
 
