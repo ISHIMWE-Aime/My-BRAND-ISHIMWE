@@ -186,7 +186,7 @@
                     passwordErrorEl.innerHTML = resMessage.password
                 }
 
-                if(resMessage.selectedCode === 200){
+                if(resMessage.statusCode === 200){
                     location.assign('/')
                 }
             } catch (error) {
