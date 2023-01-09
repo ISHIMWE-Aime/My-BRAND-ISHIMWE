@@ -14,19 +14,19 @@
     <div class="guest">
         <h1 class="guest-title">Guest</h1>
         <form action="" class="guest-form">
-            <div class="telephone">
+            <div >
                 <input type="text" name="firstName" placeholder="Enter your first name" id="firstNameInput" />
                 <div class="ErrorMessages" id="firstNameErrorMessage"></div>
             </div>
-            <div class="telephone">
+            <div >
                 <input type="text" name="middleName" placeholder="Enter your middle name" id="middleNameInput" />
                 <div class="ErrorMessages" id="middleNameErrorMessage"></div>
             </div>
-            <div class="telephone">
+            <div >
                 <input type="text" name="lastName" placeholder="Enter your last name" id="lastNameInput" />
                 <div class="ErrorMessages" id="lastNameErrorMessage"></div>
             </div>
-            <div class="telephone">
+            <div >
                 <input type="email" name="email" placeholder="Enter your email. i.e example@gmail.com" id="emailinput" />
                 <div class="ErrorMessages" id="emailErrorMessage"></div>
             </div>
@@ -41,12 +41,12 @@
                 <div class="ErrorMessages" id="phoneNumberErrorMessage"></div> 
             </div>
             
-            <div class="telephone">
+            <div >
                 <input type="password" name="password" placeholder="Password (6 or more characters)" id="passwordinput" class="" required />
                 <div class="ErrorMessages" id="passErrorMessage"></div>
                 <!-- <img src="" alt="show_password"> -->
             </div>
-            <div class="telephone">
+            <div >
                 <input type="password" name="confirmPassword" placeholder="Confirm Password" id="passwordinputConfirm"  class="" required />
                 <div class="ErrorMessages" id="passConfirmErrorMessage"></div>
                 <!-- <img src="" alt="show_password"> -->
@@ -156,19 +156,31 @@
                 })
 
                 const resMessage = await res.json()
-                //console.log(resMessage)
+                console.log(resMessage)
 
                 if(!resMessage.statusCode){
                     console.log(resMessage.password)
-                    
-                    (!resMessage.firstName) ? (firstNameErrorEl.innerHTML = '')
-                    : (firstNameErrorEl.innerHTML = resMessage.firstName)
 
-                    (!resMessage.lastName) ? (lastNameErrorEl.innerHTML = '')
-                    : (lastNameErrorEl.innerHTML = resMessage.lastName)
+                    if((!resMessage.firstName)){
+                        firstNameErrorEl.innerHTML = ''
+                    }
+                    else{
+                        firstNameErrorEl.innerHTML = resMessage.firstName
+                    }
 
-                    (!resMessage.phone) ? (phoneNumberErrorEl.innerHTML = '')
-                    : (phoneNumberErrorEl.innerHTML = resMessage.phone)
+                    if((!resMessage.lastName)){
+                        lastNameErrorEl.innerHTML = ''
+                    }
+                    else{
+                        lastNameErrorEl.innerHTML = resMessage.lastName
+                    }
+
+                    if((!resMessage.phone)){
+                        phoneNumberErrorEl.innerHTML = ''
+                    }
+                    else{
+                        phoneNumberErrorEl.innerHTML = resMessage.phone
+                    }
 
                     emailErrorEl.innerHTML = resMessage.email
                     passwordErrorEl.innerHTML = resMessage.password
