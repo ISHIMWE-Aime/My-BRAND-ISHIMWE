@@ -7,8 +7,9 @@
     --heading-font: 'Inria Sans', sans-serif;
     --normal-font: 'Poppins', sans-serif;
 }
+
 a{
-    text-decoration: none;
+    text-decoration: underline;
     color: white;
 }
 a:hover{
@@ -200,7 +201,7 @@ body {
 input,
 select {
     height: 62px;
-    width: auto;
+    width: 454px;
     border-radius: 10px;
     background-color: #F6FEFF;
     border: 2px solid #1A1616;
@@ -211,7 +212,7 @@ select {
     margin-bottom: 20px;
 } 
 #phone{
-    width: auto;
+    width: 452px;
 }
 .telephone select {
     height: 62px;
@@ -221,7 +222,7 @@ select {
 
 .telephone input {
     height: 62px;
-    width: auto;
+    width: 310px;
 }
 
 .bottom-text {
