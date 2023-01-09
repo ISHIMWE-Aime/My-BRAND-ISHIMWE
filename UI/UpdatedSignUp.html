@@ -87,6 +87,8 @@
         const selectedCode = document.getElementsByClassName("iti__selected-dial-code")[0].innerHTML
         const confirmInput = document.getElementById("passwordinputConfirm");
         const userpass = document.getElementById("passwordinput");
+        const passwordErrorEl = document.querySelector('#passErrorMessage')
+
         let password
         confirmInput.addEventListener("input", function(){
             if(userpass.value !== confirmInput.value){
@@ -128,7 +130,12 @@
                     headers: { 'Content-Type': 'application/json' },
                 })
 
-                console.log(await res.json())
+                const resMessage = await res.json()
+                console.log(resMessage)
+
+                if(!resMessage.statusCode){
+                    passwordErrorEl.innerHTML = resMessage.password
+                }
             } catch (error) {
                 console.log(error);
             }
