@@ -14,13 +14,13 @@
     <div class="guest">
         <h1 class="guest-title">Guest</h1>
         <form action="" class="guest-form">
-            <input type="text" name="firstName" placeholder="Enter your first name" id="firstNameInput" required />
+            <input type="text" name="firstName" placeholder="Enter your first name" id="firstNameInput" />
             <div class="ErrorMessages" id="firstNameErrorMessage"></div>
-            <input type="text" name="middleName" placeholder="Enter your middle name" id="middleNameInput" required />
+            <input type="text" name="middleName" placeholder="Enter your middle name" id="middleNameInput" />
             <div class="ErrorMessages" id="middleNameErrorMessage"></div>
-            <input type="text" name="lastName" placeholder="Enter your last name" id="lastNameInput" required />
+            <input type="text" name="lastName" placeholder="Enter your last name" id="lastNameInput" />
             <div class="ErrorMessages" id="lastNameErrorMessage"></div>
-            <input type="email" name="email" placeholder="Enter your email. i.e example@gmail.com" id="emailinput" required />
+            <input type="email" name="email" placeholder="Enter your email. i.e example@gmail.com" id="emailinput" />
             <div class="ErrorMessages" id="emailErrorMessage"></div>
             <select name="userPreference" id="fieldsInput">
                 <option value="Enter your prefered field">Enter your prefered field</option>
@@ -93,7 +93,6 @@
         const middleNameErrorEl = document.querySelector('#middleNameErrorMessage')
         const lastNameErrorEl = document.querySelector('#lastNameErrorMessage')
         const emailErrorEl = document.querySelector('#emailErrorMessage')
-        const userPreferenceErrorEl = document.querySelector('#userPreferenceErrorMessage')
         const phoneNumberErrorEl = document.querySelector('#phoneNumberErrorMessage')
         const passwordErrorEl = document.querySelector('#passErrorMessage')
         
@@ -127,7 +126,6 @@
             middleNameErrorEl.innerHTML = ''
             lastNameErrorEl.innerHTML = ''
             emailErrorEl.innerHTML = ''
-            userPreferenceErrorEl.innerHTML = ''
             phoneNumberErrorEl.innerHTML = ''
             passwordErrorEl.innerHTML = ''
 
@@ -158,7 +156,6 @@
                     middleNameErrorEl.innerHTML = resMessage.middleName
                     lastNameErrorEl.innerHTML = resMessage.lastName
                     emailErrorEl.innerHTML = resMessage.email
-                    userPreferenceErrorEl.innerHTML = resMessage.userPreference
                     phoneNumberErrorEl.innerHTML = resMessage.phone
                     passwordErrorEl.innerHTML = resMessage.password
                 }
