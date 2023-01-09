@@ -15,32 +15,33 @@
         <h1 class="guest-title">Guest</h1>
         <form action="" class="guest-form">
             <input type="text" name="firstName" placeholder="Enter your first name" id="firstNameInput" required />
-            <div class="nameErrorMessage" id="firstName"></div>
+            <div class="ErrorMessages" id="firstNameErrorMessage"></div>
             <input type="text" name="middleName" placeholder="Enter your middle name" id="middleNameInput" required />
-            <div class="nameErrorMessage" id="middleName"></div>
+            <div class="ErrorMessages" id="middleNameErrorMessage"></div>
             <input type="text" name="lastName" placeholder="Enter your last name" id="lastNameInput" required />
-            <div class="nameErrorMessage" id="lastName"></div>
+            <div class="ErrorMessages" id="lastNameErrorMessage"></div>
             <input type="email" name="email" placeholder="Enter your email. i.e example@gmail.com" id="emailinput" required />
-            <div id="emailErrorMessage"></div>
+            <div class="ErrorMessages" id="emailErrorMessage"></div>
             <select name="userPreference" id="fieldsInput">
                 <option value="Enter your prefered field">Enter your prefered field</option>
                 <option value="Web-development">Web-development</option>
                 <option value="JavaScript">JavaScript</option>
             </select>
+            <div class="ErrorMessages" id="userPreferenceErrorMessage"></div>
             <div class="telephone">
                 <input name="phone" type="text" placeholder="i.e 7xx xxx xxx" id="phone"/>
-                <div id="phoneNumberErrorMessage"></div> 
+                <div class="ErrorMessages" id="phoneNumberErrorMessage"></div> 
             </div>
             
             <div>
                 <input type="password" name="password" placeholder="Password (6 or more characters)" id="passwordinput" class="" required />
                 <img src="" alt="">
-                <div id="passErrorMessage"></div>
+                <div class="ErrorMessages" id="passErrorMessage"></div>
             </div>
             <div>
                 <input type="password" name="confirmPassword" placeholder="Confirm Password" id="passwordinputConfirm"  class="" required />
                 <img src="" alt="">
-                <div id="passConfirmErrorMessage"></div>
+                <div class="ErrorMessages" id="passConfirmErrorMessage"></div>
             </div>
 
             <div id="more-button" > <!-- onclick="location.href = 'userLogin.html';" -->
@@ -133,7 +134,7 @@
                 const resMessage = await res.json()
                 console.log(resMessage)
                 console.log(!resMessage.statusCode)
-                
+
                 if(!resMessage.statusCode){
                     console.log(resMessage.password)
                     passwordErrorEl.innerHTML = resMessage.password

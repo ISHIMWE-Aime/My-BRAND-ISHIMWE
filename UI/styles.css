@@ -235,7 +235,7 @@ select {
     border-bottom: 2px solid #A1FC0E;
 }
 
-.nameErrorMessage{
+.ErrorMessages{
     position: relative;
     left: -11%;
     bottom: 20px;
