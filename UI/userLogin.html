@@ -117,7 +117,8 @@
                 }
 
                 if(resMessage.statusCode === 400){
-                    emailErrorEl.innerHTML = resMessage.message
+                    emailErrorEl.innerHTML = resMessage.message.email
+                    passwordErrorEl.innerHTML = resMessage.message.password
                 }
 
                 if(resMessage.statusCode === 200){
