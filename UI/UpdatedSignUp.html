@@ -186,6 +186,9 @@
                     passwordErrorEl.innerHTML = resMessage.password
                 }
 
+                if(resMessage.selectedCode === 200){
+                    location.assign('/')
+                }
             } catch (error) {
                 console.log(error);
             }
