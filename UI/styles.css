@@ -7,13 +7,18 @@
     --heading-font: 'Inria Sans', sans-serif;
     --normal-font: 'Poppins', sans-serif;
 }
+
+input{
+    margin-bottom: 5px;
+}
+
 a{
-    text-decoration: none;
-    color: white;
+    text-decoration: underline;
+    color: chartreuse;
 }
 a:hover{
     transform: scale(1.05);
-    color: chartreuse;
+    color: violet;
 }
 #more-button{
     /* position: relative;
