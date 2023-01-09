@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="CSSPage.css">
 </head>
 <body>
+    <div class="loading"></div>
 
     <div class="viewP">
         <div class="Wmessage">
@@ -73,10 +74,18 @@
         const form = document.querySelector('form')
         const email = document.querySelector('#emailinput')
         const password = document.querySelector('#passwordinput')
+        const subButton = document.querySelector('#more-button')
+        const loading = document.querySelector('.loading')
 
         const emailErrorEl = document.querySelector('#emailErrorMessage')
         const passwordErrorEl = document.querySelector('#passErrorMessage')
         
+        subButton.addEventListener('click', () => {
+            loading.innerHTML= `
+            <p style='background-color: white; width: 100px; height: auto; color: black; position: fixed'>Loading...<p>
+            `
+        })
+
         form.addEventListener('submit', async (e) => {
             e.preventDefault()
 
@@ -100,6 +109,10 @@
 
                 const resMessage = await res.json()
                 console.log(resMessage)
+
+                if(resMessage){
+                    loading.innerHTML = '';
+                }
             } catch (error) {
                 console.log(error)
             }
