@@ -161,13 +161,15 @@
                 if(!resMessage.statusCode){
                     console.log(resMessage.password)
                     
-                    (!resMessage.firstName) ? '' 
-                    :(!resMessage.lastName) ? ''
-                    :(!resMessage.phone) ? '': ''
+                    (!resMessage.firstName) ? (firstNameErrorEl.innerHTML = '')
+                    : (firstNameErrorEl.innerHTML = resMessage.firstName)
 
-                    firstNameErrorEl.innerHTML = resMessage.firstName
-                    lastNameErrorEl.innerHTML = resMessage.lastName
-                    phoneNumberErrorEl.innerHTML = resMessage.phone
+                    (!resMessage.lastName) ? (lastNameErrorEl.innerHTML = '')
+                    : (lastNameErrorEl.innerHTML = resMessage.lastName)
+
+                    (!resMessage.phone) ? (phoneNumberErrorEl.innerHTML = '')
+                    : (phoneNumberErrorEl.innerHTML = resMessage.phone)
+                    
                     emailErrorEl.innerHTML = resMessage.email
                     passwordErrorEl.innerHTML = resMessage.password
                 }

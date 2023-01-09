@@ -8,12 +8,12 @@
     --normal-font: 'Poppins', sans-serif;
 }
 a{
-    text-decoration: underline;
-    color: chartreuse;
+    text-decoration: none;
+    color: white;
 }
 a:hover{
     transform: scale(1.05);
-    color: violet;
+    color: chartreuse;
 }
 #more-button{
     /* position: relative;
