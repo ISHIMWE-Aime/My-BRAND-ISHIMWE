@@ -519,7 +519,7 @@ input{
 #form{
     display: flex;
     flex-direction: column;
-    height: 80%;
+    height: auto;
     width: 80%;
     margin-left: 10%;
     margin-top: 10%;
