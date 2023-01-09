@@ -201,6 +201,10 @@
                     passwordErrorEl.innerHTML = resMessage.password
                 }
 
+                if(resMessage.statusCode === 400){
+                    emailErrorEl.innerHTML = resMessage.message
+                }
+
                 if(resMessage.statusCode === 200){
                     location.href = 'userLogin.html'
                     //location.assign('/index.html')
