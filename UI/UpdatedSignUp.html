@@ -96,6 +96,7 @@
         const selectedCode = document.getElementsByClassName("iti__selected-dial-code")[0].innerHTML
         const confirmInput = document.getElementById("passwordinputConfirm");
         const userpass = document.getElementById("passwordinput");
+        const subButton = document.querySelector('#more-button')
 
         const firstNameErrorEl = document.querySelector('#firstNameErrorMessage')
         const middleNameErrorEl = document.querySelector('#middleNameErrorMessage')
@@ -187,7 +188,20 @@
                 }
 
                 if(resMessage.statusCode === 200){
-                    location.assign('/')
+                    console.log('button changed');
+                    subButton.innerHTML = `
+                    <div id="more-button" onclick="location.href = 'userLogin.html';">
+                        <div id="more">
+                            <p id="more-text">
+                                <button>Sign Up</button>
+                            </p>
+                            <div id="dashedcycle">
+                                <div id="whiteCycle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    `
+                    //location.assign('/index.html')
                 }
             } catch (error) {
                 console.log(error);
