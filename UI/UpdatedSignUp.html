@@ -132,7 +132,8 @@
 
                 const resMessage = await res.json()
                 console.log(resMessage)
-
+                console.log(!resMessage.statusCode)
+                
                 if(!resMessage.statusCode){
                     console.log(resMessage.password)
                     passwordErrorEl.innerHTML = resMessage.password
