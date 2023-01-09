@@ -100,7 +100,7 @@
             const email = form.email.value
             const password = form.password.value
 
-            const user = { email, password}
+            const user = { email, password }
 
             try {
                 const res = await fetch('https://important-red-beanie.cyclic.app/login', {
@@ -114,6 +114,15 @@
 
                 if(resMessage){
                     loading.innerHTML = '';
+                }
+                
+                if(resMessage.statusCode === 400){
+                    emailErrorEl.innerHTML = resMessage.message
+                }
+
+                if(resMessage.statusCode === 200){
+                    location.href = 'userLogin.html'
+                    //location.assign('/index.html')
                 }
             } catch (error) {
                 console.log(error)
