@@ -30,6 +30,7 @@ form.addEventListener('submit', async (e) => {
     try {
         const res = await fetch('https://important-red-beanie.cyclic.app/login', {
             method: 'POST',
+            credentials:'include',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' },
         })
