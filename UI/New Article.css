@@ -27,6 +27,13 @@ button{
     background: transparent;
     border: none;
 }
+
+.ErrorMessages{
+    color: rgb(199, 220, 7);
+    font-size: small;
+    font-weight: 300;
+}
+
 .container{
     display: flex;
     flex-direction: row;
