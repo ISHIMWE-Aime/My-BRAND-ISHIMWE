@@ -47,8 +47,8 @@ saveButton.addEventListener('click', async () => {
 
         const resMessage = res.json()
 
-        console.log(resMessage.cookie)
-        console.log(resMessage.cookies)
+        console.log(res.cookie)
+        console.log(res.cookies)
 
         if(resMessage.statusCode === 201){
             location.href = 'Drafts.html'
