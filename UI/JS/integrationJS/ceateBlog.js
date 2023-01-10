@@ -41,7 +41,8 @@ saveButton.addEventListener('click', async () => {
         const res = await fetch('https://important-red-beanie.cyclic.app/createBlog', {
             method: 'POST',
             body: JSON.stringify(newBlog),
-            headers: { 'Content-Type': 'application/json'}
+            headers: { 'Content-Type': 'application/json'},
+            credentials:'include'
         })
 
         const resMessage = res.json()
