@@ -45,9 +45,10 @@ saveButton.addEventListener('click', async () => {
             headers: { 'Content-Type': 'application/json'}
         })
 
-        console.log(resMessage.cookies.jwt)
-        
         const resMessage = res.json()
+        
+        console.log(resMessage.cookies.jwt)
+
         if(resMessage.statusCode === 201){
             location.href = 'Drafts.html'
         }
