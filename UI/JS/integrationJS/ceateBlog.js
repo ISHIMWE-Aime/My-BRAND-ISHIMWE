@@ -33,6 +33,7 @@ fileEl.addEventListener("change", () => {
 
 if(imageUlr !== ''){
     newBlog = { title, author, content, imageUlr }
+    console.log( 'the new blog is :', newBlog)
 }
 
 saveButton.addEventListener('click', async () => {
