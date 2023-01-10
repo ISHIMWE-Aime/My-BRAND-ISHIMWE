@@ -53,6 +53,11 @@ saveButton.addEventListener('click', async () => {
         if(resMessage.statusCode === 400){
             blogCreationErrorMessageEl.innerHTML = resMessage.error
         }
+
+        if(resMessage.statusCode === 406){
+            blogCreationErrorMessageEl.innerHTML = resMessage.message
+            location.href = 'AdminLogin.html'
+        }
     } catch (error) {
         console.log(error)
     }
