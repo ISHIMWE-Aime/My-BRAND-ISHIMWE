@@ -38,7 +38,7 @@ if(imageUlr !== ''){
 
 saveButton.addEventListener('click', async () => {
     try {
-        const res = await fetch('https://important-red-beanie.cyclic.app/createBlog', {
+        const res = await fetch('https://backendapplication.up.railway.app/createBlog', {
             method: 'POST',
             credentials:'include',
             body: JSON.stringify(newBlog),

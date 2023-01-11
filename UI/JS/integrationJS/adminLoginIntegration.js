@@ -30,7 +30,7 @@ form.addEventListener('submit', async (e) => {
     try {
         const res = await fetch('https://backendapplication.up.railway.app/adminLogin', {
             method: 'POST',
-            credentials:'include',
+            //credentials:'include',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' },
         })
