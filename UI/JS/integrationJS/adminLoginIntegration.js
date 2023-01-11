@@ -36,6 +36,7 @@ form.addEventListener('submit', async (e) => {
         })
 
         const resMessage = await res.json()
+        console.log(res)
         console.log(resMessage)
 
         if(resMessage){
