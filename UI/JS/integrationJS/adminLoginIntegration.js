@@ -53,10 +53,10 @@ form.addEventListener('submit', async (e) => {
             }
         }
 
-        // if(resMessage.statusCode === 200){
-        //     location.href = 'Dashboard.html'
-        //     //location.assign('/index.html')
-        // }
+        if(resMessage.statusCode === 200){
+            location.href = 'Dashboard.html'
+            //location.assign('/index.html')
+        }
     } catch (error) {
         console.log(error)
     }
