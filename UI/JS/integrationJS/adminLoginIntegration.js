@@ -35,6 +35,7 @@ form.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' },
         })
 
+        console.log(res)
         const resMessage = await res.json()
         console.log(res)
         console.log(resMessage)
@@ -52,10 +53,10 @@ form.addEventListener('submit', async (e) => {
             }
         }
 
-        if(resMessage.statusCode === 200){
-            location.href = 'Dashboard.html'
-            //location.assign('/index.html')
-        }
+        // if(resMessage.statusCode === 200){
+        //     location.href = 'Dashboard.html'
+        //     //location.assign('/index.html')
+        // }
     } catch (error) {
         console.log(error)
     }
