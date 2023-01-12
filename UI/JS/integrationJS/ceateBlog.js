@@ -9,9 +9,6 @@ const blogCreationErrorMessageEl = document.querySelector('#blogCreationErrorDis
 
 const fileEl = document.getElementById("backgorundImage");
 
-const title = newBlogTittleInput.value
-const author = newBlogAuthor.value
-const content = textAreaInput.value
 let imageUlr = ''
 let newBlog = {}
 
@@ -38,15 +35,22 @@ fileEl.addEventListener("change", () => {
     })
 })
 
-if(imageUlr !== ''){
-    newBlog = { title, author, content, imageUlr }
-    console.log( 'the new blog is :', newBlog)
-}
 
 saveButton.addEventListener('click', async () => {
     console.log(localStorage.getItem('authorization'));
+    console.log(newBlog)
+    
+    const title = newBlogTittleInput.value
+    const author = newBlogAuthor.value
+    const content = textAreaInput.value
+
+    if(imageUlr !== ''){
+        newBlog = { title, author, content, imageUlr }
+        console.log( 'the new blog is :', newBlog)
+    }
+    
     try {
-        const res = await fetch('https://important-red-beanie.cyclic.app/createBlog', {
+        const res = await fetch('http://localhost:5000/createBlog', {
             method: 'POST',
             body: JSON.stringify(newBlog),
             headers: { 
@@ -55,9 +59,9 @@ saveButton.addEventListener('click', async () => {
             }
         })
 
-        const resMessage  = await res.json()
+        const resMessage  = res
 
-        console.log(resMessage.error)
+        console.log(resMessage)
         if(resMessage){
             loading.innerHTML = '';
         }
