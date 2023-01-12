@@ -35,7 +35,7 @@ form.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' },
         })
 
-        console.log(res)
+        console.log(res.jwt)
         const resMessage = await res.json()
         console.log(res)
         console.log(resMessage)
