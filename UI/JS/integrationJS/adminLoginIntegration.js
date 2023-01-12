@@ -7,6 +7,8 @@ const loading = document.querySelector('.loading')
 const emailErrorEl = document.querySelector('#emailErrorMessage')
 const passwordErrorEl = document.querySelector('#passErrorMessage')
 
+let resMessage;
+
 subButton.addEventListener('click', () => {
     loading.innerHTML= `
     <p style='background-color: white; width: 100px; height: auto; color: black; position: fixed'>Loading...<p>
@@ -35,10 +37,10 @@ form.addEventListener('submit', async (e) => {
             headers: { 'Content-Type': 'application/json' },
         })
 
-        console.log(res.jwt)
-        var resMessage = await res.json()
-        console.log(res)
+        // console.log(res.jwt)
+        resMessage = await res.json()
         console.log(resMessage)
+        //console.log(res)
 
         if(resMessage){
             loading.innerHTML = '';
