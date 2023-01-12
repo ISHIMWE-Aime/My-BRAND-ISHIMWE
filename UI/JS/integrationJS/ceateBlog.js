@@ -3,6 +3,7 @@ const saveButton = document.getElementById("save");
 const newBlogTittleInput = document.getElementById("blog_tittle");
 const newTittleSlot = document.getElementById("newTittle");
 const newBlogAuthor = document.getElementById("blog_author");
+const { jwt } = require('./adminLoginIntegration')
 
 const blogCreationErrorMessageEl = document.querySelector('#blogCreationErrorDisplay')
 
@@ -32,7 +33,7 @@ fileEl.addEventListener("change", () => {
 })
 
 if(imageUlr !== ''){
-    newBlog = { title, author, content, imageUlr }
+    newBlog = { title, author, content, imageUlr, jwt }
     console.log( 'the new blog is :', newBlog)
 }
 
