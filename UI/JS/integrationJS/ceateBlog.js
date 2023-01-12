@@ -3,6 +3,7 @@ const saveButton = document.getElementById("save");
 const newBlogTittleInput = document.getElementById("blog_tittle");
 const newTittleSlot = document.getElementById("newTittle");
 const newBlogAuthor = document.getElementById("blog_author");
+const loading = document.querySelector('.loading')
 
 const blogCreationErrorMessageEl = document.querySelector('#blogCreationErrorDisplay')
 
@@ -14,6 +15,12 @@ const content = textAreaInput.value
 let imageUlr = ''
 let newBlog = {}
 
+saveButton.addEventListener('click', () => {
+    loading.innerHTML= `
+    <p style='background-color: white; width: 100px; height: auto; color: black; position: fixed'>Loading...<p>
+    `
+})
+
 fileEl.addEventListener("change", () => {
     blogData = {};
     const fr = new FileReader();
@@ -23,6 +30,7 @@ fileEl.addEventListener("change", () => {
         const url = fr.result;
         console.log(url)
 
+        urlArray.push(url);
         if(url !== ""){
             // localStorage.setItem("imageUlr", JSON.stringify(urlArray));
             imageUlr = url
@@ -31,7 +39,7 @@ fileEl.addEventListener("change", () => {
 })
 
 if(imageUlr !== ''){
-    newBlog = { title, author, content, imageUlr, jwt }
+    newBlog = { title, author, content, imageUlr }
     console.log( 'the new blog is :', newBlog)
 }
 
@@ -45,6 +53,10 @@ saveButton.addEventListener('click', async () => {
         })
 
         const resMessage = res.json()
+
+        if(resMessage){
+            loading.innerHTML = '';
+        }
 
         console.log(res.cookie)
         console.log(res.cookies)
