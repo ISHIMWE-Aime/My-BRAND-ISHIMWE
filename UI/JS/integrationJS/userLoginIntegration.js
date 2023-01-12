@@ -31,6 +31,8 @@ form.addEventListener('submit', async (e) => {
         const res = await fetch('https://backendapplication.up.railway.app/login', {
             method: 'POST',
             credentials:'include',
+            crossDomain: true,
+            xhrFields: { withCredentials: true },
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' },
         })
