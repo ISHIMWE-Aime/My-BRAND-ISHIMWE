@@ -28,15 +28,16 @@ form.addEventListener('submit', async (e) => {
     const user = { email, password }
 
     try {
-        const res = await fetch('https://backendapplication.up.railway.app/login', {
+        const res = await fetch('https://important-red-beanie.cyclic.app/login', {
             method: 'POST',
-            credentials:'include',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' },
         })
 
         const resMessage = await res.json()
         console.log(resMessage)
+
+        localStorage.setItem('authorization', JSON.stringify(resMessage.jwt))
 
         if(resMessage){
             loading.innerHTML = '';

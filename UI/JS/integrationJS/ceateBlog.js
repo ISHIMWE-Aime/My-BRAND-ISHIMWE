@@ -44,22 +44,26 @@ if(imageUlr !== ''){
 }
 
 saveButton.addEventListener('click', async () => {
+    console.log(localStorage.getItem('authorization'));
     try {
-        const res = await fetch('https://backendapplication.up.railway.app/createBlog', {
+        const res = await fetch('https://important-red-beanie.cyclic.app/createBlog', {
             method: 'POST',
-            credentials:'include',
             body: JSON.stringify(newBlog),
-            headers: { 'Content-Type': 'application/json'}
+            headers: { 
+                'Content-Type': 'application/json',
+                'authorization': JSON.parse(localStorage.getItem('authorization'))
+            }
         })
 
-        const resMessage = res.json()
+        const resMessage  = await res.json()
 
+        console.log(resMessage.error)
         if(resMessage){
             loading.innerHTML = '';
         }
 
-        console.log(res.cookie)
-        console.log(res.cookies)
+        // console.log(res.cookie)
+        // console.log(res.cookies)
 
         if(resMessage.statusCode === 201){
             location.href = 'Drafts.html'
