@@ -37,7 +37,7 @@ form.addEventListener('submit', async (e) => {
 
         console.log(res.jwt)
         const resMessage = await res.json()
-        module.exports.jwt = res.jwt
+        var jwt = res.jwt
         console.log(res)
         console.log(resMessage)
 
