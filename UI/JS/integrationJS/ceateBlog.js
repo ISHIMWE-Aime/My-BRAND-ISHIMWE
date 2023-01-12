@@ -23,7 +23,6 @@ fileEl.addEventListener("change", () => {
         const url = fr.result;
         console.log(url)
 
-        urlArray.push(url);
         if(url !== ""){
             // localStorage.setItem("imageUlr", JSON.stringify(urlArray));
             imageUlr = url
