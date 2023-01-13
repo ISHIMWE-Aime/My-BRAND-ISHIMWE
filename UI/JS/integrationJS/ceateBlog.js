@@ -35,6 +35,16 @@ fileEl.addEventListener("change", () => {
     })
 })
 
+// reset error message
+newBlogTittleInput.addEventListener('input', ()=>{
+    blogCreationErrorMessageEl.remove()
+})
+newBlogAuthor.addEventListener('input', ()=>{
+    blogCreationErrorMessageEl.remove()
+})
+textAreaInput.addEventListener('input', ()=>{
+    blogCreationErrorMessageEl.remove()
+})
 
 saveButton.addEventListener('click', async () => {
     console.log(localStorage.getItem('authorization'));
@@ -44,10 +54,9 @@ saveButton.addEventListener('click', async () => {
     const author = newBlogAuthor.value
     const content = textAreaInput.value
 
-    if(imageUlr !== ''){
-        newBlog = { title, author, content, imageUlr }
-        console.log( 'the new blog is :', newBlog)
-    }
+    //console.log({ title, author, content, imageUlr })
+    newBlog = { title, author, content, imageUlr }
+    console.log( 'the new blog is :', newBlog)
     
     try {
         const res = await fetch('http://localhost:5000/createBlog', {
@@ -59,7 +68,7 @@ saveButton.addEventListener('click', async () => {
             }
         })
 
-        const resMessage  = res
+        const resMessage  = await res.json()
 
         console.log(resMessage)
         if(resMessage){
@@ -74,7 +83,30 @@ saveButton.addEventListener('click', async () => {
         }
 
         if(resMessage.statusCode === 400){
-            blogCreationErrorMessageEl.innerHTML = resMessage.error
+            var style = document.createElement('style');
+            style.innerHTML = `
+            #blogCreationErrorDisplay {
+                    background-color: rgba(255, 0, 0, 0.602);;
+                    border-radius: 10px;
+                    padding: 20px;
+                    width: 25%;
+                    border: 2px solid;
+                }
+            `
+            document.head.appendChild(style);
+
+            if(resMessage.message[0].author !== undefined ){
+                blogCreationErrorMessageEl.innerHTML = resMessage.message[0].author
+            }
+            if(resMessage.message[0].title !== undefined){
+                blogCreationErrorMessageEl.innerHTML += `<br> ${resMessage.message[0].title}`
+            }
+            if(resMessage.message[0].content !== undefined){
+                blogCreationErrorMessageEl.innerHTML += `<br> ${resMessage.message[0].content}`
+            }
+            if(resMessage.message[0].imageUlr !== undefined){
+                blogCreationErrorMessageEl.innerHTML += `<br> ${resMessage.message[0].imageUlr}`
+            }
         }
 
         if(resMessage.statusCode === 406){
