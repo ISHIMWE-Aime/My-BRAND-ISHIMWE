@@ -117,3 +117,23 @@ saveButton.addEventListener('click', async () => {
         console.log(error)
     }
 })
+
+//for each reload
+if(JSON.parse(localStorage.getItem("linkDataForEdit")) !== null){
+    let articleToEditTittle = JSON.parse(localStorage.getItem("linkDataForEdit"));
+    if(articleToEditTittle[0] === true){
+        dataBase = JSON.parse(localStorage.getItem("blogData"));
+        newBlogTittleInput.value = articleToEditTittle[1];
+        for(let i = 0; i < dataBase.length; i++){
+            for(const property in dataBase[i]){
+                if(dataBase[i][property] === articleToEditTittle[1]){
+                    console.log(dataBase[i][property]);
+                    textAreaInput.value = dataBase[i]["content"];
+                    newBlogAuthor.value = dataBase[i]["author"];
+                }
+            }
+        } 
+        //articleToEditTittle[0] = false;
+        localStorage.setItem("linkDataForEdit", JSON.stringify(articleToEditTittle));
+    }
+}
