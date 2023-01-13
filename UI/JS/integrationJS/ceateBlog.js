@@ -59,7 +59,7 @@ saveButton.addEventListener('click', async () => {
     console.log( 'the new blog is :', newBlog)
     
     try {
-        const res = await fetch('http://localhost:5000/createBlog', {
+        const res = await fetch('https://important-red-beanie.cyclic.app/createBlog', {
             method: 'POST',
             body: JSON.stringify(newBlog),
             headers: { 
