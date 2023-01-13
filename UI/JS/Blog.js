@@ -75,8 +75,7 @@ function publishedIDs(){
         }
     }else{
         alert("I am sorry; there is no blogs published yet!");
-        
-    }
+        location.href = 'index.html'    }
     return IDs;
 }
 
