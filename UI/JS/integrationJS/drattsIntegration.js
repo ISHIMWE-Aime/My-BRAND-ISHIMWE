@@ -1,6 +1,13 @@
 const marginLeftContainer = document.getElementById("margin-left");
+const loading = document.querySelector('.loading')
 // let blogDataFromDB.data =JSON.parse(localStorage.getItem("blogData"));
 // console.log(blogDataFromDB.data);
+
+window.onload = () => {
+    loading.innerHTML= `
+    <p style='background-color: white; width: 100px; height: auto; color: black; position: fixed'>Loading...<p>
+    `
+}
 
 let blogDataFromDB
 
@@ -15,6 +22,10 @@ let blogDataFromDB
     blogDataFromDB = await blogDataFromDB.json()
     console.log(blogDataFromDB.data)
     
+    if(blogDataFromDB.data){
+        loading.innerHTML = '';
+    }
+
     // Display draft blogs in my DB
     
     for(i = 0; i < blogDataFromDB.data.length; i++){
