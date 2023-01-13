@@ -124,12 +124,13 @@ if(JSON.parse(localStorage.getItem("linkDataForEdit")) !== null){
     if(articleToEditTittle[0] === true){
         dataBase = JSON.parse(localStorage.getItem("blogData"));
         newBlogTittleInput.value = articleToEditTittle[1];
-        for(let i = 0; i < dataBase.length; i++){
-            for(const property in dataBase[i]){
-                if(dataBase[i][property] === articleToEditTittle[1]){
-                    console.log(dataBase[i][property]);
-                    textAreaInput.value = dataBase[i]["content"];
-                    newBlogAuthor.value = dataBase[i]["author"];
+        console.log(dataBase.data.length)
+        for(let i = 0; i < dataBase.data.length; i++){
+            for(const property in dataBase.data[i]){
+                if(dataBase.data[i][property] === articleToEditTittle[1]){
+                    console.log(dataBase.data[i][property]);
+                    textAreaInput.value = dataBase.data[i]["content"];
+                    newBlogAuthor.value = dataBase.data[i]["author"];
                 }
             }
         } 
