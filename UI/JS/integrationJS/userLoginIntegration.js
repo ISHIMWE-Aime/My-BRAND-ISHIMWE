@@ -27,7 +27,7 @@ form.addEventListener('submit', async (e) => {
 
     const user = { email, password }
 
-    try {
+    try { //https://important-red-beanie.cyclic.app
         const res = await fetch('https://important-red-beanie.cyclic.app/login', {
             method: 'POST',
             body: JSON.stringify(user),
@@ -38,6 +38,8 @@ form.addEventListener('submit', async (e) => {
         console.log(resMessage)
 
         localStorage.setItem('authorization', JSON.stringify(resMessage.jwt))
+        localStorage.setItem('CurrentUser', JSON.stringify(resMessage.userId))
+
 
         if(resMessage){
             loading.innerHTML = '';

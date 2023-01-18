@@ -1,6 +1,6 @@
 let tittleTex = JSON.parse(localStorage.getItem("linkData"));//to capture clicked blog
 let previewDataFromLocal = JSON.parse(localStorage.getItem("PreviwedblogData"));
-let dataFromDataBase = JSON.parse(localStorage.getItem("PublishedblogData"));
+let dataFromDataBase 
 
 const blogViewTittle = document.getElementById("BlogViewTittle");
 console.log(tittleTex, blogViewTittle);
@@ -13,15 +13,74 @@ const post = document.getElementById("post");
 const listOfComents= document.getElementById("listOfComents");
 const timeSlot = document.getElementById("time");
 const numOfComents = document.getElementById("numOfComents");
+const likes = document.querySelector('#numberOfReactor2')
+const likeButton = document.querySelector('#likeButton')
 
-let logedInUserDataBase = JSON.parse(localStorage.getItem("CurrentUser"));
-let UserCredentials = JSON.parse(localStorage.getItem("UserCredentials"));
+let logedInUserDataBase = localStorage.getItem("CurrentUser")
+
+console.log('The loged in user is :',logedInUserDataBase)
+console.log('The current blog id is :', tittleTex[2])
+
+if(logedInUserDataBase !== "undefined" ){
+    logedInUserDataBase = JSON.parse(logedInUserDataBase);
+}
+//let UserCredentials = JSON.parse(localStorage.getItem("UserCredentials"));
 
 let commentData = [];
 let newComment = {};
-
 let time = new Date();
 
+(async() => {
+    let blogDataFromDB = await fetch('http://localhost:5000/publishedBlogs', {
+        method: 'GET',
+        headers: { 
+            'Content-Type': 'application/json',
+            'authorization': JSON.parse(localStorage.getItem('authorization'))
+        }
+    })
+
+    blogDataFromDB = await blogDataFromDB.json()
+
+    allLikes = await fetch('http://localhost:5000/allLikes', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': JSON.parse(localStorage.getItem('authorization'))
+        }
+    })
+    
+    allLikes = await allLikes.json()
+    console.log('allLikes are: ', allLikes.data);
+
+    allComents = await fetch('http://localhost:5000/allComents', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'authorization': JSON.parse(localStorage.getItem('authorization'))
+        }
+    })
+
+    allComents = await allComents.json()
+    console.log('allComents are: ', allComents);
+    
+    for(let i = 0; i < allLikes.data.length; i++){
+        // console.log('for loop is running');
+        for(let j = 0; j < blogDataFromDB.data.length; j++){
+            //console.log('for in loop is running!', blogDataFromDB.data[j]);
+            if(allLikes.data[i]['blogId'] === blogDataFromDB.data[j]['_id']){
+                blogDataFromDB.data[j].likersIds = allLikes.data[i].likersIds
+                console.log('Updated object is :',blogDataFromDB.data)
+
+                dataFromDataBase = blogDataFromDB.data
+                console.log(dataFromDataBase)
+            }
+        }
+    }
+
+    distribution(dataFromDataBase)
+})()
+
+// Coment display
 if( (JSON.parse(localStorage.getItem("comments"))) !== null){
 
     commentData = JSON.parse(localStorage.getItem("comments"));
@@ -53,47 +112,137 @@ if( (JSON.parse(localStorage.getItem("comments"))) !== null){
 
 console.log(paragraphSlot);
 
+// Data distribution
+function distribution(dataFromDataBase){
+    console.log('Received data is distribution : ', dataFromDataBase)
 
-if((JSON.parse(localStorage.getItem("linkData")) !== null) && (tittleTex[0] === true)){
-    if(tittleTex[0] == true){    
-        blogViewTittle.innerHTML = tittleTex[1];
-        for(let i = 0; i < dataFromDataBase.length; i++){
-            for(const property in dataFromDataBase[i]){
-                if(dataFromDataBase[i][property] === tittleTex[1]){
-                    if(dataFromDataBase[i]["blogId"] === tittleTex[2]){//to filter the comment for each blog
-                        console.log(dataFromDataBase[i][property]);
-                        blogImage.innerHTML = `
-                        <img src=${dataFromDataBase[i]["backgroundImage"]} alt="" id="blogImage">
-                        `
-                        paragraphSlot.innerHTML  = dataFromDataBase[i]["blog"];
+    if((JSON.parse(localStorage.getItem("linkData")) !== null) && (tittleTex[0] === true)){
+        if(tittleTex[0] == true){    
+            blogViewTittle.innerHTML = tittleTex[1];
+            for(let i = 0; i < dataFromDataBase.length; i++){
+                for(const property in dataFromDataBase[i]){
+                    if(dataFromDataBase[i][property] === tittleTex[1]){
+                        if(dataFromDataBase[i]["_id"] === tittleTex[2]){//to filter the likes for each blog
+                            console.log(dataFromDataBase[i][property]);
+                            blogImage.innerHTML = `
+                            <img src=${dataFromDataBase[i]["imageUlr"]} alt="" id="blogImage">
+                            `
+                            paragraphSlot.innerHTML  = dataFromDataBase[i]["content"];
+                            if(dataFromDataBase[i]["likersIds"]){
+                                likes.innerHTML = dataFromDataBase[i]["likersIds"].length
+                            }else{
+                                likes.innerHTML = 0
+                            }
+                        }
                     }
                 }
             }
         }
+    } else{
+        blogViewTittle.innerHTML = previewDataFromLocal[1]["title"];
+        paragraphSlot.innerHTML  = previewDataFromLocal[1]["content"];
+        blogImage.innerHTML = `
+            <img src=${previewDataFromLocal[1]["imageUlr"]} alt="" id="blogImage">
+        `
     }
-} else{
-    blogViewTittle.innerHTML = previewDataFromLocal[1]["Tittle"];
-    paragraphSlot.innerHTML  = previewDataFromLocal[1]["blog"];
-    blogImage.innerHTML = `
-        <img src=${previewDataFromLocal[1]["backgroundImage"]} alt="" id="blogImage">
-    `
+
+    // Recommended display
+    const recommended = document.getElementById("listOfRecommended");
+    if(dataFromDataBase !== null)
+        for(let i = 0; i < dataFromDataBase.length; i++){
+            recommended.innerHTML += `
+            <div class="recArticles">
+            <div class="recArticleImageSlot">
+                <img src=${dataFromDataBase[i]["imageUlr"]} alt="recommended_Article_Image" class="recArticleImage">
+            </div>
+            <div id="recArticleTittle">
+                <h2>${dataFromDataBase[i]["title"]}</h2>
+            </div>
+            </div>
+        `
+        }
 }
 
-const recommended = document.getElementById("listOfRecommended");
-if(dataFromDataBase !== null)
-    for(let i = 0; i < dataFromDataBase.length; i++){
-        recommended.innerHTML += `
-        <div class="recArticles">
-        <div class="recArticleImageSlot">
-            <img src=${dataFromDataBase[i]["backgroundImage"]} alt="recommended_Article_Image" class="recArticleImage">
-        </div>
-        <div id="recArticleTittle">
-            <h2>${dataFromDataBase[i]["Tittle"]}</h2>
-        </div>
-        </div>
-    `
+// Add like
+
+likeButton.addEventListener('click', async () => {
+    console.log('clicked');
+    try {
+        const res = await fetch('http://localhost:5000/like', {
+            method: 'POST',
+            body: JSON.stringify({ 'likerId': logedInUserDataBase, 'blogId': tittleTex[2] }),
+            headers: { 
+                'Content-Type': 'application/json',
+                'authorization': JSON.parse(localStorage.getItem('authorization'))
+            }
+        }) 
+
+        const resMessage  = await res.json()
+        console.log(resMessage)
+
+        let allLikes = await fetch('http://localhost:5000/allLikes', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'authorization': JSON.parse(localStorage.getItem('authorization'))
+            }
+        })
+
+        allLikes = await allLikes.json()
+        console.log('allLikes are: ', allLikes);
+        
+        likesUpdate(allLikes)
+    } catch (error) {
+        console.log(error)
+    }
+})
+
+const likesUpdate = (allLikes) => {
+
+    if(allLikes.data.length !== 0){
+        for(let i = 0; i < allLikes.data.length; i++){
+            if(allLikes.data[i]['blogId'] === tittleTex[2]){
+                // blogDataFromDB.data[j].likersIds = allLikes.data[i].likersIds
+                // console.log('Updated object is :',blogDataFromDB.data)
+                console.log('likers are :' ,allLikes.data[i]['likersIds'].length)
+    
+                likes.innerHTML = allLikes.data[i]["likersIds"].length
+            }else{
+                likes.innerHTML = 0
+            }
+        }
+
+        if(tittleTex[0] == true){    
+            for(let i = 0; i < dataFromDataBase.length; i++){
+                if(dataFromDataBase[i]["_id"] === tittleTex[2]){//to filter the likes for each blog
+                    //console.log('likers in localStorage are: ', dataFromDataBase[i]["likersIds"])
+                    //console.log('updated likes are: ', allLikes.data[i]["likersIds"])
+                    for(let j = 0; j < allLikes.data.length; j ++){
+                        if(allLikes.data[j]['blogId'] === tittleTex[2]){
+                            dataFromDataBase[i]["likersIds"] = allLikes.data[j]["likersIds"]
+                            localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))// for displaying updated likes.
+                        }
+                        else{
+                            console.log('else is run')
+                            dataFromDataBase[i]["likersIds"] = []
+                            // localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))
+                        }
+                    }
+                }
+            }
+        }
+
+    } else {
+        likes.innerHTML = 0
+        for(let i = 0; i < dataFromDataBase.length; i++){// resetting all likes to zero in localStorage
+            dataFromDataBase[i]['likersIds'] = []
+            localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))
+        }
     }
 
+}
+
+// To post a comment
 post.addEventListener("click", function(){
     //remember to ret newComment to empty objet for it click
     newComment = {};

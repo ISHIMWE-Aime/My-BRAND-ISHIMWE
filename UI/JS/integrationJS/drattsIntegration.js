@@ -118,14 +118,14 @@ function getid(obj){
     console.log("the author name is :",AuthorName);
 
     link.addEventListener("click", function(){
-        for(let i = 0; i < blogDataFromDB.data.length; i++){
-            for(const property in blogDataFromDB.data[i]){
-                if(blogDataFromDB.data[i][property] === linkTittle){
-                    console.log(blogDataFromDB.data[i][property]); 
-                    //paragraphSlot.innerHTML  = dataFromDataBase[i]["blog"];
-                }
-            }
-        }
+        // for(let i = 0; i < blogDataFromDB.data.length; i++){
+        //     for(const property in blogDataFromDB.data[i]){
+        //         if(blogDataFromDB.data[i][property] === linkTittle){
+        //             console.log(blogDataFromDB.data[i][property]); 
+        //             //paragraphSlot.innerHTML  = dataFromDataBase[i]["blog"];
+        //         }
+        //     }
+        // }
     flag = true;
     // //     previewedRAMdata.splice(0, 1);
     //      linkRAM.unshift(flag);
@@ -134,7 +134,7 @@ function getid(obj){
     linkRAM.push(AuthorName);
     // //    localStorage.setItem("PreviwedblogData", JSON.stringify(previewedRAMdata));
     localStorage.setItem("linkDataForEdit", JSON.stringify(linkRAM));
-    localStorage.setItem("blogData", JSON.stringify(blogDataFromDB))
+    //localStorage.setItem("blogData", JSON.stringify(blogDataFromDB))
     })
 }
 // const blogTittle = document.getElementById("blogTittlefordraft");

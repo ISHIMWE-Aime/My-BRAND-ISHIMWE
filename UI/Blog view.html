@@ -12,6 +12,20 @@
             background-color: white;
             background-color: #141335;
         }
+        .signAndP{
+            display: flex;
+            flex-direction: row;
+            padding-right: 10px;
+        }
+        .userReactions{
+            color: white;
+            border-radius: 10px;
+            background-color: rgb(93, 82, 82);
+            border: 3px solid rgb(58, 48, 48);
+            padding: 10px;
+            margin-right: 20px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
@@ -23,46 +37,73 @@
             <div class="paddind-left">
                 <div id="blogParagraph">
                     <h2 id="BlogViewTittle"></h2>
-                    <p id="paragraph">
-                    </p>
+                    <p id="paragraph"></p>
                 </div>
-    
-                <div id="coments">
-                    <div id="commentTittle">
-                        <h4 id="tittle">
-                            Coments
-                        </h4>
-                        <p id="numOfComents">
-                            
-                        </p>
-                    </div>
-                    <div id="listOfComents">
-                        <!-- <div id="commentorAndComment">
-                            <div id="commentorImageSlot">
-                                <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
-                            </div>
-                            <div id="commetorNameTimeAndParagraph">
-                                <div id="commentorNameAndTime">
-                                    <h5 id="commentorName">Lorem ipsum dolor</h5>
-                                    <p id="time">- 20:12</p>
-                                </div>
-                                <p id="comentParagraph">
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                </p>
-                            </div>
-                        </div> -->
-                    </div>
-                    <div id="comentAndPost">
-                        <div id="newComment">
-                            <div class="newCommentorImageSlot">
-                                <img src="images/commentor pict.jpg" alt="" class="newCommentorImage">
-                            </div>
-                            <div id="editSymbolSlot">
-                                <img src="images/icons/VectoreditComment.png" alt="editSymbolImage" id="editSymbolImage" style="background-color: white;">
-                            </div>
-                            <input type="text" id="contentOfNewComent" placeholder="Whta are your thoughts on this article?">
+                <div class="userReactions">
+                    <div class="reactionSet">
+                        <div class="signAndP" id="share">
+                            <button type="button" class="reactionsSlots">
+                                <img src="images/icons/Vectorshare.png" alt="" class="reactionIcons">
+                            </button>
+                            <p id="numberOfReactor1" class="numberOfReactors"></p>
                         </div>
-                        <button id="post" type="button">Post</button>
+                        <div class="signAndP" id="like">
+                            <button type="button" id="likeButton" class="reactionsSlots">
+                                <img src="images/icons/Vector 6like.png" alt="" class="reactionIcons">
+                            </button>
+                            <p id="numberOfReactor2" class="numberOfReactors"></p>
+                        </div>
+                        <!-- <div class="signAndP" id="comment" onclick="location.href = 'Blog view.html';">
+                            <button type="button" class="reactionsSlots">
+                                <img src="images/icons/Vectorcoments.png" alt="" class="reactionIcons">
+                            </button>
+                            <p class="numberOfReactors">34</p>
+                        </div> -->
+                        <div class="signAndP" id="views">
+                            <button type="button" class="reactionsSlots">
+                                <img src="images/icons/Remove red eyeeye.png" alt="" class="reactionIcons">
+                            </button>
+                            <p id="numberOfReactor4" class="numberOfReactors"></p>
+                        </div>
+                    </div>
+    
+                    <div id="coments">
+                        <div id="commentTittle">
+                            <h4 id="tittle">
+                                Coments
+                            </h4>
+                            <p id="numOfComents">
+                                
+                            </p>
+                        </div>
+                        <div id="listOfComents">
+                            <!-- <div id="commentorAndComment">
+                                <div id="commentorImageSlot">
+                                    <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
+                                </div>
+                                <div id="commetorNameTimeAndParagraph">
+                                    <div id="commentorNameAndTime">
+                                        <h5 id="commentorName">Lorem ipsum dolor</h5>
+                                        <p id="time">- 20:12</p>
+                                    </div>
+                                    <p id="comentParagraph">
+                                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    </p>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div id="comentAndPost">
+                            <div id="newComment">
+                                <div class="newCommentorImageSlot">
+                                    <img src="images/commentor pict.jpg" alt="" class="newCommentorImage">
+                                </div>
+                                <div id="editSymbolSlot">
+                                    <img src="images/icons/VectoreditComment.png" alt="editSymbolImage" id="editSymbolImage" style="background-color: white;">
+                                </div>
+                                <input type="text" id="contentOfNewComent" placeholder="Whta are your thoughts on this article?">
+                            </div>
+                            <button id="post" type="button" style="color: white;">Post</button>
+                        </div>
                     </div>
                 </div>
             </div>

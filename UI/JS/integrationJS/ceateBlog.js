@@ -119,22 +119,39 @@ saveButton.addEventListener('click', async () => {
 })
 
 //for each reload
-if(JSON.parse(localStorage.getItem("linkDataForEdit")) !== null){
-    let articleToEditTittle = JSON.parse(localStorage.getItem("linkDataForEdit"));
-    if(articleToEditTittle[0] === true){
-        dataBase = JSON.parse(localStorage.getItem("blogData"));
-        newBlogTittleInput.value = articleToEditTittle[1];
-        console.log(dataBase.data.length)
-        for(let i = 0; i < dataBase.data.length; i++){
-            for(const property in dataBase.data[i]){
-                if(dataBase.data[i][property] === articleToEditTittle[1]){
-                    console.log(dataBase.data[i][property]);
-                    textAreaInput.value = dataBase.data[i]["content"];
-                    newBlogAuthor.value = dataBase.data[i]["author"];
+forEachReload()
+async function forEachReload(){
+    blogDataFromDB = await fetch('https://important-red-beanie.cyclic.app/allBlogs', {
+        method: 'GET',
+        headers: { 
+            'Content-Type': 'application/json',
+            'authorization': JSON.parse(localStorage.getItem('authorization'))
+        }
+    })
+    blogDataFromDB = await blogDataFromDB.json()
+    console.log(blogDataFromDB.data)
+
+    forEdit(blogDataFromDB)
+}
+
+let forEdit = (dataBase) =>{
+    if(JSON.parse(localStorage.getItem("linkDataForEdit")) !== null){
+        let articleToEditTittle = JSON.parse(localStorage.getItem("linkDataForEdit"));
+        if(articleToEditTittle[0] === true){
+            // dataBase = JSON.parse(localStorage.getItem("blogData"));
+            newBlogTittleInput.value = articleToEditTittle[1];
+            console.log(dataBase.data.length)
+            for(let i = 0; i < dataBase.data.length; i++){
+                for(const property in dataBase.data[i]){
+                    if(dataBase.data[i][property] === articleToEditTittle[1]){
+                        console.log(dataBase.data[i][property]);
+                        textAreaInput.value = dataBase.data[i]["content"];
+                        newBlogAuthor.value = dataBase.data[i]["author"];
+                    }
                 }
-            }
-        } 
-        //articleToEditTittle[0] = false;
-        localStorage.setItem("linkDataForEdit", JSON.stringify(articleToEditTittle));
+            } 
+            articleToEditTittle[0] = false; // for interlocking editor access
+            localStorage.setItem("linkDataForEdit", JSON.stringify(articleToEditTittle));
+        }
     }
 }

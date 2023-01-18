@@ -38,6 +38,7 @@ form.addEventListener('submit', async (e) => {
         console.log(resMessage.jwt)
 
         localStorage.setItem('authorization', JSON.stringify(resMessage.jwt))
+        localStorage.setItem('CurrentUser', JSON.stringify(resMessage.userId))
 
         if(resMessage){
             loading.innerHTML = '';
