@@ -75,6 +75,9 @@ let time = new Date();
                     dataFromDataBase = blogDataFromDB.data
                     console.log('dataFromDataBase',dataFromDataBase)
                 }
+                else{
+                    dataFromDataBase = blogDataFromDB.data
+                }
             }
         }
     }else{
