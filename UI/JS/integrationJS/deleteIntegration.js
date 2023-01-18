@@ -37,12 +37,15 @@ let blogDataFromDB2
     if(blogDataFromDB1.data || blogDataFromDB2.data){
         loading.innerHTML = '';
     }
+    if(blogDataFromDB2){
+        // Display published blogs in my DB
+        displayPublished(blogDataFromDB2)
+    }
 
-    // Display published blogs in my DB
-    displayPublished(blogDataFromDB2)
-
-    // Display draft blogs in my DB
-    displayDrafts(blogDataFromDB1)
+    if(blogDataFromDB1){
+        // Display draft blogs in my DB
+        displayDrafts(blogDataFromDB1)
+    }
 })()
 
 const displayDrafts = ( blogDataFromDB ) => {
