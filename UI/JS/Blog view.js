@@ -31,7 +31,7 @@ let newComment = {};
 let time = new Date();
 
 (async() => {
-    let blogDataFromDB = await fetch('http://localhost:5000/publishedBlogs', {
+    let blogDataFromDB = await fetch('https://important-red-beanie.cyclic.app/publishedBlogs', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ let time = new Date();
 
     blogDataFromDB = await blogDataFromDB.json()
 
-    allLikes = await fetch('http://localhost:5000/allLikes', {
+    allLikes = await fetch('https://important-red-beanie.cyclic.app/allLikes', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -50,9 +50,9 @@ let time = new Date();
     })
     
     allLikes = await allLikes.json()
-    console.log('allLikes are: ', allLikes.data);
+    //console.log('allLikes are: ', allLikes.data);
 
-    allComents = await fetch('http://localhost:5000/allComents', {
+    allComents = await fetch('https://important-red-beanie.cyclic.app/allComents', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -61,56 +61,28 @@ let time = new Date();
     })
 
     allComents = await allComents.json()
-    console.log('allComents are: ', allComents);
+    //console.log('allComents are: ', allComents);
     
-    for(let i = 0; i < allLikes.data.length; i++){
-        // console.log('for loop is running');
-        for(let j = 0; j < blogDataFromDB.data.length; j++){
-            //console.log('for in loop is running!', blogDataFromDB.data[j]);
-            if(allLikes.data[i]['blogId'] === blogDataFromDB.data[j]['_id']){
-                blogDataFromDB.data[j].likersIds = allLikes.data[i].likersIds
-                console.log('Updated object is :',blogDataFromDB.data)
-
-                dataFromDataBase = blogDataFromDB.data
-                console.log(dataFromDataBase)
+    if(allLikes.data[0] !== undefined){
+        for(let i = 0; i < allLikes.data.length; i++){
+            // console.log('for loop is running');
+            for(let j = 0; j < blogDataFromDB.data.length; j++){
+                //console.log('for in loop is running!', blogDataFromDB.data[j]);
+                if(allLikes.data[i]['blogId'] === blogDataFromDB.data[j]['_id']){
+                    blogDataFromDB.data[j].likersIds = allLikes.data[i].likersIds
+                    //console.log('Updated object is :',blogDataFromDB.data)
+    
+                    dataFromDataBase = blogDataFromDB.data
+                    console.log('dataFromDataBase',dataFromDataBase)
+                }
             }
         }
+    }else{
+        dataFromDataBase = blogDataFromDB.data
     }
 
     distribution(dataFromDataBase)
 })()
-
-// Coment display
-if( (JSON.parse(localStorage.getItem("comments"))) !== null){
-
-    commentData = JSON.parse(localStorage.getItem("comments"));
-    let numCount = 0;
-
-    for(let i = 0; i < commentData.length; i++){
-        if( commentData[i]["blogId"] === tittleTex[2]){
-            numCount += 1;
-            listOfComents.innerHTML += `
-            <div id="commentorAndComment">
-            <div id="commentorImageSlot">
-                <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
-            </div>
-            <div id="commetorNameTimeAndParagraph">
-                <div id="commentorNameAndTime">
-                    <h5 class="commentorName">Lorem ipsum dolor</h5>
-                    <p id="time">- ${commentData[i]["time"]}</p>
-                </div>
-                <p id="comentParagraph">
-                    ${commentData[i]["comment"]}
-                </p>
-            </div>
-            </div>
-            `
-        }
-    }
-    numOfComents.innerHTML = numCount;
-}
-
-console.log(paragraphSlot);
 
 // Data distribution
 function distribution(dataFromDataBase){
@@ -168,7 +140,7 @@ function distribution(dataFromDataBase){
 likeButton.addEventListener('click', async () => {
     console.log('clicked');
     try {
-        const res = await fetch('http://localhost:5000/like', {
+        const res = await fetch('https://important-red-beanie.cyclic.app/like', {
             method: 'POST',
             body: JSON.stringify({ 'likerId': logedInUserDataBase, 'blogId': tittleTex[2] }),
             headers: { 
@@ -178,13 +150,17 @@ likeButton.addEventListener('click', async () => {
         }) 
 
         const resMessage  = await res.json()
-        console.log(resMessage)
+        console.log('response message is this: ',resMessage)
+        
+        if(resMessage.error){
+            alert('Please log in to make any reaction!')
+            return 0
+        }
 
-        let allLikes = await fetch('http://localhost:5000/allLikes', {
+        let allLikes = await fetch('https://important-red-beanie.cyclic.app/allLikes', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'authorization': JSON.parse(localStorage.getItem('authorization'))
             }
         })
 
@@ -207,39 +183,75 @@ const likesUpdate = (allLikes) => {
                 console.log('likers are :' ,allLikes.data[i]['likersIds'].length)
     
                 likes.innerHTML = allLikes.data[i]["likersIds"].length
-            }else{
+                return 0 // to avoid overriding of displayed like value
+            }
+            else{
+                console.log('This is run');
                 likes.innerHTML = 0
             }
         }
 
-        if(tittleTex[0] == true){    
-            for(let i = 0; i < dataFromDataBase.length; i++){
-                if(dataFromDataBase[i]["_id"] === tittleTex[2]){//to filter the likes for each blog
-                    //console.log('likers in localStorage are: ', dataFromDataBase[i]["likersIds"])
-                    //console.log('updated likes are: ', allLikes.data[i]["likersIds"])
-                    for(let j = 0; j < allLikes.data.length; j ++){
-                        if(allLikes.data[j]['blogId'] === tittleTex[2]){
-                            dataFromDataBase[i]["likersIds"] = allLikes.data[j]["likersIds"]
-                            localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))// for displaying updated likes.
-                        }
-                        else{
-                            console.log('else is run')
-                            dataFromDataBase[i]["likersIds"] = []
-                            // localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))
-                        }
-                    }
-                }
-            }
-        }
+        // if(tittleTex[0] == true){    
+        //     for(let i = 0; i < dataFromDataBase.length; i++){
+        //         if(dataFromDataBase[i]["_id"] === tittleTex[2]){//to filter the likes for each blog
+        //             //console.log('likers in localStorage are: ', dataFromDataBase[i]["likersIds"])
+        //             //console.log('updated likes are: ', allLikes.data[i]["likersIds"])
+        //             console.log('Blog selected in drafts',dataFromDataBase[i]['_id'])
+        //             console.log('allLIkes.data is :', allLikes.data)
+        //             for(let j = 0; j < allLikes.data.length; j++){
+        //                 if(allLikes.data[j]['blogId'] === tittleTex[2]){
+        //                     likes.innerHTML = allLikes.data[i]["likersIds"].length
+        //                     // dataFromDataBase[i]["likersIds"] = allLikes.data[j]["likersIds"]
+        //                     // localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))// for displaying updated likes.
+        //                 }
+        //                 else{
+        //                     console.log('else is run')
+        //                     dataFromDataBase[i]["likersIds"] = []
+        //                     // localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
     } else {
         likes.innerHTML = 0
-        for(let i = 0; i < dataFromDataBase.length; i++){// resetting all likes to zero in localStorage
-            dataFromDataBase[i]['likersIds'] = []
-            localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))
-        }
+        // for(let i = 0; i < dataFromDataBase.length; i++){// resetting all likes to zero in localStorage
+        //     dataFromDataBase[i]['likersIds'] = []
+        //     //localStorage.setItem("PublishedblogData", JSON.stringify(dataFromDataBase))
+        // }
     }
 
+}
+
+// Coment display
+if( (JSON.parse(localStorage.getItem("comments"))) !== null){
+
+    commentData = JSON.parse(localStorage.getItem("comments"));
+    let numCount = 0;
+
+    for(let i = 0; i < commentData.length; i++){
+        if( commentData[i]["blogId"] === tittleTex[2]){
+            numCount += 1;
+            listOfComents.innerHTML += `
+            <div id="commentorAndComment">
+            <div id="commentorImageSlot">
+                <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
+            </div>
+            <div id="commetorNameTimeAndParagraph">
+                <div id="commentorNameAndTime">
+                    <h5 class="commentorName">Lorem ipsum dolor</h5>
+                    <p id="time">- ${commentData[i]["time"]}</p>
+                </div>
+                <p id="comentParagraph">
+                    ${commentData[i]["comment"]}
+                </p>
+            </div>
+            </div>
+            `
+        }
+    }
+    numOfComents.innerHTML = numCount;
 }
 
 // To post a comment

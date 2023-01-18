@@ -330,3 +330,15 @@ a:hover{
     font-size: 18px;
     background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
 }
+
+.ErrorMessages{
+    color: rgb(199, 220, 7);
+    font-size: small;
+    font-weight: 300;
+}
+
+/* #today{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */

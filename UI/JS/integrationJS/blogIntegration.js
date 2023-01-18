@@ -17,7 +17,6 @@ let allComents
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',
-            'authorization': JSON.parse(localStorage.getItem('authorization'))
         }
     })
     
@@ -28,7 +27,6 @@ let allComents
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': JSON.parse(localStorage.getItem('authorization'))
         }
     })
     
@@ -39,7 +37,6 @@ let allComents
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
-            'authorization': JSON.parse(localStorage.getItem('authorization'))
         }
     })
 

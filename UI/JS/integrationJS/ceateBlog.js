@@ -71,6 +71,12 @@ saveButton.addEventListener('click', async () => {
         const resMessage  = await res.json()
 
         console.log(resMessage)
+        if(resMessage.statusCode === 401){
+            alert(`${resMessage.message};
+            if you are sure about this authorisation,
+            please login as admin`)
+            location.href = 'adminLogin.html'
+        }
         if(resMessage){
             loading.innerHTML = '';
         }
@@ -130,6 +136,12 @@ async function forEachReload(){
     })
     blogDataFromDB = await blogDataFromDB.json()
     console.log(blogDataFromDB.data)
+
+    if(blogDataFromDB.statusCode === 401){
+        alert(`${blogDataFromDB.message}`)
+        location.href= 'adminLogin.html'
+        return 0
+    }
 
     forEdit(blogDataFromDB)
 }
