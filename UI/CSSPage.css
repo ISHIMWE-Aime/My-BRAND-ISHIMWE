@@ -607,6 +607,7 @@ button:hover{
 
 #viewPForBlog{
     /*border: 2px solid red;*/
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     width: 100%;
