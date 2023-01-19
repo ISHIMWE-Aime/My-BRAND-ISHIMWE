@@ -78,7 +78,7 @@ saveButton.addEventListener('click', async () => {
 
 const createNewBlog = async ( newBlog ) => {
     try {
-        const res = await fetch('https://important-red-beanie.cyclic.app/createBlog', {
+        const res = await fetch('https://backendapplication.up.railway.app/createBlog', {
             method: 'POST',
             body: JSON.stringify(newBlog),
             headers: { 
@@ -145,7 +145,7 @@ const createNewBlog = async ( newBlog ) => {
 
 async function editBlog( blogContent ){
     console.log('Signal for edit!!!!!!!!!!!!!', blogContent)
-    const res = await fetch(`https://important-red-beanie.cyclic.app/updateBlog/${flagForEditSignal[1]}`, {
+    const res = await fetch(`https://backendapplication.up.railway.app/updateBlog/${flagForEditSignal[1]}`, {
         method: 'PATCH',
         body: JSON.stringify( blogContent ),
         headers: { 
@@ -180,7 +180,7 @@ async function editBlog( blogContent ){
 //for each reload
 forEachReload()
 async function forEachReload(){
-    blogDataFromDB = await fetch('https://important-red-beanie.cyclic.app/allBlogs', {
+    blogDataFromDB = await fetch('https://backendapplication.up.railway.app/allBlogs', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',

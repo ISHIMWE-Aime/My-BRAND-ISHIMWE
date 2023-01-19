@@ -14,7 +14,7 @@ publishButton.addEventListener('click', async () => {
     console.log( 'the new blog is :', newBlog)
     
     try {
-        const res = await fetch('https://important-red-beanie.cyclic.app/publishBlog', {
+        const res = await fetch('https://backendapplication.up.railway.app/publishBlog', {
             method: 'POST',
             body: JSON.stringify(newBlog),
             headers: { 

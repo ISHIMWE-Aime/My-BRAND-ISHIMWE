@@ -64,7 +64,7 @@ form.addEventListener('submit', async (e) => {
     const newUser = { firstName, middleName, lastName, email, userPreference, phoneCountryCode, phone, password }
     
     try {
-        const res = await fetch('https://important-red-beanie.cyclic.app/userRegister', {
+        const res = await fetch('https://backendapplication.up.railway.app/userRegister', {
             method: 'POST',
             body: JSON.stringify(newUser),
             headers: { 'Content-Type': 'application/json' },

@@ -100,7 +100,7 @@ const switchToUsers = () => {
     let userDataFromDB;
 
     (async() => {
-        userDataFromDB = await fetch('https://important-red-beanie.cyclic.app/allusers', {
+        userDataFromDB = await fetch('https://backendapplication.up.railway.app/allusers', {
             method: 'GET',
             headers: { 
                 'Content-Type': 'application/json',
@@ -173,7 +173,7 @@ function getidOfUser(obj){
 
     link.addEventListener("dblclick", async function(){
         console.log('delete is runing')
-        const res = await fetch(`https://important-red-beanie.cyclic.app/deleteOneUser/${currentLinkId}`, {
+        const res = await fetch(`https://backendapplication.up.railway.app/deleteOneUser/${currentLinkId}`, {
             method: 'DELETE',
             headers: { 
                 'Content-Type': 'application/json',

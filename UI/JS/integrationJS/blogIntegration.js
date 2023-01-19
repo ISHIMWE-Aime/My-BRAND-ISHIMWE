@@ -13,7 +13,7 @@ let allLikes
 let allComents
 
 (async () => {
-    blogDataFromDB = await fetch('https://important-red-beanie.cyclic.app/publishedBlogs', {
+    blogDataFromDB = await fetch('https://backendapplication.up.railway.app/publishedBlogs', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ let allComents
     blogDataFromDB = await blogDataFromDB.json()
     console.log('The published blogs are: ',blogDataFromDB.data)
 
-    allLikes = await fetch('https://important-red-beanie.cyclic.app/allLikes', {
+    allLikes = await fetch('https://backendapplication.up.railway.app/allLikes', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ let allComents
     allLikes = await allLikes.json()
     console.log('allLikes are: ', allLikes.data);
 
-    allComents = await fetch('https://important-red-beanie.cyclic.app/allComents', {
+    allComents = await fetch('https://backendapplication.up.railway.app/allComents', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

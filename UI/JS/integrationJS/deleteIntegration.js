@@ -27,7 +27,7 @@ let blogDataFromDB2
     `
     document.head.appendChild(style);
 
-    blogDataFromDB1 = await fetch('https://important-red-beanie.cyclic.app/allBlogs', {
+    blogDataFromDB1 = await fetch('https://backendapplication.up.railway.app/allBlogs', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ let blogDataFromDB2
     blogDataFromDB1 = await blogDataFromDB1.json()
     console.log(blogDataFromDB1.data)
     
-    blogDataFromDB2 = await fetch('https://important-red-beanie.cyclic.app/publishedBlogs', {
+    blogDataFromDB2 = await fetch('https://backendapplication.up.railway.app/publishedBlogs', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',
@@ -219,7 +219,7 @@ function getid(obj){
     console.log("the author name is :",AuthorName);
 
     link.addEventListener("dblclick", async function(){
-        const res = await fetch(`https://important-red-beanie.cyclic.app/deleteOneBlog/${currentLinkId}`, {
+        const res = await fetch(`https://backendapplication.up.railway.app/deleteOneBlog/${currentLinkId}`, {
             method: 'DELETE',
             headers: { 
                 'Content-Type': 'application/json',

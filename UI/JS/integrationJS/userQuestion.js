@@ -29,7 +29,7 @@ form.addEventListener('submit', async (e) => {
 
     console.log(messageInfo)
     try { //https://important-red-beanie.cyclic.app
-        const res = await fetch('https://important-red-beanie.cyclic.app/sendMessage', {
+        const res = await fetch('https://backendapplication.up.railway.app/sendMessage', {
             method: 'POST',
             body: JSON.stringify(messageInfo),
             headers: { 

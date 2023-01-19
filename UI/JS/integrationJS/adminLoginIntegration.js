@@ -28,7 +28,7 @@ form.addEventListener('submit', async (e) => {
     const user = { email, password }
 
     try {
-        const res = await fetch('https://important-red-beanie.cyclic.app/adminLogin', {
+        const res = await fetch('https://backendapplication.up.railway.app/adminLogin', {
             method: 'POST',
             body: JSON.stringify(user),
             headers: { 'Content-Type': 'application/json' },

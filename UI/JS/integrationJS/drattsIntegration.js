@@ -12,7 +12,7 @@ window.onload = () => {
 let blogDataFromDB
 
 (async () => {
-    blogDataFromDB = await fetch('https://important-red-beanie.cyclic.app/allBlogs', {
+    blogDataFromDB = await fetch('https://backendapplication.up.railway.app/allBlogs', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',

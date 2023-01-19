@@ -14,7 +14,7 @@ let blogDataFromDB2
 
 (async () => {
     
-    blogDataFromDB2 = await fetch('https://important-red-beanie.cyclic.app/publishedBlogs', {
+    blogDataFromDB2 = await fetch('https://backendapplication.up.railway.app/publishedBlogs', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',

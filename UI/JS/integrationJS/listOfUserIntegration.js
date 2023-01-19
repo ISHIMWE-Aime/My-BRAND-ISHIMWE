@@ -2,7 +2,7 @@ const userTableContainer = document.getElementById("margin-left");
 let userDataFromDB;
 
 (async() => {
-    userDataFromDB = await fetch('https://important-red-beanie.cyclic.app/allusers', {
+    userDataFromDB = await fetch('https://backendapplication.up.railway.app/allusers', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',

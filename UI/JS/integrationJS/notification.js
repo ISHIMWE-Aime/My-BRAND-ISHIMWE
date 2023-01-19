@@ -7,7 +7,7 @@ if(JSON.parse(localStorage.getItem('previusState')) !== null){
 }
 
 (async() => {
-    messagesFromDB = await fetch('https://important-red-beanie.cyclic.app/allMessages', {
+    messagesFromDB = await fetch('https://backendapplication.up.railway.app/allMessages', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',
