@@ -85,7 +85,7 @@ let blogDataFromDB
                             </div>
                         </div>
                         <div class="blogStatusWord">
-                            <h5>Published</h5>
+                            <h5>Dafts</h5>
                         </div>
                     </div>
                 </div>
