@@ -84,9 +84,7 @@ let blogDataFromDB
                                 <p class="numberOfReactors">34</p>
                             </div>
                         </div>
-                        <div class="blogStatusWord">
-                            <h5>Dafts</h5>
-                        </div>
+                        <div class="blogStatusWord">Drafts</div>
                     </div>
                 </div>
             </a>
@@ -98,6 +96,8 @@ let blogDataFromDB
 function getid(obj){
     let linkRAM = [];
     let flag = false;
+    let flagForEditSignal = [];
+    let flagForEdit = false;
     //localStorage.setItem("linkDataForEdit", JSON.stringify(linkRAM));
 
     let currentLinkId = obj.id;
@@ -117,6 +117,9 @@ function getid(obj){
     const AuthorName = document.getElementById(currentAuthorId).innerHTML;
     console.log("the author name is :",AuthorName);
 
+    const blogStatusWord = document.querySelector('.blogStatusWord').innerHTML
+    console.log(blogStatusWord)
+
     link.addEventListener("click", function(){
         // for(let i = 0; i < blogDataFromDB.data.length; i++){
         //     for(const property in blogDataFromDB.data[i]){
@@ -127,13 +130,19 @@ function getid(obj){
         //     }
         // }
     flag = true;
+    flagForEdit = true;
     // //     previewedRAMdata.splice(0, 1);
     //      linkRAM.unshift(flag);
     linkRAM.push(flag);
     linkRAM.push(linkTittle);
     linkRAM.push(AuthorName);
+
+    flagForEditSignal.push(flagForEdit)
+    flagForEditSignal.push(currentLinkId)
+    flagForEditSignal.push(blogStatusWord)
     // //    localStorage.setItem("PreviwedblogData", JSON.stringify(previewedRAMdata));
     localStorage.setItem("linkDataForEdit", JSON.stringify(linkRAM));
+    localStorage.setItem('flagForEditSignal', JSON.stringify(flagForEditSignal))
     //localStorage.setItem("blogData", JSON.stringify(blogDataFromDB))
     })
 }

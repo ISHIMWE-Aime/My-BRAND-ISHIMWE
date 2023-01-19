@@ -10,7 +10,12 @@ const blogCreationErrorMessageEl = document.querySelector('#blogCreationErrorDis
 const fileEl = document.getElementById("backgorundImage");
 
 let imageUlr = '';
-let flagForEditSignal;
+let flagForEditSignal = JSON.parse(localStorage.getItem('flagForEditSignal'));
+
+if(flagForEditSignal[2] !== "none"){
+    saveButton.innerHTML += " Changes";
+    console.log('The save button changed : ', saveButton);
+}
 
 saveButton.addEventListener('click', () => {
     loading.innerHTML= `
@@ -60,10 +65,10 @@ saveButton.addEventListener('click', async () => {
     newBlog = { title, author, content, imageUlr }
     console.log( 'the new blog is :', newBlog)
 
-    if(JSON.parse(localStorage.getItem('flagForEditSignal')) !== null ){
-        flagForEditSignal = JSON.parse(localStorage.getItem('flagForEditSignal'))
+    if(flagForEditSignal !== null ){
         
         if(flagForEditSignal[0] === true){
+
             editBlog( newBlog )
         }
         else{
@@ -74,9 +79,14 @@ saveButton.addEventListener('click', async () => {
         createNewBlog( newBlog )
     }
     
+    flagForEditSignal[0] = false;
+    localStorage.setItem('flagForEditSignal', JSON.stringify(flagForEditSignal))
 })
 
 const createNewBlog = async ( newBlog ) => {
+
+    console.log('We are going to create a new blog !!!!!!!!!!', newBlog)
+
     try {
         const res = await fetch('https://backendapplication.up.railway.app/createBlog', {
             method: 'POST',
@@ -146,7 +156,7 @@ const createNewBlog = async ( newBlog ) => {
 async function editBlog( blogContent ){
     console.log('Signal for edit!!!!!!!!!!!!!', blogContent)
     const res = await fetch(`https://backendapplication.up.railway.app/updateBlog/${flagForEditSignal[1]}`, {
-        method: 'PATCH',
+        method: 'PATCH',// wavanze sha wakantu we
         body: JSON.stringify( blogContent ),
         headers: { 
             'Content-Type': 'application/json',
@@ -168,10 +178,6 @@ async function editBlog( blogContent ){
         loading.innerHTML = '';
     }
 
-    // console.log(res.cookie)
-    // console.log(res.cookies)
-    flagForEditSignal[0] = false;
-    localStorage.setItem('flagForEditSignal', JSON.stringify(flagForEditSignal))
     if(resMessage.statusCode === 200){
         location.href = 'Drafts.html'
     }
@@ -180,23 +186,54 @@ async function editBlog( blogContent ){
 //for each reload
 forEachReload()
 async function forEachReload(){
-    blogDataFromDB = await fetch('https://backendapplication.up.railway.app/allBlogs', {
-        method: 'GET',
-        headers: { 
-            'Content-Type': 'application/json',
-            'authorization': JSON.parse(localStorage.getItem('authorization'))
-        }
-    })
-    blogDataFromDB = await blogDataFromDB.json()
-    console.log(blogDataFromDB.data)
 
-    if(blogDataFromDB.statusCode === 401){
-        alert(`${blogDataFromDB.message}`)
-        location.href= 'adminLogin.html'
-        return 0
+    console.log('The flagForEditSignal is equal: ', flagForEditSignal)
+
+    if( flagForEditSignal[2] === "Published" ){
+        
+        blogDataFromDB = await fetch('https://backendapplication.up.railway.app/publishedBlogs', {
+            method: 'GET',
+            headers: { 
+                'Content-Type': 'application/json',
+                'authorization': JSON.parse(localStorage.getItem('authorization'))
+            }
+        })
+
+        console.log("The blogDataFromDB is equal to Post")
+        blogDataFromDB = await blogDataFromDB.json()
+        console.log(blogDataFromDB.data)
+    
+        if(blogDataFromDB.statusCode === 401){
+            alert(`${blogDataFromDB.message}`)
+            location.href= 'adminLogin.html'
+            return 0
+        }
+    
+        forEdit(blogDataFromDB)
     }
 
-    forEdit(blogDataFromDB)
+    if( flagForEditSignal[2] === "Drafts" ){
+
+        blogDataFromDB = await fetch('https://backendapplication.up.railway.app/allBlogs', {
+            method: 'GET',
+            headers: { 
+                'Content-Type': 'application/json',
+                'authorization': JSON.parse(localStorage.getItem('authorization'))
+            }
+        })
+
+        console.log("The blogDataFromDB is equal to drafts")
+        blogDataFromDB = await blogDataFromDB.json()
+        console.log(blogDataFromDB.data)
+    
+        if(blogDataFromDB.statusCode === 401){
+            alert(`${blogDataFromDB.message}`)
+            location.href= 'adminLogin.html'
+            return 0
+        }
+    
+        forEdit(blogDataFromDB)
+    }
 }
 
 let forEdit = (dataBase) =>{
@@ -216,6 +253,8 @@ let forEdit = (dataBase) =>{
                 }
             } 
             articleToEditTittle[0] = false; // for interlocking editor access
+            flagForEditSignal[2] = "none";
+            localStorage.setItem('flagForEditSignal', JSON.stringify(flagForEditSignal));
             localStorage.setItem("linkDataForEdit", JSON.stringify(articleToEditTittle));
         }
     }

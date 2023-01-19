@@ -222,7 +222,7 @@ button{
     height: 30px;
     width: 98%;
     justify-content: space-between;
-    background-color: yellow;
+    /* background-color: yellow; */
 }
 .TextEffecticons{
     display: flex;
@@ -232,24 +232,52 @@ button{
     background-color: white;
 }
 .actionButtons{
+    position: relative;
+    bottom: 7px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 30%;
     height: 30px;
-    background-color: aqua;
+    /* background-color: aqua; */
 }
-#preview{
+.actButtons{
     display: flex;
     flex-direction: row;
-    width: 40%;
     height: auto;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    font-weight: 500;
+    font-size: large;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
 }
+.actButtons:hover{
+    transform: scale(1.05);
+}
+ #preview{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    border-radius: 10px;
+    height: auto;
+    font-weight: 500;
+    font-size: large;
+}
+/*
 #publish{
     display: flex;
     flex-direction: row;
-    width: 50%;
     height: auto;
 }
+#saveB{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+} */
+
 .blogEditor{
     height: 100%;
 }
