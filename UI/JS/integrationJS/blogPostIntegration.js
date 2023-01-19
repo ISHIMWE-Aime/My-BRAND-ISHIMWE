@@ -35,6 +35,7 @@ let blogDataFromDB2
 })()
 
 const displayPublished = ( blogDataFromDB ) => {
+    console.log('fetched published blogs are: ',blogDataFromDB.data)
     for(i = 0; i < blogDataFromDB.data.length; i++){
         console.log(blogDataFromDB.data[i]);
         // firstLettle.innerHTML = String.fromCharCode(blogDataFromDB.data[1]["Tittle"].charCodeAt(0));
@@ -105,6 +106,8 @@ const displayPublished = ( blogDataFromDB ) => {
 function getid(obj){
     let linkRAM = [];
     let flag = false;
+    let flagForEditSignal = [];
+    let flagForEdit = false;
     //localStorage.setItem("linkDataForEdit", JSON.stringify(linkRAM));
 
     let currentLinkId = obj.id;
@@ -134,13 +137,17 @@ function getid(obj){
         //     }
         // }
     flag = true;
+    flagForEdit = true;
     // //     previewedRAMdata.splice(0, 1);
     //      linkRAM.unshift(flag);
     linkRAM.push(flag);
     linkRAM.push(linkTittle);
     linkRAM.push(AuthorName);
+    flagForEditSignal.push(flagForEdit)
+    flagForEditSignal.push(currentLinkId)
     // //    localStorage.setItem("PreviwedblogData", JSON.stringify(previewedRAMdata));
     localStorage.setItem("linkDataForEdit", JSON.stringify(linkRAM));
+    localStorage.setItem('flagForEditSignal', JSON.stringify(flagForEditSignal))
     //localStorage.setItem("blogData", JSON.stringify(blogDataFromDB))
     })
 }

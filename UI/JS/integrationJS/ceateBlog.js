@@ -9,8 +9,8 @@ const blogCreationErrorMessageEl = document.querySelector('#blogCreationErrorDis
 
 const fileEl = document.getElementById("backgorundImage");
 
-let imageUlr = ''
-let newBlog = {}
+let imageUlr = '';
+let flagForEditSignal;
 
 saveButton.addEventListener('click', () => {
     loading.innerHTML= `
@@ -47,6 +47,8 @@ textAreaInput.addEventListener('input', ()=>{
 })
 
 saveButton.addEventListener('click', async () => {
+    let newBlog = {};
+
     console.log(localStorage.getItem('authorization'));
     console.log(newBlog)
     
@@ -57,7 +59,24 @@ saveButton.addEventListener('click', async () => {
     //console.log({ title, author, content, imageUlr })
     newBlog = { title, author, content, imageUlr }
     console.log( 'the new blog is :', newBlog)
+
+    if(JSON.parse(localStorage.getItem('flagForEditSignal')) !== null ){
+        flagForEditSignal = JSON.parse(localStorage.getItem('flagForEditSignal'))
+        
+        if(flagForEditSignal[0] === true){
+            editBlog( newBlog )
+        }
+        else{
+            createNewBlog( newBlog )
+        }
+    }
+    else{
+        createNewBlog( newBlog )
+    }
     
+})
+
+const createNewBlog = async ( newBlog ) => {
     try {
         const res = await fetch('https://important-red-beanie.cyclic.app/createBlog', {
             method: 'POST',
@@ -116,13 +135,47 @@ saveButton.addEventListener('click', async () => {
         }
 
         if(resMessage.statusCode === 406){
-            blogCreationErrorMessageEl.innerHTML = resMessage.message
-            location.href = 'AdminLogin.html'
+            blogCreationErrorMessageEl.innerHTML = resMessage.message;
+            location.href = 'AdminLogin.html';
         }
     } catch (error) {
-        console.log(error)
+        console.log(error);
+    };
+}
+
+async function editBlog( blogContent ){
+    console.log('Signal for edit!!!!!!!!!!!!!', blogContent)
+    const res = await fetch(`https://important-red-beanie.cyclic.app/updateBlog/${flagForEditSignal[1]}`, {
+        method: 'PATCH',
+        body: JSON.stringify( blogContent ),
+        headers: { 
+            'Content-Type': 'application/json',
+            'authorization': JSON.parse(localStorage.getItem('authorization'))
+        }
+    })
+
+    console.log("the result for update is :", res)
+    const resMessage  = await res.json()
+
+    console.log(resMessage)
+    if(resMessage.statusCode === 401){
+        alert(`${resMessage.message};
+        if you are sure about this authorisation,
+        please login as admin`)
+        location.href = 'adminLogin.html'
     }
-})
+    if(resMessage){
+        loading.innerHTML = '';
+    }
+
+    // console.log(res.cookie)
+    // console.log(res.cookies)
+    flagForEditSignal[0] = false;
+    localStorage.setItem('flagForEditSignal', JSON.stringify(flagForEditSignal))
+    if(resMessage.statusCode === 200){
+        location.href = 'Drafts.html'
+    }
+}
 
 //for each reload
 forEachReload()

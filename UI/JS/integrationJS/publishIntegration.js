@@ -1,6 +1,7 @@
 const publishButton = document.getElementById("publish");
 
 publishButton.addEventListener('click', async () => {
+    let newBlog = {};
     console.log(localStorage.getItem('authorization'));
     console.log(newBlog)
     
