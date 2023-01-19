@@ -203,8 +203,15 @@ a:hover{
     margin-left: 10px;
 }
 #bufferTittle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     width: 98%;
     border-bottom: 2px solid rgb(53, 48, 48);
+}
+
+.deleteSwitch{
+    color:white;
 }
 
 .dot{
@@ -319,15 +326,31 @@ a:hover{
     z-index: 
 } */
 
-#userInfo{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.userInfoCategory{
+    display: grid;
+    grid-template-columns: 40px 2fr 3fr 2.5fr 0.8fr ;
+    grid-template-rows: auto;
     width: 98%;
     height: auto;
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
+    background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+}
+
+.userInfo{
+    display: grid;
+    grid-template-columns: 40px 2fr 3fr 2.5fr 0.8fr ;
+    grid-template-rows: auto;
+    width: 98%;
+    height: auto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    background: #141335;
+}
+
+.userInfo:hover{
     background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
 }
 

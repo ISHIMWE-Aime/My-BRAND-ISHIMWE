@@ -29,7 +29,7 @@
             </div>
             <div class="sEle">
                 <img src="images/icons/Live helpquestions.png" alt="sidebarIcon" class="sIcons">
-                <a href="#" class="sName">Queries/Questions</a>
+                <a href="Questions.html" class="sName">Queries/Questions</a>
             </div>
             <div class="sEle">
                 <img src="images/icons/Editcreate.png" alt="sidebarIcon" class="sIcons">
@@ -53,9 +53,11 @@
                     <div class="headerIcons" id="Usermessages">
                         <img src="images/icons/email-multiple-outlinemessages.png" alt="email_icon" class="icons">
                     </div>
+                    <div class="notCycle"></div>
                     <div class="headerIcons" id="notifications">
                         <img class="icons" src="images/icons/bell-outlinenotifications.png" alt="setting_icon">
                     </div>
+                    <div class="notCycle"></div>
                 </div>
                 <div id="headerRight">
                     <div id="searchInput">
@@ -70,6 +72,10 @@
             <div id="margin-left">
                 <h2 id="bufferTittle">
                     Double click to delete the blog
+                    <div class="deleteSwitch">
+                        <button id="blogs" type="button" onclick="switchToBlogs()">BLOGS</button>
+                        <button  id="users" type="button" onclick="switchToUsers()">USER</button>
+                    </div>
                 </h2>
                 <div id="blogAndOthers">
                     <h3 id="buffersubtittle">
@@ -79,13 +85,13 @@
                     <div class="timeCategory">
                         <h5 id="today">
                             Today
-                            <div class="ErrorMessages">
-                                <div  id="blogDeletetionDisplay"></div>
-                            </div>
                         </h5>
                     </div>
                 </div>
                 <div class="loading"></div>
+                <div id="displayOfContentToBeDeleted">
+                    <div id="userDisplayHeader"></div>
+                </div>
                 <!-- <div class="blogBlock">
                     <div class="left">
                         <div class="firstLetterSlot">
@@ -165,7 +171,9 @@
             <a href="http://#" target="_self" style="width: 10%; font-weight: 600; padding-top: 1.5%;">ISHIMWE A.F</a>
         </nav>
     </footer>
+    <script src="JS/integrationJS/notification.js"></script>
     <script src="JS/integrationJS/deleteIntegration.js"></script>
+    <script src="JS/integrationJS/switchTo(....).js"></script>
     <!-- <script src="JS/Delete.js"></script> -->
 </body>
 </html>

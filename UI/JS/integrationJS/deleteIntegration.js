@@ -1,7 +1,7 @@
 const marginLeftContainer = document.getElementById("margin-left");
 const loading = document.querySelector('.loading')
-const blogDeletetionDisplayEl = document.querySelector('#blogDeletetionDisplay')
 const deleteMessage = document.getElementById('deleteMessage')
+let displayOfContentToBeDeleted = document.getElementById('displayOfContentToBeDeleted')
 
 window.onload = () => {
     loading.innerHTML= `
@@ -14,6 +14,19 @@ let blogDataFromDB2
 
 
 (async () => {
+    var style = document.createElement('style');
+    style.innerHTML = `
+    #blogs {
+            background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid black;
+            color: white;
+            font-weight: 600;
+        }
+    `
+    document.head.appendChild(style);
+
     blogDataFromDB1 = await fetch('https://important-red-beanie.cyclic.app/allBlogs', {
         method: 'GET',
         headers: { 
@@ -37,6 +50,7 @@ let blogDataFromDB2
     if(blogDataFromDB1.data || blogDataFromDB2.data){
         loading.innerHTML = '';
     }
+    
     if(blogDataFromDB2){
         // Display published blogs in my DB
         displayPublished(blogDataFromDB2)
@@ -49,11 +63,12 @@ let blogDataFromDB2
 })()
 
 const displayDrafts = ( blogDataFromDB ) => {
+
     for(i = 0; i < blogDataFromDB.data.length; i++){
         console.log(blogDataFromDB.data[i]);
         // firstLettle.innerHTML = String.fromCharCode(blogDataFromDB.data[1]["Tittle"].charCodeAt(0));
         // blogTittle.innerHTML = blogDataFromDB.data[i]["Tittle"];
-        marginLeftContainer.innerHTML += `
+        displayOfContentToBeDeleted.innerHTML += `
             <a  class="blogBlock" id=${blogDataFromDB.data[i]["_id"]} onmouseover="getid(this)">
                 <div class="left">
                     <div class="firstLetterSlot">
@@ -121,7 +136,7 @@ const displayPublished = ( blogDataFromDB ) => {
         console.log(blogDataFromDB.data[i]);
         // firstLettle.innerHTML = String.fromCharCode(blogDataFromDB.data[1]["Tittle"].charCodeAt(0));
         // blogTittle.innerHTML = blogDataFromDB.data[i]["Tittle"];
-        marginLeftContainer.innerHTML += `
+        displayOfContentToBeDeleted.innerHTML += `
             <a class="blogBlock" id=${blogDataFromDB.data[i]["_id"]} onmouseover="getid(this)">
                 <div class="left">
                     <div class="firstLetterSlot">
@@ -223,22 +238,23 @@ function getid(obj){
         }
 
         if(resMessage.statusCode === 200){
-            // blogDeletetionDisplayEl.innerHTML = resMessage.message
-            // console.log(blogDeletetionDisplayEl)
 
-            // var style = document.createElement('style');
-            // style.innerHTML = `
-            // #blogDeletetionDisplay {
-            //         background-color: rgba(0, 255, 0, 0.602);;
-            //         border-radius: 10px;
-            //         padding: 20px;
-            //         width: 25%;
-            //         border: 2px solid;
-            //     }
-            // `
-            // document.head.appendChild(style);
-            
-            // console.log('The deletation message is: ',resMessage.message);
+            var style = document.createElement('style');
+            style.innerHTML += `
+            #deleteMessage {
+                    background: green;
+                    border-radius: 10px;
+                    padding: 20px;
+                    width: 200px;
+                    border: 2px solid black;
+                    color: white;
+                    font-weight: 600;
+                }
+            `
+            document.head.appendChild(style);
+
+            console.log(deleteMessage.innerHTML)
+            deleteMessage.innerHTML = resMessage.message
             link.remove()
         }
     })

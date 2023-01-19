@@ -10,6 +10,7 @@
 </head>
 
 <body>
+    <div class="loading"></div>
     <div class="contact-me">
         <h1>Contact Me</h1>
         <p>Hi there, do you have an interesting project that you think I can provide a value
@@ -17,10 +18,27 @@
         </p>
         <form action="" class="contactme-form">
             <div class="contact-input">
-                <input type="text" placeholder="Enter your first name" class="element" />
-                <input type="email" placeholder="Enter your email. i.e example@gmail.com" class="element" />
+                <input type="text" name="fullname" placeholder="Enter your full name" class="element" />
+                <input type="email" name="email" placeholder="Enter your email. i.e example@gmail.com" class="element" />
             </div>
-            <textarea name="" id="">Message</textarea>
+            <div class="special">
+                <div id="1" class="errorMessages"></div>
+                <div id="2" class="errorMessages"></div>
+            </div>
+            <div>
+                <textarea name="message" id="" class="element">Message</textarea>
+                <div id="3" class="errorMessages"></div>
+            </div>
+            <div id="more-button">
+                <div id="more">
+                    <p id="more-text">
+                        <button type="submit" id="submitButton">SEND</button>
+                    </p>
+                    <div id="dashedcycle">
+                        <div id="whiteCycle"></div>
+                    </div>
+                </div>
+            </div>
         </form>
         <p class="bottom-text pText">Estimated reply time: 15 minutes</p>
     </div>
@@ -46,6 +64,7 @@
         </nav>
     </footer>
 
+    <script src="JS/integrationJS/userQuestion.js"></script>
 </body>
 
 </html>
