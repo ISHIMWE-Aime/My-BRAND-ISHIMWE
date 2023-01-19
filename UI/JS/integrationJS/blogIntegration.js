@@ -1,5 +1,4 @@
 const grid = document.getElementById("blogGridLink");// to insert a blog.
-
 const loading = document.querySelector('.loading')
 
 window.onload = () => {

@@ -25,6 +25,16 @@ let blogDataFromDB2
             font-weight: 600;
         }
     `
+    style.innerHTML += `
+    #users {
+            background: none;
+            border-radius: 10px;
+            padding: 20px;
+            border: 2px solid black;
+            color: white;
+            font-weight: 600;
+        }
+    `
     document.head.appendChild(style);
 
     blogDataFromDB1 = await fetch('https://backendapplication.up.railway.app/allBlogs', {
