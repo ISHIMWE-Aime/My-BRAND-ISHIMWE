@@ -31,7 +31,7 @@ let newComment = {};
 let time = new Date();
 
 (async() => {
-    let blogDataFromDB = await fetch('https://important-red-beanie.cyclic.app/publishedBlogs', {
+    let blogDataFromDB = await fetch('https://backendapplication.up.railway.app/publishedBlogs', {
         method: 'GET',
         headers: { 
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ let time = new Date();
 
     blogDataFromDB = await blogDataFromDB.json()
 
-    allLikes = await fetch('https://important-red-beanie.cyclic.app/allLikes', {
+    allLikes = await fetch('https://backendapplication.up.railway.app/allLikes', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ let time = new Date();
     allLikes = await allLikes.json()
     //console.log('allLikes are: ', allLikes.data);
 
-    allComents = await fetch('https://important-red-beanie.cyclic.app/allComents', {
+    allComents = await fetch('https://backendapplication.up.railway.app/allComents', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ let time = new Date();
     })
 
     allComents = await allComents.json()
-    //console.log('allComents are: ', allComents);
+    console.log('allComents are: ', allComents);
     
     if(allLikes.data[0] !== undefined){
         for(let i = 0; i < allLikes.data.length; i++){
@@ -85,6 +85,7 @@ let time = new Date();
     }
 
     distribution(dataFromDataBase)
+    displayListOfComents( allComents )
 })()
 
 // Data distribution
@@ -142,37 +143,43 @@ function distribution(dataFromDataBase){
 
 likeButton.addEventListener('click', async () => {
     console.log('clicked');
-    try {
-        const res = await fetch('https://important-red-beanie.cyclic.app/like', {
-            method: 'POST',
-            body: JSON.stringify({ 'likerId': logedInUserDataBase, 'blogId': tittleTex[2] }),
-            headers: { 
-                'Content-Type': 'application/json',
-                'authorization': JSON.parse(localStorage.getItem('authorization'))
-            }
-        }) 
 
-        const resMessage  = await res.json()
-        console.log('response message is this: ',resMessage)
-        
-        if(resMessage.error){
-            alert('Please log in to make any reaction!')
-            return 0
+    if(JSON.parse(localStorage.getItem('authorization'))){
+        try {
+            const res = await fetch('https://backendapplication.up.railway.app/like', {
+                method: 'POST',
+                body: JSON.stringify({ 'likerId': logedInUserDataBase, 'blogId': tittleTex[2] }),
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'authorization': JSON.parse(localStorage.getItem('authorization'))
+                }
+            }) 
+    
+            const resMessage  = await res.json()
+            console.log('response message is this: ',resMessage)
+            
+            if(resMessage.error){
+                alert('Please log in to make any reaction!')
+                return 0
+            }
+    
+            let allLikes = await fetch('https://backendapplication.up.railway.app/allLikes', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+    
+            allLikes = await allLikes.json()
+            console.log('allLikes are: ', allLikes);
+    
+            likesUpdate(allLikes)
+        } catch (error) {
+            console.log(error)
         }
-
-        let allLikes = await fetch('https://important-red-beanie.cyclic.app/allLikes', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
-        })
-
-        allLikes = await allLikes.json()
-        console.log('allLikes are: ', allLikes);
-        
-        likesUpdate(allLikes)
-    } catch (error) {
-        console.log(error)
+    }
+    else{
+        alert('Please log in to add like')
     }
 })
 
@@ -228,78 +235,143 @@ const likesUpdate = (allLikes) => {
 }
 
 // Coment display
-if( (JSON.parse(localStorage.getItem("comments"))) !== null){
 
-    commentData = JSON.parse(localStorage.getItem("comments"));
-    let numCount = 0;
+const displayListOfComents = async ( coments ) => {
+    console.log( 'The coments is :',coments )
 
-    for(let i = 0; i < commentData.length; i++){
-        if( commentData[i]["blogId"] === tittleTex[2]){
-            numCount += 1;
-            listOfComents.innerHTML += `
-            <div id="commentorAndComment">
-            <div id="commentorImageSlot">
-                <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
-            </div>
-            <div id="commetorNameTimeAndParagraph">
-                <div id="commentorNameAndTime">
-                    <h5 class="commentorName">Lorem ipsum dolor</h5>
-                    <p id="time">- ${commentData[i]["time"]}</p>
-                </div>
-                <p id="comentParagraph">
-                    ${commentData[i]["comment"]}
-                </p>
-            </div>
-            </div>
-            `
+    if( coments.data[0] !== undefined){
+        
+        userDataFromDB = await fetch('https://backendapplication.up.railway.app/allUsersComentors', {
+            method: 'GET',
+            headers: { 
+                'Content-Type': 'application/json',
+                'authorization': JSON.parse(localStorage.getItem('authorization'))
+            }
+        })
+        // console.log('All users from db are: ',userDataFromDB) 
+
+        userDataFromDB = await userDataFromDB.json()
+        console.log('All users from db are: ',userDataFromDB.data)
+
+        let fullName
+        for(let i = 0; i < userDataFromDB.data.users.length ; i++){
+            if(userDataFromDB.data.users[i]['_id'] ==  logedInUserDataBase ){
+                if(userDataFromDB.data.users[i].middleName){
+                    fullName = userDataFromDB.data.users[i].firstName +' '+userDataFromDB.data.users[i].middleName+' '+userDataFromDB.data.users[i].lastName
+                }
+                else{
+                    fullName = userDataFromDB.data.users[i].firstName +' '+userDataFromDB.data.users[i].lastName
+                }
+                console.log('The user full name is: ', fullName)
+            }
         }
+
+        commentData = coments.data
+        let numCount = 0;
+    
+        console.log('The commentData is :', commentData );
+        for(let i = 0; i < commentData.length; i++){
+            if( commentData[i]["blogId"] === tittleTex[2]){
+                numCount += 1;
+                listOfComents.innerHTML += `
+                <div id="commentorAndComment">
+                <div id="commentorImageSlot">
+                    <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
+                </div>
+                <div id="commetorNameTimeAndParagraph">
+                    <div id="commentorNameAndTime">
+                        <h5 class="commentorName">${fullName}</h5>
+                        <p id="time">- ${commentData[i]["createdAt"]}</p>
+                    </div>
+                    <p id="comentParagraph">
+                        ${commentData[i]["comentData"]}
+                    </p>
+                </div>
+                </div>
+                `
+            }
+        }
+        numOfComents.innerHTML = numCount;
     }
-    numOfComents.innerHTML = numCount;
 }
 
 // To post a comment
-post.addEventListener("click", function(){
+post.addEventListener("click", async function(){
     //remember to ret newComment to empty objet for it click
-    newComment = {};
+    // newComment = {};
 
-    let timeAndYear = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "-" + time.getDate() + "/" + (time.getMonth()+1) + "/" + time.getFullYear();
-    let currentUserName;
+    // let timeAndYear = time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "-" + time.getDate() + "/" + (time.getMonth()+1) + "/" + time.getFullYear();
+    // let currentUserName;
 
-    if(logedInUserDataBase !== null){
-        for(let j = 0; j < UserCredentials.length; j++){
-            if(logedInUserDataBase["email"] === UserCredentials[j]["email"]){
-                //let commentorName = document.getElementsByClassName("commentorName");
-                currentUserName = UserCredentials[j]["name"];
-            }
+    if(JSON.parse(localStorage.getItem('authorization')) !== ''){
+
+        blogId = tittleTex[2];
+        userId = logedInUserDataBase;
+        commentData = comment.value;
+
+        newComment = { blogId, userId, 'comentData': commentData };
+        console.log(" the created coment is: ", newComment)
+        const res = await fetch('https://backendapplication.up.railway.app/createComent', {
+            method: 'POST',
+            body: JSON.stringify(newComment),
+            headers: { 
+                'Content-Type': 'application/json',
+                'authorization': JSON.parse(localStorage.getItem('authorization'))
+            },
+        })
+
+        const resMessage = await res.json()
+        console.log('The user id is:', resMessage)
+
+        if(resMessage.statusCode === 201){
+            allComents = await fetch('https://backendapplication.up.railway.app/allComents', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'authorization': JSON.parse(localStorage.getItem('authorization'))
+                }
+            })
+        
+            allComents = await allComents.json()
+            console.log('allComents are: ', allComents);
+
+            displayListOfComents( allComents )
         }
+        // for(let j = 0; j < UserCredentials.length; j++){
+        //     if(logedInUserDataBase["email"] === UserCredentials[j]["email"]){
+        //         //let commentorName = document.getElementsByClassName("commentorName");
+        //         currentUserName = UserCredentials[j]["name"];
+        //     }
+        // }
+        
+
+        // listOfComents.innerHTML += `
+        // <div id="commentorAndComment">
+        // <div id="commentorImageSlot">
+        //     <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
+        // </div>
+        // <div id="commetorNameTimeAndParagraph">
+        //     <div id="commentorNameAndTime">
+        //         <h5 class="commentorName">${currentUserName}</h5>(I think there is a bug here!)
+        //         <p id="time">- ${timeAndYear}</p>
+        //     </div>
+        //     <p id="comentParagraph">
+        //         ${comment.value}
+        //     </p>
+        // </div>
+        // </div>
+        // `
     
-        listOfComents.innerHTML += `
-        <div id="commentorAndComment">
-        <div id="commentorImageSlot">
-            <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
-        </div>
-        <div id="commetorNameTimeAndParagraph">
-            <div id="commentorNameAndTime">
-                <h5 class="commentorName">${currentUserName}</h5>(I think there is a bug here!)
-                <p id="time">- ${timeAndYear}</p>
-            </div>
-            <p id="comentParagraph">
-                ${comment.value}
-            </p>
-        </div>
-        </div>
-        `
+        // newComment["comment"] = comment.value;
+        // newComment["blogId"] = tittleTex[2];
+        // newComment["blogTittle"] = tittleTex[1];
+        // newComment["time"] = timeAndYear;
     
-        newComment["comment"] = comment.value;
-        newComment["blogId"] = tittleTex[2];
-        newComment["blogTittle"] = tittleTex[1];
-        newComment["time"] = timeAndYear;
-    
-        commentData.push(newComment);
-        console.log(commentData);
-        localStorage.setItem("comments", JSON.stringify(commentData));
+        // commentData.push(newComment);
+        // console.log(commentData);
+        // localStorage.setItem("comments", JSON.stringify(commentData));
     }else{
-        alert("Login to make a comment");
+        alert("Please login to make a comment");
     }
 })
 

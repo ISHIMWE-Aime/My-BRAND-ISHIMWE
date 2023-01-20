@@ -35,7 +35,7 @@ form.addEventListener('submit', async (e) => {
         })
 
         const resMessage = await res.json()
-        console.log(resMessage)
+        console.log('The user id is:', resMessage.userId)
 
         localStorage.setItem('authorization', JSON.stringify(resMessage.jwt))
         localStorage.setItem('CurrentUser', JSON.stringify(resMessage.userId))
