@@ -20,6 +20,15 @@
         /* background-color: green; */
     }
 
+    .viewP{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #141335;
+        width: 100%;
+        height: auto;
+    }
+
     #general_container{
         overflow-x: hidden;
         width: 100%;
@@ -78,7 +87,7 @@
         font-family: 'Inria Sans';
         font-style: normal;
         font-weight: 500;
-        font-size: 20px;
+        font-size: auto;
         line-height: auto;
     }
     
@@ -96,7 +105,7 @@
 
         font-style: normal;
         /* font-weight: 00; */
-        font-size:medium;
+        font-size: medium;
         line-height: auto;
         text-align: center;
     }
@@ -115,19 +124,41 @@
 
     /* viewP2**/
 
+    #viewP2{
+        /* background-color: green; */
+    }
+    .greenline{
+        width: 100%;
+        height: 0px;
+        opacity: 0.75;
+        border: 7px solid #A1FC0E;
+        border-radius: 20px;
+    }
+    .greenlinePadding{
+        width: 100%;
+        padding: 0px;
+    }
+    .subtittles{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+    }
+    .subtittles-text{
+        text-align: center;
+    }
+
     #viewP2-content{
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100%;
-        height: 50vh;
+        height: auto;
         /* background-color: violet; */
     }
     #description{
         text-align: center;
-        position: relative;
-        top: -30%;
-        height: 100%;
+        height: auto;
         width: 100%;
         z-index: 1000;
     }
@@ -144,13 +175,10 @@
     #laptop{
         position: relative;
         left: 15%;
-        top: 30%;
     }
     #pictureSide{
-        position: relative;
-        bottom: 00px;
         width: 100%;
-        height: 100%;
+        height: auto;
         background: radial-gradient(50% 50% at 50% 50%, rgba(161, 141, 255, 0.65) 0%, rgba(20, 19, 53, 0.28) 86.46%);
         opacity: 0.4;
         /* background-color: yellow; */
@@ -158,8 +186,8 @@
 
     #pictureSideImage{
         position: relative;
-        top: 90px;
-        height: 100%;
+        top: 0px;
+        height: auto;
         width: 100%;
     }
 
