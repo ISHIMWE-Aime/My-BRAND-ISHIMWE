@@ -453,8 +453,6 @@ a:hover{
     margin-top: 0%;
     height: 70%;
     width: 736px;
-    left: 407px;
-    top: 314px;
     border-radius: 10px;
     background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, rgba(255, 255, 255, 0.86) 55.73%, rgba(20, 19, 53, 0.9) 100%);
     border-radius: 10px;
@@ -824,7 +822,9 @@ button:hover{
     word-wrap: break-word;
 }
 
-
+.dropup{
+    display: none;
+}
 
 /*/////////////\\\\\\\\\\\\\\\\*/
 /*#more-buttonForComment{
