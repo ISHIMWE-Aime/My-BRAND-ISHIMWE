@@ -57,4 +57,29 @@
         margin-right: 0%;
         margin-bottom: 1.25;
     }
+
+    /* Blog views */
+    #viewPForBlog{
+        /*border: 2px solid red;*/
+        margin-top: 0px;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #blogCont{
+        width: 100%;
+    }
+    #recommend{
+        margin-top: 10px;
+        margin-bottom: 10px;
+        width: 92%;
+    }
+    #userProfileSlot{
+        display: none;
+    }
+    #editSymbolSlot{
+        display: none;
+    }
 }
