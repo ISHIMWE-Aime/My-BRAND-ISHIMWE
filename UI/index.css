@@ -350,8 +350,8 @@ nav{
 #skillsGrid{
     padding-top: 60px;
     display: grid;
-    grid-template-rows: 216px 216px 216px;
-    grid-template-columns: 216px 216px 216px;
+    grid-template-rows: 20vh 20vh 20vh;
+    grid-template-columns: 27% 27% 27%;
     grid-row-gap: 20%;
     grid-column-gap: 10%;
     /*grid-gap: 200px;*/
@@ -365,7 +365,9 @@ nav{
 }
 
 .viewP5grid{
-margin-left: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .gridElement{
     text-align: center;

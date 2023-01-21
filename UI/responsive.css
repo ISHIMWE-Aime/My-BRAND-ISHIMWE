@@ -143,7 +143,7 @@
         flex-direction: column;
         align-items: center;
         padding: 0px;
-        width: 30%;
+        width: 50%;
     }
     .subtittles-text{
         text-align: center;
@@ -167,11 +167,13 @@
     }
 
     #aboutparagraph{
+        position: absolute;
+        left: 0px;
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
         line-height: auto;
-        width: 80%;
+        width: 100%;
         /* background-color: aliceblue; */
     }
 
@@ -209,7 +211,7 @@
         width: 100%;
     }
     #myBenPara{
-        margin-top: 60px;
+        margin-top: 70px;
         font-size: 20px;
         line-height: auto;
     }
@@ -224,7 +226,7 @@
     /* vieqP4 */
     .projectList{
         width: 100%;
-        height: 100vh;
+        height: auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -241,19 +243,18 @@
 
     /* viewP5 */
     #skillsGrid{
-        position: relative;
-        left: -20%;
         padding-top: 60px;
         display: grid;
-        grid-template-rows: 216px 216px 216px 216px;
-        grid-template-columns: 216px 216px;
+        grid-template-rows: 20vh 20vh 20vh 20vh;
+        grid-template-columns: 40% 40%;
         grid-row-gap: 20%;
-        grid-column-gap: 10%;
+        grid-column-gap: 20%;
         /*grid-gap: 200px;*/
     }
     .viewP5grid{
-        margin-left: 33%;
-        height: 70vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     /* contact */
