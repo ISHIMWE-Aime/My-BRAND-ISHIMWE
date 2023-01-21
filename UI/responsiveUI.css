@@ -42,4 +42,19 @@
     #web{
         background-color: gray;
     } */
+
+    /* Blogs list */
+
+    #blogGridLink{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .blogLink{
+        width: 95%;
+        /* min-width: 300px; */
+        margin-top: 1.25%;
+        margin-right: 0%;
+        margin-bottom: 1.25;
+    }
 }
