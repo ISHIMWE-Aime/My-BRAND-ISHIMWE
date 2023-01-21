@@ -245,7 +245,7 @@
     #skillsGrid{
         padding-top: 60px;
         display: grid;
-        grid-template-rows: 20vh 20vh 20vh 20vh;
+        grid-template-rows: 18vh 18vh 18vh 18vh;
         grid-template-columns: 40% 40%;
         grid-row-gap: 20%;
         grid-column-gap: 20%;
@@ -255,6 +255,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    #viewP6{
+        padding-top: 0px;
     }
 
     /* contact */
