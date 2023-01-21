@@ -270,7 +270,7 @@
     .gridElement{
         display: flex;
         flex-direction: column;
-        width: 150px;
+        width: 42%;
         height: auto;
         text-align: center;
         font-style: normal;
@@ -284,9 +284,13 @@
     }
 
     .viewP5grid{
+        margin-top: 10vh;
+        margin-left: 2.5%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        /* background-color: green; */
     }
 
     #viewP6{
