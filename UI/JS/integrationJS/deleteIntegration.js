@@ -19,20 +19,20 @@ let blogDataFromDB2
     #blogs {
             background: linear-gradient(180deg, rgba(20, 19, 53, 0.83) 0%, #B7BDC7 54.69%, rgba(20, 19, 53, 0.5) 100%);
             border-radius: 10px;
-            padding: 20px;
+            padding: 10px;
             border: 2px solid black;
             color: white;
-            font-weight: 600;
+            font-weight: 500;
         }
     `
     style.innerHTML += `
     #users {
             background: none;
             border-radius: 10px;
-            padding: 20px;
+            padding: 10px;
             border: 2px solid black;
             color: white;
-            font-weight: 600;
+            font-weight: 500;
         }
     `
     document.head.appendChild(style);

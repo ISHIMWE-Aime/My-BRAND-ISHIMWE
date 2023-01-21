@@ -77,6 +77,7 @@ button{
     border-radius: 50%;
 }
 .buffer{
+    /* margin-left:250px; */
     width: 80%;
 }
 #owenLbar{
@@ -91,6 +92,7 @@ button{
     font-style: normal;
     font-weight: 600;
     font-size: 15px;
+    /* background-color: #A1FC0E; */
 }
 #headerLeft{
     display: flex;
@@ -113,6 +115,9 @@ button{
     background-color: white;
     border-radius: 10px;
     opacity: 0.7;
+}
+#searchInputField{
+    width: 90%;
 }
 .icons{
     padding: 5px;
@@ -395,4 +400,11 @@ a:hover{
     width: 40px;
     border-radius: 0px; 
     padding-right: 10px; 
+}
+
+.dropup-content{
+    display: none;
+}
+.sidebarBtn{
+    display: none;
 }

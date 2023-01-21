@@ -14,6 +14,7 @@ if(userPresense){
 
 // console.log(logINB[0].innerHTML, logINB[1].innerHTML)
 
+// below are for dropDown
 if(logINB.innerHTML === 'Log Out'){
     logINB.addEventListener('click', () => {
         userPresense = ''
@@ -22,4 +23,15 @@ if(logINB.innerHTML === 'Log Out'){
         localStorage.setItem("authorization", JSON.stringify(userPresense))
         location.href = 'index.html'
     })
+}
+
+// this below are for side bar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById('bufferBlock').style.display = "none"
+}
+
+function w3_close() {
+    document.getElementById('bufferBlock').style.display = "block"
+    document.getElementById("mySidebar").style.display = "none";
 }
