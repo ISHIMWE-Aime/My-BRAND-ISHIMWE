@@ -55,7 +55,10 @@
         /* min-width: 300px; */
         margin-top: 1.25%;
         margin-right: 0%;
-        margin-bottom: 1.25;
+        margin-bottom: 1.25%;
+    }
+    .blogLink:hover{
+        transform: scale(0);
     }
 
     /* Blog views */
