@@ -6,274 +6,311 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Branding</title>
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="responsive.css">
+
 </head>
 <body>
-    <div id="viewP1">
-        <header>
-            <nav>
-                <div id="web">
-                    <h2 id="main-pro">Web-developer</h2>
-                </div>
-                <div id="options">
+    <div id="general_container">
+        <div id="viewP1">
+            <header>
+                <nav>
+                    <div id="web">
+                        <h2 id="main-pro">Web-developer</h2>
+                    </div>
+                    <div id="options">
+                        <a class="navItems navItemsTop" href="#viewP1-content" target="_self">Home</a>
+                        <a class="navItems navItemsTop" href="#viewP5" target="_self">Technical skills</a>
+                        <a class="navItems navItemsTop" href="#viewP4" target="_self">Portifolio</a>
+                        <a class="navItems navItemsTop" href="#viewP6" target="_self">Contacts</a>
+                        <a class="navItems navItemsTop loginB"  target="_self" >Log in</a>
+                        <button id="blogButton" class="">
+                            <a href="UI/Blog.html" target="_self">Blogs</a>
+                        </button>
+                    </div>
+                    <div>
+                        <div class="dropdown" onclick="myFunction()" >
+                            <button  class="dropbtn"></button>
+                        </div>
+
+                    </div>
+                </nav>
+                <div id="myDropdown" class="dropdown-content">
                     <a class="navItems" href="#viewP1-content" target="_self">Home</a>
                     <a class="navItems" href="#viewP5" target="_self">Technical skills</a>
                     <a class="navItems" href="#viewP4" target="_self">Portifolio</a>
-                    <a class="navItems" href="#viewP6" target="_self">Contacts</a>
+                    <a class="navItems" href="UI/Contact-Me.html" target="_self">Contacts</a>
                     <a class="navItems loginB"  target="_self" >Log in</a>
-                    <button id="blogButton">
-                        <a href="UI/Blog.html" target="_self">Blog</a>
-                    </button>
                 </div>
-            </nav>
-        </header>
-    <div id="viewP1-content">
-        <div id="left">
-            <div id="greeting-name">
-                <h1 id="greeting">Hello, I'm
-                    <strong style="color: #A1FC0E;">ISHIMWE <br> Aime Fabrice</strong>
-                </h1>
-            </div>
-            <p id="little-about-me">I am  JS and HTML/CSS specialist and I have 2 years of experience in IT field. <br> I specialize in  Software development and programming.</p>
-            <button id="button">
-                <div id="contactMe">
-                    <a id="contactWithMe" href="UI/Contact-Me.html">Contact with me</a>
+            </header>
+        <div id="viewP1-content">
+            <div id="left">
+                <div id="greeting-name">
+                    <h1 id="greeting">Hello, I'm
+                        <strong style="color: #A1FC0E;">ISHIMWE <br> Aime Fabrice</strong>
+                    </h1>
                 </div>
-            </button>
-        </div>
-        <div id="right">
-            <img id="profilePicture" src="images/IMG-20221116-WA0046-removebg-preview.png" alt="ProfilePicture">
-        </div>
-    </div>
-   
-    </div>
-
-    <div class="viewP" id="viewP2">
-        <div class="subtittles">
-            <div class="greenlinePadding">
-                <div class="greenline"></div>
-            </div>
-            <h1 class="subtittles-text">About me</h1>
-        </div>
-        <div id="viewP2-content">
-            <div id="pictureSide">
-                <img id="pictureSideImage" src="images/IMG-20221116-WA0046-removebg-preview.png" alt="profilePicture">
-            </div>
-            <div id="description">
-                <img id="laptop" src="images/web_develper-removebg-preview.png" alt="descriptionImage">
-                <p id="aboutparagraph">
-                    I specialized in the web development with the last technologies, 
-                    I’m always learning new stuffs more important in the web industry that changes too fast. 
-                    I do frontend, backend and devops so I’m a full stack developer.
-                    I like a lot digital products and with the development 
-                    I find an interesting way of being part of that world.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="viewP" id="viewP3">
-        <div class="subtittles">
-            <div class="greenlinePadding">
-                <div class="greenline"></div>
-            </div>
-            <h1 class="subtittles-text">My benefits</h1>
-        </div>
-        <p style="width: 54%; text-align: center;">
-            I really like to take on new project tasks and understand them. I get a great pleasure from writing codeand emp;ementing it.
-            I try to develop and learn new aspects of my profession every day.
-        </p>
-        <div id="myBenefits">
-            <div class="box" id="experience">
-                <div class="textContainer">
-                    <p class="pre">More</p>
-                    <P class="number">2</P>
-                    <p class="sufix">years experience</p>
-                </div>
-            </div>
-            <div class="box" id="finished">
-                <div class="textContainer">
-                    <p class="pre">More</p>
-                    <P class="number">3</P>
-                    <p class="sufix">finished projects</p>
-                </div>
-            </div>
-            
-            <div class="box" id="certificate">
-                <div class="textContainer">
-                    <p class="pre">More</p>
-                    <P class="number">1</P>
-                    <p class="sufix">certified skills</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="viewP" id="viewP4">
-        <div class="subtittles">
-            <div class="greenlinePadding">
-                <div class="greenline"></div>
-            </div>
-            <h1 class="subtittles-text">Portifolio</h1>
-        </div>
-        <div class="projectList">
-            <div id="projectOne">
-                <div class="projectForm">
-                    <div class="tittle">
-                        <h3>Horoscope teller</h3>
-                        <a href="http://" class="linkToProject"><img src="images/icons/Group 19ArrowLink.png" alt="" class="arrowLink"></a>
+                <p id="little-about-me">I am  JS and HTML/CSS specialist and I have 2 years of experience in IT field. <br> I specialize in  Software development and programming.</p>
+                <button id="button">
+                    <div id="contactMe">
+                        <a id="contactWithMe" href="UI/Contact-Me.html">Contact with me</a>
                     </div>
-                    <div class="line">
-        
+                </button>
+            </div>
+            <div id="right">
+                <img id="profilePicture" src="images/IMG-20221116-WA0046-removebg-preview.png" alt="ProfilePicture">
+            </div>
+        </div>
+       
+        </div>
+    
+        <div class="viewP" id="viewP2">
+            <div class="subtittles">
+                <div class="greenlinePadding">
+                    <div class="greenline"></div>
+                </div>
+                <h1 class="subtittles-text">About me</h1>
+            </div>
+            <div id="viewP2-content">
+                <div id="pictureSide">
+                    <img id="pictureSideImage" src="images/IMG-20221116-WA0046-removebg-preview.png" alt="profilePicture">
+                </div>
+                <div id="description">
+                    <img id="laptop" src="images/web_develper-removebg-preview.png" alt="descriptionImage">
+                    <p id="aboutparagraph">
+                        I specialized in the web development with the last technologies, 
+                        I’m always learning new stuffs more important in the web industry that changes too fast. 
+                        I do frontend, backend and devops so I’m a full stack developer.
+                        I like a lot digital products and with the development 
+                        I find an interesting way of being part of that world.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="viewP" id="viewP3">
+            <div class="subtittles">
+                <div class="greenlinePadding">
+                    <div class="greenline"></div>
+                </div>
+                <h1 class="subtittles-text">My benefits</h1>
+            </div>
+            <p id="myBenPara" style="width: 54%; text-align: center;">
+                I really like to take on new project tasks and understand them. I get a great pleasure from writing codeand emp;ementing it.
+                I try to develop and learn new aspects of my profession every day.
+            </p>
+            <div id="myBenefits">
+                <div class="box" id="experience">
+                    <div class="textContainer">
+                        <p class="pre">More</p>
+                        <P class="number">2</P>
+                        <p class="sufix">years experience</p>
                     </div>
-                    <div class="projectImage" >
-                        <img id="ProjectOneImage" src="images/horosign.jpg" alt="ProjectOneImage">
-                        <!-- <div id="projectImageOnHoverPositioning">
-                            <div class="projectImageOnHover"></div>
-                        </div>-->
-                        
+                </div>
+                <div class="box" id="finished">
+                    <div class="textContainer">
+                        <p class="pre">More</p>
+                        <P class="number">3</P>
+                        <p class="sufix">finished projects</p>
+                    </div>
+                </div>
+                
+                <div class="box" id="certificate">
+                    <div class="textContainer">
+                        <p class="pre">More</p>
+                        <P class="number">1</P>
+                        <p class="sufix">certified skills</p>
                     </div>
                 </div>
             </div>
-            <div id="projectTwo">
-                <div class="projectForm">
-                    <div class="tittle">
-                        <h3>Store App</h3>
-                        <a href="http://" class="linkTo"><img src="images/icons/Group 19ArrowLink.png" alt="" class="arrowLink"></a>
-                    </div>
-                    <div class="line">
-        
-                    </div>
-                    <div class="projectImage" >
-                        <img id="ProjectTwoImage" src="images/stores-removebg-preview.png" alt="ProjectTwoImage">
-                    </div>
+        </div>
+        <div class="viewP" id="viewP4">
+            <div class="subtittles">
+                <div class="greenlinePadding">
+                    <div class="greenline"></div>
                 </div>
+                <h1 class="subtittles-text">Portifolio</h1>
             </div>
-            <div id="special">
-                <div id="projectThree">
+            <div class="projectList">
+                <div id="projectOne">
                     <div class="projectForm">
                         <div class="tittle">
-                            <h3>Personal CV</h3>
+                            <h3>Horoscope teller</h3>
                             <a href="http://" class="linkToProject"><img src="images/icons/Group 19ArrowLink.png" alt="" class="arrowLink"></a>
                         </div>
                         <div class="line">
             
                         </div>
-                        <div class="projectImage">
-                            <img id="ProjectThreeImage" src="images/animation-resume.png" alt="ProjectThreeImage">
+                        <div class="projectImage" >
+                            <img id="ProjectOneImage" src="images/horosign.jpg" alt="ProjectOneImage">
+                            <!-- <div id="projectImageOnHoverPositioning">
+                                <div class="projectImageOnHover"></div>
+                            </div>-->
+                            
                         </div>
                     </div>
                 </div>
-                <a href="http://#">
-                    <div id="more-button">
-                        <div id="more">
-                            <p id="more-text">
-                                More
-                            </p>
-                            <div id="dashedcycle">
-                                <div id="whiteCycle">
-                                   
-                                </div>
+                <div id="projectTwo">
+                    <div class="projectForm">
+                        <div class="tittle">
+                            <h3>Store App</h3>
+                            <a href="http://" class="linkTo"><img src="images/icons/Group 19ArrowLink.png" alt="" class="arrowLink"></a>
+                        </div>
+                        <div class="line">
+            
+                        </div>
+                        <div class="projectImage" >
+                            <img id="ProjectTwoImage" src="images/stores-removebg-preview.png" alt="ProjectTwoImage">
+                        </div>
+                    </div>
+                </div>
+                <div id="special">
+                    <div id="projectThree">
+                        <div class="projectForm">
+                            <div class="tittle">
+                                <h3>Personal CV</h3>
+                                <a href="http://" class="linkToProject"><img src="images/icons/Group 19ArrowLink.png" alt="" class="arrowLink"></a>
+                            </div>
+                            <div class="line">
+                
+                            </div>
+                            <div class="projectImage">
+                                <img id="ProjectThreeImage" src="images/animation-resume.png" alt="ProjectThreeImage">
                             </div>
                         </div>
                     </div>
-                </a>
-            </div>
-        </div>  
-    </div>
-    <div class="viewP" id="viewP5">
-        <div class="subtittles">
-            <div class="greenlinePadding">
-                <div class="greenline"></div>
-            </div>
-            <h1 class="subtittles-text">My technical skills</h1>
+                    <a href="http://#">
+                        <div id="more-button">
+                            <div id="more">
+                                <p id="more-text">
+                                    More
+                                </p>
+                                <div id="dashedcycle">
+                                    <div id="whiteCycle">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>  
         </div>
-    </div>
-    <div class="viewP5grid">
-        <div id="skillsGrid">
-            <div class="gridElement" id="cssSkills">
-                <img class="icons" src="images/Group 1CSS.png" alt="">
-                <p>CSS</p>
-            </div>
-            <div class="gridElement" id="htmlSkills">
-                <img class="icons" src="images/Group 2HTML.png" alt="">
-                <p>HTML</p>
-            </div>
-            <div class="gridElement" id="JavaScriptSkills">
-                <img class="icons" src="images/Group 4JS.png" alt="">
-                <p>JavaScript</p>
-            </div>
-            <div class="gridElement" id="GitSkills">
-                <img class="icons" src="images/Group 8Git.png" alt="">
-                <p>Git</p>
-            </div>
-            <div class="gridElement" id="TerminalSkills">
-                <img class="icons" src="images/Group 7Terminal.png" alt="">
-                <p>Terminal</p>
-            </div>
-            <div class="gridElement" id="GitHubSkills">
-                <img class="icons" src="images/Group 5GitHub.png" alt="">
-                <p>Github</p>
-            </div>
-            <div class="gridElement" id="CProgrammingSkills">
-                <img class="icons" src="images/Group 8CProGram.png" alt="">
-                <p>C programming</p>
+        <div class="viewP" id="viewP5">
+            <div class="subtittles">
+                <div class="greenlinePadding">
+                    <div class="greenline"></div>
+                </div>
+                <h1 class="subtittles-text">My technical skills</h1>
             </div>
         </div>
-    </div>
-    <div class="viewP" id="viewP6">
-        <div class="subtittles">
-            <div class="greenlinePadding">
-                <div class="greenline"></div>
-            </div>
-            <h1 class="subtittles-text">Contacts</h1>
-        </div>
-    </div>
-    <div id="contactflex">
-        <div class="G1">
-            <div class="cgridElement" id="cssSkills">
-                <img class="cicons" src="images/icons/Group 24PhoneCall.png" alt="">
-                <a href="tel:+250 787 414 868" class="contatsLinks">+250 787 414 868</a>
-            </div>
-            <div class="cgridElement" id="htmlSkills">
-                <img class="cicons" src="images/icons/VectorEmail.png" alt="">
-                <a href="mailto:fabricei645@gmail.com" class="contatsLinks">fabricei645@gmail.com</a>
-            </div>
-        </div>
-        <div class="G1">
-            <div class="cgridElement" id="JavaScriptSkills">
-                <img class="cicons" src="images/icons/VectorWhatsApp.png" alt="">
-                <a href="tel:+250 787 414 868" class="contatsLinks">+250 787 414 868</a>
-            </div>
-            <div class="cgridElement" id="GitSkills">
-                <img class="cicons" src="images/icons/VectorlinkedIn.png" alt="">
-                <a href="https://www.linkedin.com/in/ishimwe-aime-fabrice-270674189/" class="contatsLinks">ISHIMWE-Aime</a>
-            </div>
-        </div>
-        <div class="G1">
-            <div class="cgridElement" id="TerminalSkills">
-                <img class="cicons" src="images/icons/VectorGitHub.png" alt="">
-                <a href="https://github.com/ISHIMWE-Aime" class="contatsLinks">GitHub</a>
-            </div>
-            <div class="cgridElement" id="GitHubSkills">
-                <img class="cicons" src="images/icons/VectorTwitter.png" alt="">
-                <a href="https://twitter.com/ISHIMWEAimeFab2" class="contatsLinks">ISHIMWEAimeFab2</a>
+        <div class="viewP5grid">
+            <div id="skillsGrid">
+                <div class="gridElement" id="cssSkills">
+                    <img class="icons" src="images/Group 1CSS.png" alt="">
+                    <p>CSS</p>
+                </div>
+                <div class="gridElement" id="htmlSkills">
+                    <img class="icons" src="images/Group 2HTML.png" alt="">
+                    <p>HTML</p>
+                </div>
+                <div class="gridElement" id="JavaScriptSkills">
+                    <img class="icons" src="images/Group 4JS.png" alt="">
+                    <p>JavaScript</p>
+                </div>
+                <div class="gridElement" id="GitSkills">
+                    <img class="icons" src="images/Group 8Git.png" alt="">
+                    <p>Git</p>
+                </div>
+                <div class="gridElement" id="TerminalSkills">
+                    <img class="icons" src="images/Group 7Terminal.png" alt="">
+                    <p>Terminal</p>
+                </div>
+                <div class="gridElement" id="GitHubSkills">
+                    <img class="icons" src="images/Group 5GitHub.png" alt="">
+                    <p>Github</p>
+                </div>
+                <div class="gridElement" id="CProgrammingSkills">
+                    <img class="icons" src="images/Group 8CProGram.png" alt="">
+                    <p>C programming</p>
+                </div>
             </div>
         </div>
-    </div>
-    <footer>
-        <nav>
-            <div id="web">
-                <h2 id="main-pro">Web-developer</h2>
+        <div class="viewP" id="viewP6">
+            <div class="subtittles">
+                <div class="greenlinePadding">
+                    <div class="greenline"></div>
+                </div>
+                <h1 class="subtittles-text">Contacts</h1>
             </div>
-            <div id="footerOptions">
+        </div>
+        <div id="contactflex">
+            <div class="G1">
+                <div class="cgridElement" id="cssSkills">
+                    <img class="cicons" src="images/icons/Group 24PhoneCall.png" alt="">
+                    <a href="tel:+250 787 414 868" class="contatsLinks">+250 787 414 868</a>
+                </div>
+                <div class="cgridElement" id="htmlSkills">
+                    <img class="cicons" src="images/icons/VectorEmail.png" alt="">
+                    <a href="mailto:fabricei645@gmail.com" class="contatsLinks">fabricei645@gmail.com</a>
+                </div>
+            </div>
+            <div class="G1">
+                <div class="cgridElement" id="JavaScriptSkills">
+                    <img class="cicons" src="images/icons/VectorWhatsApp.png" alt="">
+                    <a href="tel:+250 787 414 868" class="contatsLinks">+250 787 414 868</a>
+                </div>
+                <div class="cgridElement" id="GitSkills">
+                    <img class="cicons" src="images/icons/VectorlinkedIn.png" alt="">
+                    <a href="https://www.linkedin.com/in/ishimwe-aime-fabrice-270674189/" class="contatsLinks">ISHIMWE-Aime</a>
+                </div>
+            </div>
+            <div class="G1">
+                <div class="cgridElement" id="TerminalSkills">
+                    <img class="cicons" src="images/icons/VectorGitHub.png" alt="">
+                    <a href="https://github.com/ISHIMWE-Aime" class="contatsLinks">GitHub</a>
+                </div>
+                <div class="cgridElement" id="GitHubSkills">
+                    <img class="cicons" src="images/icons/VectorTwitter.png" alt="">
+                    <a href="https://twitter.com/ISHIMWEAimeFab2" class="contatsLinks">ISHIMWEAimeFab2</a>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <!-- <div id="myDropdown" class="dropdown-content">
                 <a class="navItems" href="#viewP1-content" target="_self">Home</a>
                 <a class="navItems" href="#viewP5" target="_self">Technical skills</a>
                 <a class="navItems" href="#viewP4" target="_self">Portifolio</a>
                 <a class="navItems" href="UI/Contact-Me.html" target="_self">Contacts</a>
                 <a class="navItems loginB"  target="_self" >Log in</a>
-            </div>
-            <a href="http://#" target="_self" style="width: 10%; font-weight: 600; padding-top: 1.5%;">ISHIMWE A.F</a>
-        </nav>
-    </footer> 
-    <script src="logout.js"></script>
+            </div> -->
+            <nav>
+                <div id="web">
+                    <h2 id="main-pro">Web-developer</h2>
+                </div>
+                <div id="footerOptions">
+                    <a class="navItems" href="#viewP1-content" target="_self">Home</a>
+                    <a class="navItems" href="#viewP5" target="_self">Technical skills</a>
+                    <a class="navItems" href="#viewP4" target="_self">Portifolio</a>
+                    <a class="navItems" href="UI/Contact-Me.html" target="_self">Contacts</a>
+                    <a class="navItems loginB"  target="_self" >Log in</a>
+                </div>
+                <a id="myNameShortC" href="http://#" target="_self" style="width: 10%; font-weight: 600; padding-top: 1.5%;">ISHIMWE A.F</a>
+                
+                <div class="dropup">
+                     <div class="dropup-content">
+                        <a class="navItems" href="#viewP1-content" target="_self">Home</a>
+                        <a class="navItems" href="#viewP5" target="_self">Technical skills</a>
+                        <a class="navItems" href="#viewP4" target="_self">Portifolio</a>
+                        <a class="navItems" href="UI/Contact-Me.html" target="_self">Contacts</a>
+                        <a class="navItems loginB"  target="_self" >Log in</a>
+                    </div>
+                    <div class="dropUpbtn">
+                        <button class="dropbtn"></button>
+                    </div>
+                </div>   
+            </nav>
+        </footer> 
+        <script src="logout.js"></script>
+    </div>
     <!-- <script src="loginMessage.js"></script> -->
 </body>
 </html>

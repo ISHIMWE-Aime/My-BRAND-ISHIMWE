@@ -236,6 +236,29 @@ const likesUpdate = (allLikes) => {
 
 // Coment display
 
+const displayC = ( commentDataa ) => {
+    for(let i = 0; i < userDataFromDB.data.users.length ; i++){
+        if(userDataFromDB.data.users[i]['_id'] ==  logedInUserDataBase ){
+            listOfComents.innerHTML += `
+            <div id="commentorAndComment">
+            <div id="commentorImageSlot">
+                <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
+            </div>
+            <div id="commetorNameTimeAndParagraph">
+                <div id="commentorNameAndTime">
+                    <h5 class="commentorName">${commentDataa[i]['name']}</h5>
+                    <p id="time">- ${commentDataa[i]["createdAt"]}</p>
+                </div>
+                <p id="comentParagraph">
+                    ${commentDataa[i]["comentData"]}
+                </p>
+            </div>
+            </div>
+            `
+        }
+    }
+}
+
 const displayListOfComents = async ( coments ) => {
     console.log( 'The coments is :',coments )
 
@@ -253,6 +276,8 @@ const displayListOfComents = async ( coments ) => {
         userDataFromDB = await userDataFromDB.json()
         console.log('All users from db are: ',userDataFromDB.data)
 
+        commentData = coments.data
+        let numCount = 0;
         let fullName
         for(let i = 0; i < userDataFromDB.data.users.length ; i++){
             if(userDataFromDB.data.users[i]['_id'] ==  logedInUserDataBase ){
@@ -262,38 +287,42 @@ const displayListOfComents = async ( coments ) => {
                 else{
                     fullName = userDataFromDB.data.users[i].firstName +' '+userDataFromDB.data.users[i].lastName
                 }
+
                 console.log('The user full name is: ', fullName)
+                userDataFromDB.data.users[i]['name'] = fullName
+                console.log( userDataFromDB.data.users)
             }
         }
 
-        commentData = coments.data
-        let numCount = 0;
     
         console.log('The commentData is :', commentData );
         for(let i = 0; i < commentData.length; i++){
             if( commentData[i]["blogId"] === tittleTex[2]){
                 numCount += 1;
-                listOfComents.innerHTML += `
-                <div id="commentorAndComment">
-                <div id="commentorImageSlot">
-                    <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
-                </div>
-                <div id="commetorNameTimeAndParagraph">
-                    <div id="commentorNameAndTime">
-                        <h5 class="commentorName">${fullName}</h5>
-                        <p id="time">- ${commentData[i]["createdAt"]}</p>
-                    </div>
-                    <p id="comentParagraph">
-                        ${commentData[i]["comentData"]}
-                    </p>
-                </div>
-                </div>
-                `
+
+                for(let j = 0; j < userDataFromDB.data.users.length ; j++){
+                    if(userDataFromDB.data.users[j]['_id'] ==  logedInUserDataBase ){
+                        if(userDataFromDB.data.users[j].middleName){
+                            fullName = userDataFromDB.data.users[j].firstName +' '+userDataFromDB.data.users[j].middleName+' '+userDataFromDB.data.users[j].lastName
+                        }
+                        else{
+                            fullName = userDataFromDB.data.users[j].firstName +' '+userDataFromDB.data.users[j].lastName
+                        }
+        
+                        console.log('The user full name is: ', fullName)
+                        commentData[i]['name'] = fullName
+                        console.log( commentData[i])
+                    }
+                }
+
             }
         }
+
+        displayC( commentData );
         numOfComents.innerHTML = numCount;
     }
 }
+
 
 // To post a comment
 post.addEventListener("click", async function(){

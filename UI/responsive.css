@@ -1,0 +1,364 @@
+@media(max-width: 740px){
+
+    /* body{
+        color: white;
+        font-family:var(--heading-font);
+        background-color: #141335;
+        margin: 0px;
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
+    } */
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 7vh;
+        padding: 10px;
+        /* background-color: green; */
+    }
+
+    #general_container{
+        overflow-x: hidden;
+        width: 100%;
+        height: 100%;
+        /* background-color: blue; */
+    }
+
+    #viewP1{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        background: url(images/background.PNG);
+        background-size: cover;
+        margin-bottom: 0px;
+    }
+
+    #viewP1-content{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-evenly; */
+        align-items: stretch;
+        height: 100vh;
+        width: 100%;
+    }
+    #right{
+        /* background-color: yellow; */
+        height: 60%;
+        order: 1;
+        width: 100%;
+    }
+    #left{
+        order: 2;
+        width: 100%;
+        height: 40%;
+        background: linear-gradient(180deg, rgb(40, 34, 53, 0.2) 0%, #181320 33.33%, rgba(30, 22, 38, 0.74) 63.02%, rgba(45, 33, 55, 0.56) 80.21%, rgba(50, 38, 60, 0.48) 100%);
+        opacity: 0.9;
+        /* background: green; */
+        z-index: 10000;
+        margin-left: 0%;
+        /* filter: blur(5px); */
+    }
+    #greeting-name{
+        position: absolute;
+        width: 100%;
+        height: auto;
+        left: 10%;
+        top: 12%;
+        
+        font-family: 'Inria Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 27px;
+        line-height: auto;
+    }
+    
+    #profilePicture{
+        height: 55%;
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        top: 258px;
+    }
+    #little-about-me{
+        text-align: center;
+        position: relative;
+        width: 80%;
+        height: 94px;
+        left: 50px;
+        top: -30px;
+
+        font-family: 'Inria Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: auto;
+        text-align: center;
+    }
+
+    #button{
+        position: relative;
+        width: 274px;
+        height: 69px;
+        left: 30%;
+        /* top: 1360px; */
+
+        font-family: 'Inria Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: auto;
+    }
+
+    /* viewP2**/
+
+    #viewP2-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 50vh;
+        /* background-color: violet; */
+    }
+    #description{
+        text-align: center;
+        position: relative;
+        top: -30%;
+        height: 100%;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    #aboutparagraph{
+        font-style: normal;
+        font-weight: 400;
+        font-size: 32px;
+        line-height: auto;
+        width: 80%;
+        /* background-color: aliceblue; */
+    }
+
+    #laptop{
+        position: relative;
+        left: 15%;
+        top: 30%;
+    }
+    #pictureSide{
+        position: relative;
+        bottom: 00px;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(50% 50% at 50% 50%, rgba(161, 141, 255, 0.65) 0%, rgba(20, 19, 53, 0.28) 86.46%);
+        opacity: 0.4;
+        /* background-color: yellow; */
+    }
+
+    #pictureSideImage{
+        position: relative;
+        top: 90px;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* viewP3 */
+
+    #viewP3{
+        height: 110vh;
+        /* background-color: yellow; */
+    }
+
+    #myBenefits{
+        padding-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    #myBenPara{
+        font-size: 32px;
+        line-height: auto;
+    }
+    .box{
+        width: 80%;
+        height: 400px;
+        background: #4E3E85;
+        text-align: center;
+        margin-top: 4%;
+    }
+
+    /* vieqP4 */
+    .projectList{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+    }
+    #projectOne{
+        margin-bottom: 20px;
+        align-self: center;
+    }
+    .projectForm{
+        margin-top: 6%;
+        width: 100%;
+    }
+
+    /* viewP5 */
+    #skillsGrid{
+        position: relative;
+        left: -20%;
+        padding-top: 60px;
+        display: grid;
+        grid-template-rows: 216px 216px 216px 216px;
+        grid-template-columns: 216px 216px;
+        grid-row-gap: 20%;
+        grid-column-gap: 10%;
+        /*grid-gap: 200px;*/
+    }
+    .viewP5grid{
+        margin-left: 33%;
+        height: 70vh;
+    }
+
+    /* contact */
+    #contactflex{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 30vh;
+        /* background-color: green; */
+
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: auto;
+    }
+    .G1{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 10vh;
+        justify-content: space-between;
+        padding: 20px;
+        /* background-color: gray; */
+        margin-left: 40%;
+        /* margin-left: 15%; */
+    }
+    .contatsLinks{
+        width: auto;
+        /* background-color: yellow; */
+    }
+    .cgridElement{
+        width: 90%;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    #myDropdown{
+        position: absolute;
+        left: 70%;
+        font-size: 20px;
+        background-color: #4E3E85;
+        color: white;
+        z-index: 10000000;
+    }
+    #footerOptions{
+        display: none;
+    }
+
+    .dropdown{
+        background: url('images/icons/Group\ 39dropDownButton.png');
+        background-size: cover;
+        width: auto;
+        margin-right: 10px;
+        height: auto;
+        /* z-index: 10000; */
+    }
+
+    .dropbtn {
+        /* background-color: #3498DB; */
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        background: transparent;
+    }
+    #myNameShortC{
+        display: none;
+    }
+    #web{
+        width: 70%;
+        margin-left: 0px;
+        /* background-color: aquamarine; */
+
+        justify-self: flex-start;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: auto;
+        /* identical to box height */
+        text-align: left;
+    }
+    .navItemsTop{
+        display: none;
+    }
+
+    .dropbtn:hover{
+        border: none;
+    }
+
+    /* Dropup Button */
+  
+  /* The container <div> - needed to position the dropup content */
+  .dropup {
+    position: relative;
+    display: inline-block;
+
+  }
+  .dropUpbtn{
+    background: url('images/icons/Group\ 39dropDownButton.png');
+    background-size: cover;
+    width: auto;
+    margin-right: 10px;
+    height: auto;
+  }
+  
+  /* Dropup content (Hidden by Default) */
+  .dropup-content {
+    display: none;
+    position: absolute;
+    bottom: 50px;
+    background-color: #4E3E85;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropup */
+  .dropup-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropup links on hover */
+  .dropup-content a:hover {background-color: #ddd}
+  
+  /* Show the dropup menu on hover */
+  .dropup:hover .dropup-content {
+    display: block;
+  }
+  
+  /* Change the background color of the dropup button when the dropup content is shown */
+  /* .dropup:hover .dropbtn {
+    background-color: #2980B9;
+  } */
+} 
