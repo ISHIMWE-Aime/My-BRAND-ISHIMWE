@@ -1,0 +1,12 @@
+@media(max-width: 740px){
+    .viewP{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #141335;
+        width: 100%;
+        padding: 3rem 0 27rem;
+        height: auto;/*I have changed this value w.r.t index.html*/
+    }
+}
