@@ -251,20 +251,42 @@
     }
 
     /* viewP5 */
-    #skillsGrid{
+    /* #skillsGrid{
         margin-top: 10vh;
         display: grid;
         grid-template-rows: 18vh 18vh 18vh 18vh;
         grid-template-columns: 40% 40%;
         grid-row-gap: 20%;
         grid-column-gap: 20%;
-        /*grid-gap: 200px;*/
+        /*grid-gap: 200px;
+    } */
+
+    #skillsGrid{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
     }
+
+    .gridElement{
+        display: flex;
+        flex-direction: column;
+        width: 150px;
+        height: auto;
+        text-align: center;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 36px;
+    }
+    .icons{
+        width: 100%;
+        height: auto;
+    }
+
     .viewP5grid{
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 930px;
     }
 
     #viewP6{
@@ -285,11 +307,20 @@
         font-size: 32px;
         line-height: auto;
     }
+
+    .cgridElement{
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        width: 100%;
+        word-wrap: break-word;
+    }
+
     .G1{
         display: flex;
         flex-direction: column;
         width: 90%;
-        height: 20vh;
+        height: 15vh;
         justify-content: space-between;
         padding: 20px;
         /* background-color: gray; */
@@ -299,9 +330,6 @@
     .contatsLinks{
         width: auto;
         /* background-color: yellow; */
-    }
-    .cgridElement{
-        width: 90%;
     }
 
     #myDropdown{
