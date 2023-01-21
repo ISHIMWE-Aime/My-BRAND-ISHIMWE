@@ -345,6 +345,7 @@
     }
     #footerOptions{
         display: none;
+        width: 0px;
     }
 
     .dropdown{
@@ -370,6 +371,7 @@
     }
     #myNameShortC{
         display: none;
+        width: 0px;
     }
     #web{
         width: 65%;
@@ -408,7 +410,6 @@
     background: url('images/icons/Group\ 39dropDownButton.png');
     background-size: cover;
     width: auto;
-    margin-right: 10px;
     height: auto;
   }
   

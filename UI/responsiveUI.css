@@ -1,12 +1,50 @@
 @media(max-width: 740px){
+
+    footer{
+        position:absolute;
+        top: 93vh;
+    }
+
     .viewP{
         display: flex;
-        flex-direction: column;
+        flex-direction: column; 
         align-items: center;
         justify-content: center;
-        background-color: #141335;
         width: 100%;
-        padding: 3rem 0 27rem;
-        height: auto;/*I have changed this value w.r.t index.html*/
+        /* padding: 3rem 0 27rem; */
+        height: auto;
     }
+
+    .Wmessage{
+        height: auto;
+        width: 330px;
+    }
+
+    .LoginForms{
+        margin-top: 0%;
+        height: 70%;
+        width: 90%;
+        border-radius: 10px;
+        border-radius: 10px;
+        /* background-color: green; */
+    
+    }
+
+    .changeOver{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        height: auto;
+        width: auto;
+        border-radius: 0px;  
+        opacity: 1;
+        /* border: 3px solid yellow; */
+    }
+    #diamondGradient{
+        display: none;
+    }
+/* 
+    #web{
+        background-color: gray;
+    } */
 }
