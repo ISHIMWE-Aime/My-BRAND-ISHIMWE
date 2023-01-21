@@ -225,6 +225,7 @@
 
     /* vieqP4 */
     .projectList{
+        margin-top: 10vh;
         width: 100%;
         height: auto;
         display: flex;
@@ -232,6 +233,14 @@
         align-items: center;
         justify-content: space-around;
     }
+    
+    #special{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 800px;
+    }
+
     #projectOne{
         margin-bottom: 20px;
         align-self: center;
@@ -243,7 +252,7 @@
 
     /* viewP5 */
     #skillsGrid{
-        padding-top: 60px;
+        margin-top: 10vh;
         display: grid;
         grid-template-rows: 18vh 18vh 18vh 18vh;
         grid-template-columns: 40% 40%;
@@ -255,6 +264,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        height: 930px;
     }
 
     #viewP6{
@@ -263,10 +273,11 @@
 
     /* contact */
     #contactflex{
+        margin-top: 10vh;
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 30vh;
+        height: auto;
         /* background-color: green; */
 
         font-style: normal;
@@ -278,11 +289,11 @@
         display: flex;
         flex-direction: column;
         width: 90%;
-        height: 10vh;
+        height: 20vh;
         justify-content: space-between;
         padding: 20px;
         /* background-color: gray; */
-        margin-left: 40%;
+        /* margin-left: 40%; */
         /* margin-left: 15%; */
     }
     .contatsLinks{
@@ -311,7 +322,7 @@
 
         background: url('images/icons/Group\ 39dropDownButton.png');
         background-size: cover;
-        width: 15%;
+        width: 20%;
         height: auto;
         /* margin-right: 10px; */
         /* z-index: 10000; */
@@ -330,7 +341,7 @@
         display: none;
     }
     #web{
-        width: 85%;
+        width: 65%;
         margin-left: 0px;
         /* background-color: aliceblue; */
         /* background-color: aquamarine; */
