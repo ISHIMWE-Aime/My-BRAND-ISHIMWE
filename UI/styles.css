@@ -8,8 +8,13 @@
     --normal-font: 'Poppins', sans-serif;
 }
 
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 a{
-    text-decoration: underline;
+    text-decoration:none;
     color: white;
 }
 a:hover{
@@ -161,19 +166,30 @@ body {
     color: #F6FEFF;
 }
 
-.guest, .contact-me {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: auto;
+.contact-me {
     background: linear-gradient(180deg,
             rgba(20, 19, 53, 0.83) 0%,
             #B7BDC7 24.69%,
             rgba(20, 19, 53, 0.5) 100%);
     /* margin: 80px 20%; */
-    padding: 10px 20px;
+    width: 40%;
     position: relative;
 }
+
+.guest{
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%; */
+    width: 50%;
+    padding: 10px 20px;
+    background: linear-gradient(180deg,
+    rgba(20, 19, 53, 0.83) 0%,
+    #B7BDC7 24.69%,
+    rgba(20, 19, 53, 0.5) 100%);
+/* margin: 80px 20%; */
+}
+
 
 .guest-title {
     background: radial-gradient(50% 50% at 50% 50%,
@@ -190,10 +206,11 @@ body {
     height: 31.47px;
     left: 5px;
     top: 14px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 
 .guest-form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -202,32 +219,54 @@ body {
     font-family: var(--normal-font);
 }
 
+
+/* #fieldsInput{
+    width: 40%;
+}*/
+
+.iti{
+    width: 100%;
+} 
+
+.telephone{
+    margin-bottom: 20px;
+}/* 
+#phone{
+    width: ;
+} */
 input,
 select {
     height: 62px;
-    width: 454px;
+    width: 100%;
     border-radius: 10px;
     background-color: #F6FEFF;
     border: 2px solid #1A1616;
     margin-bottom: 20px;
     padding: 0 20px;
 }
-.telephone{
+/* .telephone{
     margin-bottom: 20px;
-} 
+}  */
 #phone{
-    width: 452px;
+    width: 100%;
 }
-.telephone select {
+.telephone{
+    width: 100%;
+    background-color: green;
+}
+.element{
+    width: 100%;
+}
+/* .telephone select {
     height: 62px;
     width: 136px;
     border-radius: 10px;
-}
+} */
 
-.telephone input {
+/* .telephone input {
     height: 62px;
     width: 310px;
-}
+} */
 
 .bottom-text {
     font-family: var(--normal-font);

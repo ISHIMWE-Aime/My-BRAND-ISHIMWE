@@ -51,7 +51,8 @@
         align-items: center;
     }
     .blogLink{
-        width: 80%;
+        width: 90%;
+        height: 300px;
         /* min-width: 300px; */
         margin-top: 1.25%;
         margin-right: 0%;
@@ -222,7 +223,7 @@
     .lineNumBar{
         display: none;
         height: auto;
-        background-color: yellow;
+        /* background-color: yellow; */
     }
     .actionButtons{
         width: 50%;
@@ -238,9 +239,15 @@
     }
     .element{
         width: 100%;
+        /* background-color: yellow; */
         /* width: auto; */
     }
     .contactme-form{
         width: 100%;
+    }
+
+    /* sign up */
+    .guest{
+        width: 90%;
     }
 }
