@@ -162,11 +162,15 @@ body {
 }
 
 .guest, .contact-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
     background: linear-gradient(180deg,
             rgba(20, 19, 53, 0.83) 0%,
             #B7BDC7 24.69%,
             rgba(20, 19, 53, 0.5) 100%);
-    margin: 80px 20%;
+    /* margin: 80px 20%; */
     padding: 10px 20px;
     position: relative;
 }
@@ -294,4 +298,11 @@ select {
 
 .errorMessages{
     color: greenyellow;
+}
+
+.dropup-content{
+    display: none;
+}
+.sidebarBtn{
+    display: none;
 }

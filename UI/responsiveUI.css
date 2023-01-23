@@ -223,4 +223,20 @@
     .actionButtons{
         width: 50%;
     }
+
+    /* contact me */
+
+    .contactme-form{
+        height: 75vh;
+    }
+    .contact-input{
+        flex-direction: column;
+    }
+    .element{
+        width: 100%;
+        /* width: auto; */
+    }
+    .contactme-form{
+        width: 100%;
+    }
 }
