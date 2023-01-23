@@ -237,6 +237,7 @@ const likesUpdate = (allLikes) => {
 // Coment display
 
 const displayC = ( commentDataa ) => {
+    listOfComents.innerHTML = ""
     for(let i = 0; i < commentDataa.length ; i++){
         // if(commentDataa[i]['userId'] ==  logedInUserDataBase ){
             if( commentDataa[i]['blogId'] == tittleTex[2]){
