@@ -238,7 +238,7 @@ const likesUpdate = (allLikes) => {
 
 const displayC = ( commentDataa ) => {
     for(let i = 0; i < commentDataa.length ; i++){
-        if(commentDataa[i]['userId'] ==  logedInUserDataBase ){
+        // if(commentDataa[i]['userId'] ==  logedInUserDataBase ){
             if( commentDataa[i]['blogId'] == tittleTex[2]){
                 listOfComents.innerHTML += `
                 <div id="commentorAndComment">
@@ -257,7 +257,7 @@ const displayC = ( commentDataa ) => {
                 </div>
                 `
             }
-        }
+        // }
     }
 
     comment.value = "";
@@ -306,7 +306,7 @@ const displayListOfComents = async ( coments ) => {
                 numCount += 1;
 
                 for(let j = 0; j < userDataFromDB.data.users.length ; j++){
-                    if(userDataFromDB.data.users[j]['_id'] ==  logedInUserDataBase ){
+                    if(userDataFromDB.data.users[j]['_id'] ==  commentData[i]["userId"] ){
                         if(userDataFromDB.data.users[j].middleName){
                             fullName = userDataFromDB.data.users[j].firstName +' '+userDataFromDB.data.users[j].middleName+' '+userDataFromDB.data.users[j].lastName
                         }
