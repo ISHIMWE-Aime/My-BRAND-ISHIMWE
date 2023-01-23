@@ -8,7 +8,7 @@ console.log(tittleTex, blogViewTittle);
 const paragraphSlot = document.getElementById("paragraph");
 const blogImage = document.getElementById("blogImageslot");
 
-const comment = document.getElementById("contentOfNewComent");
+let comment = document.getElementById("contentOfNewComent");
 const post = document.getElementById("post");
 const listOfComents= document.getElementById("listOfComents");
 const timeSlot = document.getElementById("time");
@@ -237,26 +237,30 @@ const likesUpdate = (allLikes) => {
 // Coment display
 
 const displayC = ( commentDataa ) => {
-    for(let i = 0; i < userDataFromDB.data.users.length ; i++){
-        if(userDataFromDB.data.users[i]['_id'] ==  logedInUserDataBase ){
-            listOfComents.innerHTML += `
-            <div id="commentorAndComment">
-            <div id="commentorImageSlot">
-                <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
-            </div>
-            <div id="commetorNameTimeAndParagraph">
-                <div id="commentorNameAndTime">
-                    <h5 class="commentorName">${commentDataa[i]['name']}</h5>
-                    <p id="time">- ${commentDataa[i]["createdAt"]}</p>
+    for(let i = 0; i < commentDataa.length ; i++){
+        if(commentDataa[i]['userId'] ==  logedInUserDataBase ){
+            if( commentDataa[i]['blogId'] == tittleTex[2]){
+                listOfComents.innerHTML += `
+                <div id="commentorAndComment">
+                <div id="commentorImageSlot">
+                    <img src="images/commentor pict.jpg" alt="commentorImage" id="commentorImage">
                 </div>
-                <p id="comentParagraph">
-                    ${commentDataa[i]["comentData"]}
-                </p>
-            </div>
-            </div>
-            `
+                <div id="commetorNameTimeAndParagraph">
+                    <div id="commentorNameAndTime">
+                        <h5 class="commentorName">${commentDataa[i]['name']}</h5>
+                        <p id="time">- ${commentDataa[i]["createdAt"]}</p>
+                    </div>
+                    <p id="comentParagraph">
+                        ${commentDataa[i]["comentData"]}
+                    </p>
+                </div>
+                </div>
+                `
+            }
         }
     }
+
+    comment.value = "";
 }
 
 const displayListOfComents = async ( coments ) => {
@@ -277,22 +281,23 @@ const displayListOfComents = async ( coments ) => {
         console.log('All users from db are: ',userDataFromDB.data)
 
         commentData = coments.data
+        
         let numCount = 0;
         let fullName
-        for(let i = 0; i < userDataFromDB.data.users.length ; i++){
-            if(userDataFromDB.data.users[i]['_id'] ==  logedInUserDataBase ){
-                if(userDataFromDB.data.users[i].middleName){
-                    fullName = userDataFromDB.data.users[i].firstName +' '+userDataFromDB.data.users[i].middleName+' '+userDataFromDB.data.users[i].lastName
-                }
-                else{
-                    fullName = userDataFromDB.data.users[i].firstName +' '+userDataFromDB.data.users[i].lastName
-                }
+        // for(let i = 0; i < userDataFromDB.data.users.length ; i++){
+        //     if(userDataFromDB.data.users[i]['_id'] ==  logedInUserDataBase ){
+        //         if(userDataFromDB.data.users[i].middleName){
+        //             fullName = userDataFromDB.data.users[i].firstName +' '+userDataFromDB.data.users[i].middleName+' '+userDataFromDB.data.users[i].lastName
+        //         }
+        //         else{
+        //             fullName = userDataFromDB.data.users[i].firstName +' '+userDataFromDB.data.users[i].lastName
+        //         }
 
-                console.log('The user full name is: ', fullName)
-                userDataFromDB.data.users[i]['name'] = fullName
-                console.log( userDataFromDB.data.users)
-            }
-        }
+        //         console.log('The user full name is: ', fullName)
+        //         userDataFromDB.data.users[i]['name'] = fullName
+        //         console.log( userDataFromDB.data.users)
+        //     }
+        // }
 
     
         console.log('The commentData is :', commentData );
@@ -311,7 +316,7 @@ const displayListOfComents = async ( coments ) => {
         
                         console.log('The user full name is: ', fullName)
                         commentData[i]['name'] = fullName
-                        console.log( commentData[i])
+                        console.log('THE COMENTES AFTER ADDING NAME: ',commentData[i])
                     }
                 }
 
