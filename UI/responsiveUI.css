@@ -186,9 +186,27 @@
     }
 
     /* list of users */
-    #userInfoCategory{
+    .userInfo, .userInfoCategory{
+        grid-template-columns: 20px 1fr 3fr 2fr;
+        grid-column-gap: 10px;
         font-size: 10px;
+        /* background-color: yellow; */
     }
+
+    #email{
+        word-wrap:break-word;
+    }
+
+    /* #phoneNumSlot{
+        display: none;
+        width: 0%;
+        background-color: yellow;
+    }*/
+    #statusSlot{
+        display: none;
+        width: 0%;
+        background-color: green;
+    } 
 
     /* Delete page */
 
@@ -206,6 +224,10 @@
         font-size: 20px;
         height: 50px;
         padding: 0px;
+    }
+
+    .reactionSet{
+        display: none;
     }
 
     /* New article */
@@ -250,4 +272,19 @@
     .guest{
         width: 90%;
     }
+    /* notification */
+
+    /* .notCycle{
+        position: relative;
+        top: -10px;
+        left: -18px;
+        border-radius: 50%;
+        width: 22px;
+        height: 17px;
+        min-width: 10px;
+        color: white;
+        text-align: center;
+        background-color: green;
+        border: 2px solid rgb(225, 225, 225);
+    } */
 }
