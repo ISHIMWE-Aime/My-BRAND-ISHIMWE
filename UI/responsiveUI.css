@@ -51,15 +51,19 @@
         align-items: center;
     }
     .blogLink{
-        width: 95%;
+        width: 80%;
         /* min-width: 300px; */
         margin-top: 1.25%;
         margin-right: 0%;
         margin-bottom: 1.25%;
     }
-    .blogLink:hover{
+    .blogLink a:hover{
         transform: scale(0);
     }
+    /* a:hover{
+        color: #A1FC0E;
+        transform: scale(1.01);
+    } */
 
     /* Blog views */
     #viewPForBlog{
