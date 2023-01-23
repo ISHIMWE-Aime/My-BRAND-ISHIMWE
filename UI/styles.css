@@ -172,7 +172,8 @@ body {
             #B7BDC7 24.69%,
             rgba(20, 19, 53, 0.5) 100%);
     /* margin: 80px 20%; */
-    width: 40%;
+    width: 50%;
+    padding: 20px;
     position: relative;
 }
 

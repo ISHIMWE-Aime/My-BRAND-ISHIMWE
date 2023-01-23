@@ -232,7 +232,7 @@
     /* contact me */
 
     .contactme-form{
-        height: 75vh;
+        height: 65vh;
     }
     .contact-input{
         flex-direction: column;
@@ -242,8 +242,8 @@
         /* background-color: yellow; */
         /* width: auto; */
     }
-    .contactme-form{
-        width: 100%;
+    .contact-me{
+        width: 95%;
     }
 
     /* sign up */
